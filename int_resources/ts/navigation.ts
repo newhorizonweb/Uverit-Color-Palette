@@ -9,15 +9,28 @@ const navArrowIcon: string = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0
 
     /* Page Arrays */
 
-// Array with page names
-let filesArray:string[] = [
-    "ColorPalette.html",
-    "int_resources/pages/test.html",
-    "int_resources/pages/ColorMeaning.html",
-    "int_resources/pages/ColorMeaning.html",
-    "int_resources/pages/ColorMeaning.html",
-    "int_resources/pages/ColorMeaning.html33"
-];
+// Arrays with page urls and names
+let filesArray:string[];
+
+if (document.title === "Uverit Color Palette"){
+    filesArray = [
+        "ColorPalette.html",
+        "int_resources/pages/test.html",
+        "int_resources/pages/ColorMeaning.html",
+        "int_resources/pages/ColorMeaning.html45",
+        "int_resources/pages/ColorMeaning.html455",
+        "int_resources/pages/ColorMeaning.html33"
+    ];
+} else {
+    filesArray = [
+        "../../ColorPalette.html",
+        "test.html",
+        "ColorMeaning.html",
+        "ColorMeaning.html5",
+        "ColorMeaning.html54",
+        "ColorMeaning.html33"
+    ];
+}
 
 let filesNames:string[] = [
     "Color Palette",
@@ -37,20 +50,27 @@ if (!typefaces){
     filesNames.splice(-typefacePages, typefacePages);
 }
 
+    /* Navbar Dots */
+
 // Create page link elements from the array && 
 // Find the current page in the array based on window pathname
 let navbarDots:string = "";
 
-const thisUrl:string = window.location.pathname.substring(1);
+// Had to convert the pathname (page URL title) to lower case or it wouldn't work
+const thisUrl:string = (window.location.pathname.split('/').pop() as string).toLowerCase();
 let thisUrlNumber:number = 0;
 
 for (let file = 0; file < filesArray.length; file++){
     navbarDots += `<a href="${filesArray[file]}" class='navbar-dot'></a>`;
 
-    if (filesArray[file].includes(thisUrl)){
+    // Convert array urls to lower case and get the current site
+    const arrayFile:string = filesArray[file].toLowerCase();
+    if (arrayFile.includes(thisUrl)){
         thisUrlNumber = file;
     }
 }
+
+    /* Navbar Arrows */
 
 // Set the prev / next arrow buttons based on the current page
 let prevPageUrl: string = "";
@@ -75,6 +95,8 @@ if (thisUrlNumber < filesArray.length){
     prevPageTitle = filesNames[0];
 }
 
+    /* Create the navigation elements */
+
 // Get the page name
 const thisDocTitle:string = filesNames[thisUrlNumber];
 
@@ -92,7 +114,9 @@ const baseNavContent: string =
         "</a>" +
 
         "<div class='navbar-inner'>" +
-            "<h4 class='nav-page-title'>"+thisDocTitle+"</h4>" +
+            "<div class='nav-title-div'>" +
+                "<h4 class='nav-page-title'>"+thisDocTitle+"</h4>" +
+            "</div>" +
             "<div class='navbar-dots'>" +
                 navbarDots +
             "</div>" +
@@ -110,20 +134,32 @@ function baseNav(){
     const nav: HTMLElement = document.getElementsByTagName("nav")[0];
     nav.innerHTML = baseNavContent;
 
-    // Change the nav page title when hovering over navbar elements
+        /* Change the nav page title on navbar elements hover */
+
     const prevPageArrow:HTMLElement | null = document.querySelector(".prev-arrow");
     const nextPageArrow:HTMLElement | null = document.querySelector(".next-arrow");
     const pageArrows:NodeListOf<Element> = document.querySelectorAll(".prev-arrow, .next-arrow");
+    const navPageTitle:HTMLElement | null = document.querySelector(".nav-page-title");
     const navDots:NodeListOf<HTMLElement> = document.querySelectorAll(".navbar-dot");
 
     // Mark the current page (dots)
     navDots[thisUrlNumber].classList.add("current-page");
 
-    // Previous Arrow
-    let prevHref = nextPageUrl;
-    prevPageArrow!.addEventListener("mouseover", function(){
+    // Set a small "fade-in" animation when navigating
+    function pageTitleAnimation(){
+        navPageTitle!.style.transition = "none";
+        navPageTitle!.style.top = "-100%";
 
-        document.querySelector(".nav-page-title")!.innerHTML = prevPageTitle;
+        setTimeout(function(){
+            navPageTitle!.style.transition = "";
+            navPageTitle!.style.top = "0";
+        }, 100);
+    }
+
+    // Previous Arrow
+    prevPageArrow!.addEventListener("mouseenter", function(){
+        pageTitleAnimation();
+        navPageTitle!.innerHTML = prevPageTitle;
 
         let pageNumber:number;
 
@@ -134,14 +170,12 @@ function baseNav(){
         }
 
         navDots[pageNumber].classList.add("hovered-page");
-
     });
 
     // Next Arrow
-    let nextHref = nextPageUrl;
-    nextPageArrow!.addEventListener("mouseover", function(){
-
-        document.querySelector(".nav-page-title")!.innerHTML = nextPageTitle;
+    nextPageArrow!.addEventListener("mouseenter", function(){
+        pageTitleAnimation();
+        navPageTitle!.innerHTML = nextPageTitle;
 
         let pageNumber:number;
 
@@ -161,7 +195,8 @@ function baseNav(){
     pageArrows!.forEach(pageArrow => {
         pageArrow!.addEventListener("mouseleave", function(){
             debounceTimer = setTimeout(function(){
-                document.querySelector(".nav-page-title")!.innerHTML = thisDocTitle;
+                pageTitleAnimation();
+                navPageTitle!.innerHTML = thisDocTitle;
 
                 navDots.forEach(function(navDot){
                     navDot.classList.remove("hovered-page");
@@ -174,32 +209,17 @@ function baseNav(){
     Array.from(navDots).forEach((dot: HTMLElement, index: number) => {
         dot.addEventListener("mouseover", (e: MouseEvent) => {
             const hoverIndex = Array.from(navDots).indexOf(e.target as HTMLElement);
-            
-            document.querySelector(".nav-page-title")!.innerHTML = filesNames[hoverIndex];
+
+            pageTitleAnimation();
+            navPageTitle!.innerHTML = filesNames[hoverIndex];
         });
 
         dot.addEventListener("mouseleave", (e: MouseEvent) => {
-            document.querySelector(".nav-page-title")!.innerHTML = thisDocTitle;
+            pageTitleAnimation();
+            navPageTitle!.innerHTML = thisDocTitle;
         });
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-function backNav(){
-
-}
-
-
 
     /* Footer */
 
@@ -231,14 +251,3 @@ function baseFooter(){
     const footer: HTMLElement = document.getElementsByTagName("footer")[0];
     footer.innerHTML = footerContent;
 }
-
-
-
-
-
-
-
-
-
-
-

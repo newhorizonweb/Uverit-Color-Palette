@@ -3,15 +3,28 @@ const uveritLogo = "<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.o
 const fiIcon = "<svg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' id='Layer_2' x='0' y='0' style='enable-background:new 0 0 400 400' version='1.1' viewBox='0 0 400 400'><path d='M338 325V125H138v-13c0-20 16-37 37-37h37V0h-37C113 0 63 50 63 113v12H13v75h50v125H13v75h175v-75h-50V200h125v125h-50v75h175v-75h-50z' class='st0'/><circle cx='300' cy='37.5' r='37.5' class='st0'/></svg>";
 const navArrowIcon = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 426.3 255.4' xmlns:v='https://vecta.io/nano'><path d='M414 12.2l-.3-.2a43.13 43.13 0 0 0-29.4-12C373-.1 362.1 4.4 354 12.4L213.6 153.6h0 0 0L73.2 12.4C65.1 4.4 54.2-.1 42.9 0a43.13 43.13 0 0 0-29.4 12l-.3.2C-3.3 29-3.1 56 13.5 72.6l170.7 170.6c8.2 8 18.8 12.1 29.3 12.2h.1 0 0 0c10.6-.1 21.2-4.2 29.4-12.2L413.7 72.6c16.6-16.6 16.8-43.6.3-60.4z'/></svg>";
 /* Page Arrays */
-// Array with page names
-let filesArray = [
-    "ColorPalette.html",
-    "int_resources/pages/test.html",
-    "int_resources/pages/ColorMeaning.html",
-    "int_resources/pages/ColorMeaning.html",
-    "int_resources/pages/ColorMeaning.html",
-    "int_resources/pages/ColorMeaning.html33"
-];
+// Arrays with page urls and names
+let filesArray;
+if (document.title === "Uverit Color Palette") {
+    filesArray = [
+        "ColorPalette.html",
+        "int_resources/pages/test.html",
+        "int_resources/pages/ColorMeaning.html",
+        "int_resources/pages/ColorMeaning.html45",
+        "int_resources/pages/ColorMeaning.html455",
+        "int_resources/pages/ColorMeaning.html33"
+    ];
+}
+else {
+    filesArray = [
+        "../../ColorPalette.html",
+        "test.html",
+        "ColorMeaning.html",
+        "ColorMeaning.html5",
+        "ColorMeaning.html54",
+        "ColorMeaning.html33"
+    ];
+}
 let filesNames = [
     "Color Palette",
     "Test1",
@@ -27,17 +40,22 @@ if (!typefaces) {
     filesArray.splice(-typefacePages, typefacePages);
     filesNames.splice(-typefacePages, typefacePages);
 }
+/* Navbar Dots */
 // Create page link elements from the array && 
 // Find the current page in the array based on window pathname
 let navbarDots = "";
-const thisUrl = window.location.pathname.substring(1);
+// Had to convert the pathname (page URL title) to lower case or it wouldn't work
+const thisUrl = window.location.pathname.split('/').pop().toLowerCase();
 let thisUrlNumber = 0;
 for (let file = 0; file < filesArray.length; file++) {
     navbarDots += `<a href="${filesArray[file]}" class='navbar-dot'></a>`;
-    if (filesArray[file].includes(thisUrl)) {
+    // Convert array urls to lower case and get the current site
+    const arrayFile = filesArray[file].toLowerCase();
+    if (arrayFile.includes(thisUrl)) {
         thisUrlNumber = file;
     }
 }
+/* Navbar Arrows */
 // Set the prev / next arrow buttons based on the current page
 let prevPageUrl = "";
 let prevPageTitle = "";
@@ -59,6 +77,7 @@ else {
     prevPageUrl = filesArray[0];
     prevPageTitle = filesNames[0];
 }
+/* Create the navigation elements */
 // Get the page name
 const thisDocTitle = filesNames[thisUrlNumber];
 // Create the nav elements
@@ -71,7 +90,9 @@ const baseNavContent = "<div class='wrapper'>" +
     navArrowIcon +
     "</a>" +
     "<div class='navbar-inner'>" +
+    "<div class='nav-title-div'>" +
     "<h4 class='nav-page-title'>" + thisDocTitle + "</h4>" +
+    "</div>" +
     "<div class='navbar-dots'>" +
     navbarDots +
     "</div>" +
@@ -85,17 +106,27 @@ const baseNavContent = "<div class='wrapper'>" +
 function baseNav() {
     const nav = document.getElementsByTagName("nav")[0];
     nav.innerHTML = baseNavContent;
-    // Change the nav page title when hovering over navbar elements
+    /* Change the nav page title on navbar elements hover */
     const prevPageArrow = document.querySelector(".prev-arrow");
     const nextPageArrow = document.querySelector(".next-arrow");
     const pageArrows = document.querySelectorAll(".prev-arrow, .next-arrow");
+    const navPageTitle = document.querySelector(".nav-page-title");
     const navDots = document.querySelectorAll(".navbar-dot");
     // Mark the current page (dots)
     navDots[thisUrlNumber].classList.add("current-page");
+    // Set a small "fade-in" animation when navigating
+    function pageTitleAnimation() {
+        navPageTitle.style.transition = "none";
+        navPageTitle.style.top = "-100%";
+        setTimeout(function () {
+            navPageTitle.style.transition = "";
+            navPageTitle.style.top = "0";
+        }, 100);
+    }
     // Previous Arrow
-    let prevHref = nextPageUrl;
-    prevPageArrow.addEventListener("mouseover", function () {
-        document.querySelector(".nav-page-title").innerHTML = prevPageTitle;
+    prevPageArrow.addEventListener("mouseenter", function () {
+        pageTitleAnimation();
+        navPageTitle.innerHTML = prevPageTitle;
         let pageNumber;
         if (thisUrlNumber > 0) {
             pageNumber = thisUrlNumber - 1;
@@ -106,9 +137,9 @@ function baseNav() {
         navDots[pageNumber].classList.add("hovered-page");
     });
     // Next Arrow
-    let nextHref = nextPageUrl;
-    nextPageArrow.addEventListener("mouseover", function () {
-        document.querySelector(".nav-page-title").innerHTML = nextPageTitle;
+    nextPageArrow.addEventListener("mouseenter", function () {
+        pageTitleAnimation();
+        navPageTitle.innerHTML = nextPageTitle;
         let pageNumber;
         if (thisUrlNumber < filesArray.length) {
             pageNumber = thisUrlNumber + 1;
@@ -124,7 +155,8 @@ function baseNav() {
     pageArrows.forEach(pageArrow => {
         pageArrow.addEventListener("mouseleave", function () {
             debounceTimer = setTimeout(function () {
-                document.querySelector(".nav-page-title").innerHTML = thisDocTitle;
+                pageTitleAnimation();
+                navPageTitle.innerHTML = thisDocTitle;
                 navDots.forEach(function (navDot) {
                     navDot.classList.remove("hovered-page");
                 });
@@ -135,14 +167,14 @@ function baseNav() {
     Array.from(navDots).forEach((dot, index) => {
         dot.addEventListener("mouseover", (e) => {
             const hoverIndex = Array.from(navDots).indexOf(e.target);
-            document.querySelector(".nav-page-title").innerHTML = filesNames[hoverIndex];
+            pageTitleAnimation();
+            navPageTitle.innerHTML = filesNames[hoverIndex];
         });
         dot.addEventListener("mouseleave", (e) => {
-            document.querySelector(".nav-page-title").innerHTML = thisDocTitle;
+            pageTitleAnimation();
+            navPageTitle.innerHTML = thisDocTitle;
         });
     });
-}
-function backNav() {
 }
 /* Footer */
 const footerDate = new Date().getFullYear();

@@ -430,10 +430,19 @@ nav .wrapper{
     justify-content:center;
 }
 
-.navbar-inner h4{
+.nav-title-div{
     width:100%;
     margin-bottom:6px;
+    overflow:hidden;
+}
+
+.nav-page-title{
+    width:100%;
+    position:relative;
+    top:0;
+    left:0;
     text-align:center;
+    transition:0.1s;
 }
 
 .navbar-dots{
@@ -877,25 +886,3 @@ main > .wrapper{
     }
 
 }
-
-
-
-
-
-
-.main-module-content p{
-    font-family:cp-font1;
-}
-
-.main-module-content span{
-    font-family:cp-font2;
-}
-
-
-
-
-
-
-
-
-
