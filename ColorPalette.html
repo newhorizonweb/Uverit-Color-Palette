@@ -18,6 +18,7 @@
         
         <!-- Scripts -->
         <script src="int_resources/js/ScriptPackCP.js" defer></script>
+        <script src="int_resources/js/svg.js"></script>
         <script src="int_resources/js/0_config.js"></script>
         <script src="int_resources/js/navigation.js"></script>
     </head>
@@ -50,13 +51,21 @@
         <main>
             
     <!-- MAIN-MODULE -->
-            <div class="wrapper">
+            <div class="main-wrapper wrapper">
                 <div class="space"></div>
 
                 <div class="main-module-content">
+                    <div class="pdf-btn pdfNoPrint">
+                        <p>Save</p>
+                    </div>
 
-                    
+                    <div class="main-header">
+                        <script>
+                            mainHeader();
+                        </script>
+                    </div>
 
+                    <div class="color-tiles"></div>
                 </div>
 
                 <div class="space"></div>
@@ -72,6 +81,151 @@
             </script>
         </footer>
     <!-- /FOOTER -->
+        <script>
 
+                /* Color Tiles */
+
+            const tileNames = [
+                "Secondary",
+                "Main",
+                "Background",
+                "Accent",
+                "Secondary Accent"
+            ];
+
+            const colorNames = [
+                ucp1aname,
+                ucp1name,
+                ucp3name,
+                ucp2name,
+                ucp2aname
+            ];
+
+            let tiles = "";
+        
+            for (let tile = 0; tile <= 4; tile++){
+        
+                tiles += 
+                `<div class='tile tile${tile}'>` +
+
+                    "<div class='ct-tile-name'>" +
+                        tileNames[tile] +
+                    "</div>" +
+
+                    "<div class='ct-color' style='background:"+colorArray[tile]+"'></div>" +
+
+                    "<div class='ct-content'>" +
+
+                        "<h4 class='ct-name'>" +
+                            colorNames[tile] +
+                        "</h4>" +
+
+                        "<div class='ct-content-inner'>" +
+
+                            "<div class='ct-values'>" +
+                                "<p class='ct-values-txt'>HEX</p>" +
+                                "<p class='ct-values-txt ct-val'>"+colorArray[tile]+"</p>"+
+                            "</div>" +
+
+                            "<div class='ct-values'>" +
+                                "<p class='ct-values-txt'>RGB</p>" +
+                                `<p class='ct-values-txt ct-val ucp-rgb${tile}'></p>` +
+                            "</div>" +
+
+                        "</div>" +
+
+                    "</div>" +
+
+                "</div>";
+            }
+        
+            document.querySelector(".color-tiles").innerHTML = tiles;
+            
+            if (cmykValues){
+                for (let tile = 0; tile <= 4; tile++){
+
+                    const cmykVal =
+                    "<div class='ct-values'>" +
+                        "<p class='ct-values-txt'>CMYK</p>" +
+                        `<p class='ct-values-txt ct-val ucp-cmyk${tile}'></p>` +
+                    "</div>";
+
+                    document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += cmykVal;
+                }
+            }
+
+                /* Copy Color Values */
+        
+            document.querySelectorAll(".ct-values").forEach(function(valElem){
+                valElem.addEventListener('click', function(){
+
+                    let copyVal = this.querySelector('.ct-val').innerHTML;
+                    console.log(copyVal);
+
+                    let temp = document.createElement("input");
+                    document.body.appendChild(temp);
+
+                    temp.value = copyVal;
+                    temp.select();
+                    document.execCommand("copy");
+                    temp.remove();
+
+
+                    valElem.classList.add('copied');
+                    setTimeout(function() {
+                        valElem.classList.remove('copied');
+                    }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                });
+            });
+
+            /*
+            let copyLink = $("#copy-link");
+            let linkIcon = "<img src='Images/link.svg' class='copy-icon' alt='copy icon'>";
+            let checkmarkIcon = "<img src='Images/checkmark.svg' class='copy-icon' alt='copy icon'>";
+
+            copyLink.on("click", function(){
+
+                let temp = $("<input>");
+                $("body").append(temp);
+                temp.val("<a href='products.php'></a>").select(); // copy this value
+                document.execCommand("copy");
+                temp.remove();
+                
+                copyLink.html(checkmarkIcon);
+                copyLink.addClass("copy-checked");
+                setTimeout(function(){ 
+                    copyIcon() 
+                }, 1000);
+
+            });
+
+            function copyIcon() {
+                copyLink.html(linkIcon);
+                copyLink.removeClass("copy-checked");
+}
+*/
+
+
+
+
+
+
+
+
+        </script>
     </body>
 </html>
