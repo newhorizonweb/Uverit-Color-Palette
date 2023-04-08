@@ -159,8 +159,8 @@
     background:var(--color1) !important;
 }
 
-/* remove transition on page load */
-.remove-transition *{
+/* Remove transition on page load */
+.remove-transition *:not(.tile){
     transition:none !important;
 }
 

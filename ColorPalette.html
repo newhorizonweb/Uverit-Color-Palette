@@ -110,112 +110,143 @@
                         tileNames[tile] +
                     "</div>" +
 
-                    "<div class='ct-color' style='background:"+colorArray[tile]+"'></div>" +
+            "<div class='ct-color' style='background:"+colorArray[tile]+"'></div>" +
 
-                    "<div class='ct-content'>" +
+            "<div class='ct-content'>" +
 
-                        "<h4 class='ct-name'>" +
-                            colorNames[tile] +
-                        "</h4>" +
+                "<h4 class='ct-name'>" +
+                    colorNames[tile] +
+                "</h4>" +
 
-                        "<div class='ct-content-inner'></div>" +
+                "<div class='ct-content-inner'></div>" +
 
-                    "</div>" +
+            "</div>" +
 
-                "</div>" +
-                `<div class='tile-break tile-break${tile}'></div>`;
+        "</div>" +
+        `<div class='tile-break tile-break${tile}'></div>`;
+    }
+
+    document.querySelector(".color-tiles").innerHTML = tiles;
+    
+    if (hexValues){
+        for (let tile = 0; tile <= 4; tile++){
+
+            const hexVal =
+            "<div class='ct-values'>" +
+                "<p class='ct-values-txt'>HEX</p>" +
+                `<p class='ct-values-txt ct-val ucp-hex${tile}'></p>` +
+            "</div>";
+
+            document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += hexVal;
+        }
+    }
+
+    if (rgbValues){
+        for (let tile = 0; tile <= 4; tile++){
+
+            const rgbVal =
+            "<div class='ct-values'>" +
+                "<p class='ct-values-txt'>RGB</p>" +
+                `<p class='ct-values-txt ct-val ucp-rgb${tile}'></p>` +
+            "</div>";
+
+            document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += rgbVal;
+        }
+    }
+
+    if (hslValues){
+        for (let tile = 0; tile <= 4; tile++){
+
+            const hslVal =
+            "<div class='ct-values'>" +
+                "<p class='ct-values-txt'>HSL</p>" +
+                `<p class='ct-values-txt ct-val ucp-hsl${tile}'></p>` +
+            "</div>";
+
+            document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += hslVal;
+        }
+    }
+
+    if (cmykValues){
+        for (let tile = 0; tile <= 4; tile++){
+
+            const cmykVal =
+            "<div class='ct-values'>" +
+                "<p class='ct-values-txt'>CMYK</p>" +
+                `<p class='ct-values-txt ct-val ucp-cmyk${tile}'></p>` +
+            "</div>";
+
+            document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += cmykVal;
+        }
+    }
+
+        /* Copy Color Values */
+
+    document.querySelectorAll(".ct-values").forEach(function(valElem){
+        valElem.addEventListener('click', function(){
+
+            let copyVal = this.querySelector('.ct-val').innerHTML;
+
+            // Add the color model name
+            switch (this.querySelectorAll(".ct-values-txt")[0].innerHTML){
+                case "RGB":
+                    copyVal = "rgb("+copyVal+")";
+                    break;
+                case "HSL":
+                    copyVal = "hsl("+copyVal+")";
+                    break;
+                case "CMYK":
+                    copyVal = "cmyk("+copyVal+")";
+                    break;
             }
+
+            let temp = document.createElement("input");
+            document.body.appendChild(temp);
+
+            temp.value = copyVal;
+            temp.select();
+            document.execCommand("copy");
+            temp.remove();
+
+            valElem.classList.add('copied');
+            setTimeout(function() {
+                valElem.classList.remove('copied');
+            }, 1000);
+
+        });
+    });
+
+                
+        /* Tile fade-in/out */
+    
+    const colorTiles = document.getElementsByClassName("tile");
+
+    function tileFade(){
         
-            document.querySelector(".color-tiles").innerHTML = tiles;
-            
-            if (hexValues){
-                for (let tile = 0; tile <= 4; tile++){
-
-                    const hexVal =
-                    "<div class='ct-values'>" +
-                        "<p class='ct-values-txt'>HEX</p>" +
-                        `<p class='ct-values-txt ct-val ucp-hex${tile}'></p>` +
-                    "</div>";
-
-                    document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += hexVal;
-                }
-            }
-
-            if (rgbValues){
-                for (let tile = 0; tile <= 4; tile++){
-
-                    const rgbVal =
-                    "<div class='ct-values'>" +
-                        "<p class='ct-values-txt'>RGB</p>" +
-                        `<p class='ct-values-txt ct-val ucp-rgb${tile}'></p>` +
-                    "</div>";
-
-                    document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += rgbVal;
-                }
-            }
-
-            if (hslValues){
-                for (let tile = 0; tile <= 4; tile++){
-
-                    const hslVal =
-                    "<div class='ct-values'>" +
-                        "<p class='ct-values-txt'>HSL</p>" +
-                        `<p class='ct-values-txt ct-val ucp-hsl${tile}'></p>` +
-                    "</div>";
-
-                    document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += hslVal;
-                }
-            }
-
-            if (cmykValues){
-                for (let tile = 0; tile <= 4; tile++){
-
-                    const cmykVal =
-                    "<div class='ct-values'>" +
-                        "<p class='ct-values-txt'>CMYK</p>" +
-                        `<p class='ct-values-txt ct-val ucp-cmyk${tile}'></p>` +
-                    "</div>";
-
-                    document.querySelector(".tile"+tile+" .ct-content-inner").innerHTML += cmykVal;
-                }
-            }
-
-                /* Copy Color Values */
+        for (let item = 0; item < colorTiles.length; item++){
         
-            document.querySelectorAll(".ct-values").forEach(function(valElem){
-                valElem.addEventListener('click', function(){
+            let tile = colorTiles[item];
+            let tilePos = tile.getBoundingClientRect();
 
-                    let copyVal = this.querySelector('.ct-val').innerHTML;
+            let windowHeight = window.innerHeight;
 
-                    // Add the color model name
-                    switch (this.querySelectorAll(".ct-values-txt")[0].innerHTML){
-                        case "RGB":
-                            copyVal = "rgb("+copyVal+")";
-                            break;
-                        case "HSL":
-                            copyVal = "hsl("+copyVal+")";
-                            break;
-                        case "CMYK":
-                            copyVal = "cmyk("+copyVal+")";
-                            break;
-                    }
+            if (tilePos.top < windowHeight * 0.9){
+                tile.classList.add("fade-in");
+            } else {
+                tile.classList.remove("fade-in");
+            }
 
-                    let temp = document.createElement("input");
-                    document.body.appendChild(temp);
+            if (tilePos.top < -windowHeight * 0.2){
+                tile.classList.remove("fade-in");
+            }
 
-                    temp.value = copyVal;
-                    temp.select();
-                    document.execCommand("copy");
-                    temp.remove();
+        }
+        
+    }
 
-                    valElem.classList.add('copied');
-                    setTimeout(function() {
-                        valElem.classList.remove('copied');
-                    }, 1000);
-
-                });
-            });
-
-        </script>
+    window.addEventListener("load", tileFade);
+    window.addEventListener("scroll", tileFade);
+    window.addEventListener("resize", tileFade);
+</script>
     </body>
 </html>
