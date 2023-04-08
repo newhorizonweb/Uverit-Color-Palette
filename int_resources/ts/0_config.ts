@@ -1,3 +1,14 @@
+    
+    
+    
+    /* CP Program Settings */
+
+
+
+// Dark Mode (true/false)
+const darkMode:boolean = false;
+
+
 
     /* CP Brand Settings */
 
@@ -10,26 +21,26 @@ const ucp1name:string =     "Main";
 const ratio1:number =       20;
 
 // Secondary Color
-let  ucp1a:string =         "#07bbaa";          
+let ucp1a:string =          "#07bbaa";          
 const ucp1aname:string =    "Secondary";
 const ratio1a:number =      15;
 
 
 
 // Accent Color
-let  ucp2:string =          "#c066ee";
+let ucp2:string =           "#c066ee";
 const ucp2name:string =     "Accent";
 const ratio2:number =       10;
 
 // Secondary Accent Color
-let  ucp2a:string =         "#0765d3";
+let ucp2a:string =          "#0765d3";
 const ucp2aname:string =    "Secondary Accent";
 const ratio2a:number =      5;
 
 
 
 // Background Color
-let  ucp3:string =          "#fcfffe";
+let ucp3:string =           "#fcfffe";
 const ucp3name:string =     "Background";
 const ratio3:number =       50;
 
@@ -42,14 +53,17 @@ const colorType2:string =   "blue";
 
 
 
+// HEX Values (true/false)
+const hexValues:boolean = true;
+
 // RGB Values (true/false)
 const rgbValues:boolean = true;
 
-// CMYK Values (true/false)
-const cmykValues:boolean = true;
-
 // HSL Values (true/false)
 const hslValues:boolean = true;
+
+// CMYK Values (true/false)
+const cmykValues:boolean = true;
 
 
 
@@ -70,12 +84,6 @@ const fontTestTxt = "March 14th is the greatest day ever!";
 
 
 
-    /* CP Program Settings */
-
-
-
-// Dark Mode (true/false)
-const darkMode:boolean = true;
 
 
 
@@ -83,12 +91,7 @@ const darkMode:boolean = true;
 
 
 
-
-
-
-
-
-//*--|*|--*\\_____//*--|*|--*\\_____//*--|*|--*\\
+//*--|*|--*\\_____// Settings \\_____//*--|*|--*\\
 
 
 
@@ -182,6 +185,22 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 });
 
+
+
+//*--|*|--*\\_____// Color Conversion \\_____//*--|*|--*\\
+
+
+
+    /* HEX */
+
+if (hexValues){
+    document.addEventListener("DOMContentLoaded", function(){
+        for (let i = 0; i < colorArray.length; i++){
+            document.querySelector(".ucp-hex"+i)!.innerHTML = colorArray[i];
+        }
+    });
+}
+
     /* HEX to RGB */
 
 function hexToRgb(hex) {
@@ -205,11 +224,13 @@ function hexToRgb(hex) {
     return rgb;
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-    for (let i = 0; i < colorArray.length; i++){
-        document.querySelector(".ucp-rgb"+i)!.innerHTML = hexToRgb(colorArray[i]);
-    }
-});
+if (rgbValues){
+    document.addEventListener("DOMContentLoaded", function(){
+        for (let i = 0; i < colorArray.length; i++){
+            document.querySelector(".ucp-rgb"+i)!.innerHTML = hexToRgb(colorArray[i]);
+        }
+    });
+}
 
     /* RGB to CMYK */
 
@@ -221,17 +242,12 @@ if (cmykValues){
         let rgbArray:number = rgb.split(",");
     
         // Get the R, G, B values
-        let r:number = parseInt(rgbArray[0]);
-        let g:number  = parseInt(rgbArray[1]);
-        let b:number  = parseInt(rgbArray[2]);
-    
-        // Normalize RGB values to the 0-1 range 
-        let rNorm:number = r / 255;
-        let gNorm:number = g / 255;
-        let bNorm:number = b / 255;
+        let r:number = parseInt(rgbArray[0]) / 255;
+        let g:number = parseInt(rgbArray[1]) / 255;
+        let b:number = parseInt(rgbArray[2]) / 255;
     
         // Find the maximum value among the RGB values
-        let max:number = Math.max(rNorm, gNorm, bNorm);
+        let max:number = Math.max(r, g, b);
     
         // Calculate the black (K) value
         let k:number = 1 - max;
@@ -242,9 +258,9 @@ if (cmykValues){
         }
     
         // Calculate the cyan (C), magenta (M), and yellow (Y) values
-        let c:number = (1 - rNorm - k) / (1 - k);
-        let m:number = (1 - gNorm - k) / (1 - k);
-        let y:number = (1 - bNorm - k) / (1 - k);
+        let c:number = (1 - r - k) / (1 - k);
+        let m:number = (1 - g - k) / (1 - k);
+        let y:number = (1 - b - k) / (1 - k);
     
         // Return the CMYK values as a string
         return `${Math.round(c * 100)}, ${Math.round(m * 100)}, ${Math.round(y * 100)}, ${Math.round(k * 100)}`;
@@ -258,3 +274,58 @@ if (cmykValues){
 
 }
 
+
+    /* RGB to HSL */
+
+if (hslValues){
+
+    function rgbToHsl(rgb){
+
+        let rgbSplit:string[] = rgb.split(",");
+
+        let r:number = parseInt(rgbSplit[0]) / 255;
+        let g:number = parseInt(rgbSplit[1]) / 255;
+        let b:number = parseInt(rgbSplit[2]) / 255;
+
+        let max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+        
+        if (max == min){
+
+            h = s = 0;
+
+        } else {
+
+            let d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+            switch (max){
+                case r:
+                    h = (g - b) / d + (g < b ? 6 : 0);
+                    break;
+                case g:
+                    h = (b - r) / d + 2;
+                    break;
+                case b:
+                    h = (r - g) / d + 4;
+                    break;
+            }
+
+            h /= 6;
+        }
+        
+        let hsl:string =    Math.round(h * 360) + ", " + 
+                            Math.round(s * 100) + "%, " + 
+                            Math.round(l * 100) + "%";
+
+        return hsl;
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function(){
+        for (let i = 0; i < colorArray.length; i++){
+            document.querySelector(".ucp-hsl"+i)!.innerHTML = rgbToHsl(hexToRgb(colorArray[i]));
+        }
+    });
+
+}

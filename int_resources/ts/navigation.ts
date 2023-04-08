@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.0.2";
+const paletteVersion:string = "v2.0.3";
 
     /* Page Arrays */
 
@@ -98,7 +98,7 @@ const thisDocTitle:string = filesNames[thisUrlNumber];
 const baseNavContent: string =  
 "<div class='nav-wrapper wrapper'>" +
 
-    "<a href='colorPalette.html' class='nav-logo'>" +
+    "<a href='colorPalette.html' class='nav-logo uverit-logo'>" +
         uveritLogo +
     "</a>" +
 
@@ -222,7 +222,7 @@ const footerDate: number = new Date().getFullYear();
 const footerContent: string =  
 "<div class='wrapper'>" +
     "<div class='brand'>" +
-        "<div class='brand-logo' onclick='scrollToTop()'>" +
+        "<div class='brand-logo uverit-logo' onclick='scrollToTop()'>" +
             uveritLogo +
         "</div>" +
 
@@ -248,7 +248,7 @@ function baseFooter(){
     /* Main Header */
 
 const mainHeaderContent:string = 
-"<div class='pdf-logo'>" +
+"<div class='pdf-logo uverit-logo'>" +
     uveritLogo +
 "</div>" +
 "<h1 class='mh-title'>" + thisDocTitle + "<h1>" +

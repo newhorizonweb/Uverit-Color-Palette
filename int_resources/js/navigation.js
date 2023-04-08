@@ -1,4 +1,4 @@
-const paletteVersion = "v2.0.2";
+const paletteVersion = "v2.0.3";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
@@ -79,7 +79,7 @@ else {
 const thisDocTitle = filesNames[thisUrlNumber];
 // Create the nav elements
 const baseNavContent = "<div class='nav-wrapper wrapper'>" +
-    "<a href='colorPalette.html' class='nav-logo'>" +
+    "<a href='colorPalette.html' class='nav-logo uverit-logo'>" +
     uveritLogo +
     "</a>" +
     "<div class='navbar'>" +
@@ -177,7 +177,7 @@ function baseNav() {
 const footerDate = new Date().getFullYear();
 const footerContent = "<div class='wrapper'>" +
     "<div class='brand'>" +
-    "<div class='brand-logo' onclick='scrollToTop()'>" +
+    "<div class='brand-logo uverit-logo' onclick='scrollToTop()'>" +
     uveritLogo +
     "</div>" +
     "<div class='socials'>" +
@@ -198,7 +198,7 @@ function baseFooter() {
     footer.innerHTML = footerContent;
 }
 /* Main Header */
-const mainHeaderContent = "<div class='pdf-logo'>" +
+const mainHeaderContent = "<div class='pdf-logo uverit-logo'>" +
     uveritLogo +
     "</div>" +
     "<h1 class='mh-title'>" + thisDocTitle + "<h1>" +

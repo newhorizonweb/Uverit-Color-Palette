@@ -5,7 +5,7 @@
 */
 
     /* Media breakpoints */
-    /* Width: 1200, 1024, 768, 540, 440, 320 */
+    /* Width: 1440, 1200, 1024, 768, 540, 440, 320 */
 
     /* Colors */
 
@@ -263,36 +263,21 @@ h6{
     }
 }
 
-    /* Content space */
-
-.space{
-    width:100%;
-    height:var(--wrapperPadding1);
-}
-
-@media screen and (max-width:320px){
-    .space{
-        height:var(--wrapperPadding2);
-    }
-}
-
     /* Wrapper - change body content margins */
 
 .wrapper{
     max-width:1440px;
-    padding:0 var(--wrapperPadding1);
+    padding:var(--wrapperPadding1);
     margin:0 auto;
     box-sizing:border-box;
 }
 
-.wrapper2{          /* Add this class to existing paernt content */
-    width:100%;
-}
+@media screen and (width <= 768px){
 
-@media screen and (max-width:768px){
     .wrapper{
-        padding:0 var(--wrapperPadding2);
+        padding:var(--wrapperPadding2);
     }
+
 }
 
     /* Scrolltop */
@@ -388,22 +373,6 @@ nav{
     width:175px;
 }
 
-.nav-logo svg *{
-    stroke-width:0;
-}
-
-.nav-logo svg .cls-1{
-    fill:var(--txt-faded);
-}
-
-.dark-mode .nav-logo svg .cls-1{
-    fill:var(--txt1);
-}
-
-.nav-logo svg .cls-2{
-    fill:var(--color1);
-}
-
         /* Navbar */
 
 .navbar{
@@ -427,7 +396,6 @@ nav{
 
 .navbar-arrow:hover svg{
     padding:12px 0 0 0;
-    
     fill:var(--color1);
 }
 
@@ -507,10 +475,6 @@ nav{
 
     .navbar{
         width:min(260px, 100%);
-    }    
-
-    .navbar-arrow svg{
-        padding:0 2px;
     }
     
 }
@@ -581,22 +545,6 @@ footer .wrapper{
 
 .brand-logo svg{
     width:min(35vw, 175px);
-}
-
-.brand-logo svg *{
-    stroke-width:0;
-}
-
-.brand-logo svg .cls-1{
-    fill:var(--txt-faded);
-}
-
-.dark-mode .brand-logo svg .cls-1{
-    fill:var(--txt1);
-}
-
-.brand-logo svg .cls-2{
-    fill:var(--color1);
 }
 
 .socials{
@@ -722,7 +670,7 @@ footer .wrapper{
 
 
 
-                /*   /-/-/-/-MAIN CONTENT-/-/-/-/   */
+                /*   /\-/\-/\| MAIN CONTENT |/\-/\-/\   */
 
 
 
@@ -754,7 +702,7 @@ footer .wrapper{
         padding:0;
     }
 }
-@media screen and (max-width:1440px){
+@media screen and (width <= 1440px){
     @keyframes mainBgShrink{
         0%{
             padding:0 35%;
@@ -764,7 +712,7 @@ footer .wrapper{
         }
     }
 }
-@media screen and (max-width:1200px){
+@media screen and (width <= 1200px){
     @keyframes mainBgShrink{
         0%{
             padding:0;
@@ -820,10 +768,25 @@ main{
 
 .main-module-content{
     flex:1;
-    min-height:min(60vh, 800px);
     display:flex;
     align-items:center;
     flex-direction:column;
+}
+
+.uverit-logo svg *{
+    stroke-width:0;
+}
+
+.uverit-logo svg .cls-1{
+    fill:var(--txt-faded);
+}
+
+.dark-mode .uverit-logo svg .cls-1{
+    fill:var(--txt1);
+}
+
+.uverit-logo svg .cls-2{
+    fill:var(--color1);
 }
 
         /* Main Header */
@@ -833,23 +796,6 @@ main{
     display:flex;
     flex-direction:column;
     align-items:center;
-}
-
-.pdf-logo{
-    height:36px;
-    display:none;
-}
-
-.pdf-logo svg{
-    height:100%;
-}
-
-.pdf-logo svg .cls-1{
-    fill:var(--txt1);
-}
-
-.pdf-logo svg .cls-2{
-    fill:var(--color1);
 }
 
 .mh-title{
@@ -868,29 +814,9 @@ main{
     font-size:36px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         /* Main - media */
 
-@media screen and (min-height:1080px){
-    /* Prevent the website from being too short to cover up the whole screen */
-    .main-wrapper{
-        min-height:calc(40vh);
-    }
-}
-
-@media screen and (max-width:768px){
+@media screen and (width <= 768px){
     
     main{
         padding:0 var(--wrapperPadding2);
@@ -898,7 +824,7 @@ main{
 
 }
 
-@media screen and (max-width:540px){
+@media screen and (width <= 540px){
     
     main{
         padding:0;
@@ -908,9 +834,31 @@ main{
         border-radius:0;
     }
 
+    .mh-title{
+        font-size:10vw;
+    }
+
+    .mh-brand{
+        font-size:6.5vw;
+    }
+
 }
 
-    /* PDF Button */
+@media screen and (width <= 440px){
+
+    .mh-title{
+        font-size:12vw;
+    }
+
+    .mh-brand{
+        font-size:7vw;
+    }
+
+}
+
+    /* PDF */
+
+        /* PDF - Button */
 
 .pdf-btn{
     height:50px;
@@ -963,8 +911,38 @@ main{
     fill:var(--ucp1);
 }
 
-    /* PDF Settings */
+        /* PDF - Logo */
 
+.pdf-logo{
+    height:36px;
+    display:none;
+}
+
+.pdf-logo svg{
+    height:100%;
+}
+
+        /* PDF - media */
+
+@media screen and (width <= 768px){
+    
+    .pdf-btn{
+        height:40px;
+        position:static;
+        align-self:flex-end;
+    }
+
+}
+
+@media screen and (width <= 440px){
+    
+    .pdf-btn{
+        margin-bottom:calc(var(--wrapperPadding2) / 2);
+    }
+
+}
+
+    /* PDF Settings */
 
 @media print {
     
@@ -976,16 +954,23 @@ main{
     }
 
     html, body{
+        width:1440px;
         height:100%;
     }
     
     main{
+        width:calc(1440px - var(--wrapperPadding1) * 2);
         height:100%;
         display:flex;
-        align-items:center;
+        flex-direction:column;
+        justify-content:center;
     }
 
     .main-wrapper{
+        width:calc(1440px - var(--wrapperPadding1) * 2);
+    }
+
+    .main-module-content{
         width:100%;
     }
     

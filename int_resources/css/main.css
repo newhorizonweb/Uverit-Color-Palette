@@ -3,12 +3,18 @@
 
 .color-tiles{
     width:100%;
-    margin-top:50px;
+    margin-top:calc(var(--wrapperPadding1) * 2);
     display:flex;
+    justify-content:center;
     gap:var(--wrapperPadding1);
 }
 
         /* Tile */
+
+.tile-break{
+    width:100%;
+    display:none;
+}
 
 .tile{
     flex:1;
@@ -24,7 +30,7 @@
     transition:0.15s;
 }
 
-.tile:hover{
+.color-tiles:hover .tile{
     border-radius:0 0 var(--wrapperRadius1) var(--wrapperRadius1);
 }
 
@@ -51,9 +57,9 @@
     overflow:hidden;
 }
 
-.tile:hover .ct-tile-name{
+.color-tiles:hover .ct-tile-name{
     height:calc(var(--wrapperPadding1) * 1.5);
-    box-shadow:var(--box-shadow1) var(--shade6);
+    box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
 }
 
 .ct-color{
@@ -106,7 +112,7 @@
 .ct-values-txt{
     color:var(--txt-faded2);
     font-family:cp-font2;
-    font-size:17px;
+    font-size:16px;
     transition:0.15s;
 }
 
@@ -122,4 +128,206 @@
     color:var(--ucp2);
 }
 
+        /* Color Tiles - media */
 
+@media screen and (width <= 1440px){
+
+    .color-tiles{
+        flex-wrap:wrap;
+        column-gap:calc(var(--wrapperPadding1) * 2);
+    }
+
+    .tile-break2{
+        display:block;
+    }
+
+    .tile{
+        flex:none;
+        width:250px;
+    }
+
+}
+
+@media screen and (width <= 1024px){
+
+    .color-tiles{
+        flex-wrap:wrap;
+    }
+
+    .tile-break2{
+        display:none;
+    }
+
+    .tile-break1,
+    .tile-break4{
+        display:block;
+    }
+
+    .tile{
+        order:0;
+        flex:none;
+        width:225px;
+    }
+
+    .tile-break{
+        order:0;
+    }
+
+    .tile2,
+    .tile-break2{
+        order:2;
+    }
+
+    .tile3,
+    .tile4,
+    .tile-break3,
+    .tile-break4{
+        order:1;
+    }
+
+}
+
+@media screen and (width <= 768px){
+
+    .color-tiles{
+        margin-top:calc(var(--wrapperPadding2) * 2);
+        flex-wrap:wrap;
+        row-gap:calc(var(--wrapperPadding2) / 2);
+        column-gap:var(--wrapperPadding2);
+    }
+
+    .tile{
+        width:min(250px, calc(50% - (var(--wrapperPadding2) / 2)));
+        padding:calc(var(--wrapperPadding2) / 2);
+        box-sizing:border-box;
+    }
+
+    .color-tiles:hover .tile{
+        border-radius:var(--wrapperRadius1);
+    }
+
+    .ct-tile-name{
+        height:var(--wrapperPadding2);
+        margin-bottom:calc(var(--wrapperPadding2) / 2);
+        position:relative;
+        bottom:0;
+    }
+
+    .color-tiles:hover .ct-tile-name{
+        height:var(--wrapperPadding2);
+        box-shadow:none;
+    }
+
+    .ct-name{
+        margin-bottom:calc(var(--wrapperPadding2) / 2);
+        padding-bottom:calc(var(--wrapperPadding2) / 2);
+    }
+
+    .ct-content{
+        padding:calc(var(--wrapperPadding2) / 2);
+    }
+
+}
+
+@media screen and (width <= 540px){
+
+    .color-tiles{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .tile{
+        box-sizing:border-box;
+    }
+
+    html .tile{
+        order:0;
+    }
+
+    html .tile-break{
+        display:none;
+    }
+
+}
+
+@media screen and (320px < width <= 540px){
+
+    .color-tiles{
+        row-gap:var(--wrapperPadding1);
+    }
+
+    .tile{
+        width:300px;
+        padding:calc(var(--wrapperPadding1) / 2);
+    }
+
+    .ct-tile-name{
+        margin-bottom:calc(var(--wrapperPadding1) / 2);
+    }
+
+    .ct-name{
+        margin-bottom:calc(var(--wrapperPadding1) / 2);
+        padding-bottom:calc(var(--wrapperPadding1) / 2);
+    }
+
+    .ct-content{
+        padding:calc(var(--wrapperPadding1) / 2);
+    }
+
+}
+
+@media screen and (width <= 440px){
+
+    .tile{
+        width:min(275px, 100%);
+        padding:calc(var(--wrapperPadding1) / 2);
+    }
+
+    .ct-tile-name{
+        font-size:18px;
+    }
+    
+}
+
+@media screen and (width <= 320px){
+
+    .color-tiles{
+        row-gap:var(--wrapperPadding2);
+    }
+
+    .tile{
+        width:min(275px, 100%);
+    }
+    
+    .ct-tile-name{
+        font-size:16px;
+    }
+
+    .ct-name{
+        font-size:16px;
+    }
+
+    .ct-values-txt{
+        font-size:15px;
+    }
+
+}
+
+    /* PDF Settings */
+
+@media print {
+
+    .tile{
+        border-radius:0 0 var(--wrapperRadius1) var(--wrapperRadius1);
+    }
+
+    .ct-tile-name{
+        height:calc(var(--wrapperPadding1) * 1.5);
+        box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    }
+
+    .ct-color{
+        box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    }
+
+}
