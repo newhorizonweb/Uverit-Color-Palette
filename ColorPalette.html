@@ -79,36 +79,36 @@
             </script>
         </footer>
     <!-- /FOOTER -->
-        <script>
+<script>
 
-                /* Color Tiles */
+        /* Color Tiles */
 
-            const tileNames = [
-                "Secondary",
-                "Main",
-                "Background",
-                "Accent",
-                "Secondary Accent"
-            ];
+    const tileNames = [
+        "Secondary",
+        "Main",
+        "Background",
+        "Accent",
+        "Secondary Accent"
+    ];
 
-            const colorNames = [
-                ucp1aname,
-                ucp1name,
-                ucp3name,
-                ucp2name,
-                ucp2aname
-            ];
+    const colorNames = [
+        ucp1aname,
+        ucp1name,
+        ucp3name,
+        ucp2name,
+        ucp2aname
+    ];
 
-            let tiles = "";
+    let tiles = "";
         
-            for (let tile = 0; tile <= 4; tile++){
+    for (let tile = 0; tile <= 4; tile++){
         
-                tiles += 
-                `<div class='tile tile${tile}'>` +
+        tiles += 
+        `<div class='tile tile${tile}'>` +
 
-                    "<div class='ct-tile-name'>" +
-                        tileNames[tile] +
-                    "</div>" +
+            "<div class='ct-tile-name'>" +
+                tileNames[tile] +
+            "</div>" +
 
             "<div class='ct-color' style='background:"+colorArray[tile]+"'></div>" +
 

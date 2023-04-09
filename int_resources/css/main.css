@@ -27,8 +27,8 @@
     background-color:var(--shade1);
     box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
     border-radius:var(--wrapperRadius1);
-    transition-duration:0.15s, 0s, 0.4s;
-    transition-property:all, width, left;
+    transition-duration:0s, 0.4s;
+    transition-property:all, left;
 }
 
 .color-tiles:hover .tile{
@@ -37,7 +37,7 @@
 
 .tile0,
 .tile4{
-    transition-delay:0s, 0s, 0.15s;
+    transition-delay:0s, 0.15s;
 }
 
 .tile0,

@@ -1,30 +1,30 @@
-const paletteVersion = "v2.0.3";
+const paletteVersion = "v2.1.0";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
 if (document.title === "Uverit Color Palette") {
     filesArray = [
         "ColorPalette.html",
-        "int_resources/pages/test.html",
         "int_resources/pages/ColorMeaning.html",
-        "int_resources/pages/ColorMeaning.html45",
-        "int_resources/pages/ColorMeaning.html455",
-        "int_resources/pages/ColorMeaning.html33"
+        "int_resources/pages/placeholder1.html",
+        "int_resources/pages/placeholder2.html",
+        "int_resources/pages/placeholder3.html",
+        "int_resources/pages/placeholder4.html"
     ];
 }
 else {
     filesArray = [
         "../../ColorPalette.html",
-        "test.html",
         "ColorMeaning.html",
-        "ColorMeaning.html5",
-        "ColorMeaning.html54",
-        "ColorMeaning.html33"
+        "placeholder1.html",
+        "placeholder2.html",
+        "placeholder3.html",
+        "placeholder4.html"
     ];
 }
 let filesNames = [
     "Color Palette",
-    "Test1",
+    "Color Meaning",
     "Test2",
     "Test3",
     "Test4",

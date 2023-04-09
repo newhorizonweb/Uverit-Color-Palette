@@ -13,7 +13,7 @@ const darkMode:boolean = false;
     /* CP Brand Settings */
 
 // Color Palette Name
-const cpName:string =       "--Brand-Name--";
+const cpName:string =       "Very Creative Placeholder";
 
 // Main Color
 let ucp1:string =           "#88FfBb";
@@ -150,27 +150,35 @@ if (ratioAll != 100){
 
     /* Typefaces */
 
+let docPath:string = ""; 
+
+if (document.title === "Uverit Color Palette"){
+    docPath = "int_resources";
+} else {
+    docPath= "..";
+}
+
 const typefacesStyle:HTMLStyleElement = document.createElement('style');
 if (typefaces){
     typefacesStyle.innerHTML = `
         @font-face{
             font-family: 'cp-font1';
-            src: url('int_resources/fonts_client/${cpFont1}');
+            src: url('${docPath}/fonts_client/${cpFont1}');
         }
         @font-face{
             font-family: 'cp-font2';
-            src: url('int_resources/fonts_client/${cpFont2}');
+            src: url('${docPath}/fonts_client/${cpFont2}');
         }
     `;
 } else {
     typefacesStyle.innerHTML = `
         @font-face{
             font-family: 'cp-font1';
-            src: url('int_resources/fonts/Quicksand-SemiBold.ttf');
+            src: url('${docPath}/fonts/Quicksand-SemiBold.ttf');
         }
         @font-face{
             font-family: 'cp-font2';
-            src: url('int_resources/fonts/Roboto-Regular.woff2');
+            src: url('${docPath}/fonts/Roboto-Regular.woff2');
         }
     `;
 }
@@ -196,7 +204,10 @@ document.addEventListener("DOMContentLoaded", function(){
 if (hexValues){
     document.addEventListener("DOMContentLoaded", function(){
         for (let i = 0; i < colorArray.length; i++){
-            document.querySelector(".ucp-hex"+i)!.innerHTML = colorArray[i];
+            const elem:HTMLElement | null = document.querySelector(".ucp-hex"+i);
+            if (elem){
+                elem.innerHTML = colorArray[i];
+            }
         }
     });
 }
@@ -227,53 +238,13 @@ function hexToRgb(hex) {
 if (rgbValues){
     document.addEventListener("DOMContentLoaded", function(){
         for (let i = 0; i < colorArray.length; i++){
-            document.querySelector(".ucp-rgb"+i)!.innerHTML = hexToRgb(colorArray[i]);
+            const elem:HTMLElement | null = document.querySelector(".ucp-rgb"+i);
+            if (elem){
+                elem.innerHTML = hexToRgb(colorArray[i]);
+            }
         }
     });
 }
-
-    /* RGB to CMYK */
-
-if (cmykValues){
-
-    function rgbToCmyk(rgb){
-
-        // Split the RGB values into an array
-        let rgbArray:number = rgb.split(",");
-    
-        // Get the R, G, B values
-        let r:number = parseInt(rgbArray[0]) / 255;
-        let g:number = parseInt(rgbArray[1]) / 255;
-        let b:number = parseInt(rgbArray[2]) / 255;
-    
-        // Find the maximum value among the RGB values
-        let max:number = Math.max(r, g, b);
-    
-        // Calculate the black (K) value
-        let k:number = 1 - max;
-    
-        // Handle the case where K is 1 (the color is black)
-        if (k === 1){
-            return "0,0,0,1";
-        }
-    
-        // Calculate the cyan (C), magenta (M), and yellow (Y) values
-        let c:number = (1 - r - k) / (1 - k);
-        let m:number = (1 - g - k) / (1 - k);
-        let y:number = (1 - b - k) / (1 - k);
-    
-        // Return the CMYK values as a string
-        return `${Math.round(c * 100)}, ${Math.round(m * 100)}, ${Math.round(y * 100)}, ${Math.round(k * 100)}`;
-    }
-
-    document.addEventListener("DOMContentLoaded", function(){
-        for (let i = 0; i < colorArray.length; i++){
-            document.querySelector(".ucp-cmyk"+i)!.innerHTML = rgbToCmyk(hexToRgb(colorArray[i]));
-        }
-    });
-
-}
-
 
     /* RGB to HSL */
 
@@ -324,7 +295,55 @@ if (hslValues){
 
     document.addEventListener("DOMContentLoaded", function(){
         for (let i = 0; i < colorArray.length; i++){
-            document.querySelector(".ucp-hsl"+i)!.innerHTML = rgbToHsl(hexToRgb(colorArray[i]));
+            const elem:HTMLElement | null = document.querySelector(".ucp-hsl"+i);
+            if (elem){
+                elem.innerHTML = rgbToHsl(hexToRgb(colorArray[i]));
+            }
+        }
+    });
+
+}
+
+    /* RGB to CMYK */
+
+if (cmykValues){
+
+    function rgbToCmyk(rgb){
+
+        // Split the RGB values into an array
+        let rgbArray:number = rgb.split(",");
+    
+        // Get the R, G, B values
+        let r:number = parseInt(rgbArray[0]) / 255;
+        let g:number = parseInt(rgbArray[1]) / 255;
+        let b:number = parseInt(rgbArray[2]) / 255;
+    
+        // Find the maximum value among the RGB values
+        let max:number = Math.max(r, g, b);
+    
+        // Calculate the black (K) value
+        let k:number = 1 - max;
+    
+        // Handle the case where K is 1 (the color is black)
+        if (k === 1){
+            return "0,0,0,1";
+        }
+    
+        // Calculate the cyan (C), magenta (M), and yellow (Y) values
+        let c:number = (1 - r - k) / (1 - k);
+        let m:number = (1 - g - k) / (1 - k);
+        let y:number = (1 - b - k) / (1 - k);
+    
+        // Return the CMYK values as a string
+        return `${Math.round(c * 100)}, ${Math.round(m * 100)}, ${Math.round(y * 100)}, ${Math.round(k * 100)}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", function(){
+        for (let i = 0; i < colorArray.length; i++){
+            const elem:HTMLElement | null = document.querySelector(".ucp-cmyk"+i);
+            if (elem){
+                elem.innerHTML = rgbToCmyk(hexToRgb(colorArray[i]));
+            }
         }
     });
 
