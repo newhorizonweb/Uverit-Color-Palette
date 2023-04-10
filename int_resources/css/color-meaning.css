@@ -1,0 +1,326 @@
+
+
+
+    /* Color Meaning */
+
+.color-meaning{
+    width:100%;
+    margin-top:var(--wrapperPadding1);
+    display:flex;
+    flex-direction:column;
+    gap:var(--wrapperPadding1);
+}
+
+.color-section{
+    width:100%;
+    padding:var(--wrapperPadding1);
+    box-sizing:border-box;
+
+    display:grid;
+    grid-template-areas:
+        "cm-name cm-name"
+        "display-color cm-meaning"
+        "display-color cm-symbol"
+        "display-color color-values";
+    grid-template-columns:360px 1fr;
+    grid-template-rows:auto auto 1fr auto;
+    column-gap:var(--wrapperPadding1);
+
+    background-color:var(--shade1);
+    box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    border-radius:var(--wrapperRadius1);
+}
+
+
+        /* Color Meaning - Display Color */
+
+.display-color{
+    grid-area:display-color;
+    width:100%;
+    min-height:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    background-color:var(--ucp1);
+    box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    color:var(--txt1);
+    border-radius:var(--wrapperRadius1);
+}
+
+.accent-color .display-color{
+    background-color:var(--ucp2);
+}
+
+.display-color-inner{
+    width:100%;
+    margin:0 var(--wrapperPadding1);
+    position:relative;
+    background-color:rgb(0,0,0,0.15);
+    border-radius:var(--wrapperRadius1);
+    overflow:hidden;
+}
+
+.display-color-inner p{
+    width:120%;
+    height:120%;
+    position:absolute;
+    top:-10%;
+    left:-10%;
+
+    color:var(--ucp1);
+    font-family:cp-font1;
+    font-size:18px;
+    font-weight:800;
+    opacity:20%;
+    word-break:break-all;
+}
+
+.accent-color .display-color-inner p{
+    color:var(--ucp2);
+}
+
+.color-name{
+    width:100%;
+    padding:var(--wrapperPadding1) calc(var(--wrapperPadding1) / 2);
+    box-sizing:border-box;
+    position:relative;
+    
+    text-align:center;
+    font-family:cp-font1;
+    font-size:26px;
+    color:white;
+    text-transform:uppercase;
+    
+    z-index:5;
+}
+
+        /* Color Meaning - Text */
+
+.cm-name{
+    grid-area:cm-name;
+    width:100%;
+    margin-bottom:var(--wrapperPadding1);
+    text-align:center;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:var(--wrapperPadding1);
+}
+
+.cm-name:before,
+.cm-name:after{
+    content:"";
+    flex:1;
+    height:4px;
+    background:linear-gradient(to right, var(--ucp1), var(--ucp1a), var(--ucp1));
+    border-radius:50px;
+}
+
+.accent-color .cm-name:before, 
+.accent-color .cm-name:after{
+    background:linear-gradient(to right, var(--ucp2), var(--ucp2a), var(--ucp2));
+}
+
+.cm-meaning{
+    grid-area:cm-meaning;
+    color:var(--txt1);
+    text-wrap:balance;
+    font-family:cp-font2;
+    font-size:20px;
+}
+
+.cm-symbol{
+    grid-area:cm-symbol;
+    width:100%;
+    padding:8px 0;
+    box-sizing:border-box;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+
+    color:var(--ucp1);
+    text-wrap:balance;
+    text-align:center;
+    font-family:cp-font1;
+    font-size:16px;
+    text-transform:uppercase;
+    font-weight:800;
+    text-shadow:0 0 0.25px var(--txt-faded3);
+}
+
+.accent-color .cm-symbol{
+    color:var(--ucp2);
+}
+
+            /* Color Meaning - Color Values */
+
+.color-values{
+    grid-area:color-values;
+    width:100%;
+    padding:8px;
+    box-sizing:border-box;
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    column-gap:12px;
+    row-gap:6px;
+    
+    border:solid 2px var(--ucp1);
+    border-radius:var(--wrapperRadius1);
+}
+
+.accent-color .color-values{
+    border:solid 2px var(--ucp2);
+
+}
+
+.color-values p{
+    font-size:16px;
+}
+
+        /* Color Meaning - media */
+
+@media screen and (width <= 1200px){
+
+    .cm-meaning{
+        font-size:18px;
+    }
+
+    .color-values p{
+        font-size:14px;
+    }
+
+}
+
+@media screen and (width <= 1024px){
+
+    .color-section{
+        grid-template-areas:
+            "cm-name cm-name"
+            "display-color cm-symbol"
+            "display-color color-values"
+            "cm-meaning cm-meaning";
+        grid-template-columns:280px 1fr;
+        grid-template-rows:auto 1fr auto auto;
+        column-gap:var(--wrapperPadding1);
+    }
+    
+    .cm-meaning{
+        margin-top:var(--wrapperPadding1);
+    }
+
+    .cm-symbol{
+        align-items:center;
+    }
+
+    .color-values:has(p:nth-of-type(4)) p{
+        flex:1;
+        min-width:40%;
+        text-align:center;
+    }
+
+}
+
+@media screen and (768px < width <= 1024px){
+
+    .display-color-inner{
+        margin:0;
+        border-radius:0;
+    }
+
+}
+
+@media screen and (width <= 768px){
+
+    .color-meaning{
+        margin-top:var(--wrapperPadding2);
+        gap:var(--wrapperPadding2);
+    }
+
+    .color-section{
+        padding:var(--wrapperPadding2);
+
+        grid-template-areas:
+            "cm-name"
+            "display-color"
+            "color-values"
+            "cm-meaning"
+            "cm-symbol";
+        grid-template-columns:1fr;
+        grid-template-rows:repeat (4, auto);
+    }
+
+    .cm-name{
+        gap:var(--wrapperPadding2);
+        margin-bottom:var(--wrapperPadding2);
+    }
+
+    .display-color{
+        min-height:0;
+    }
+
+    .display-color-inner{
+        width:auto;
+        margin:var(--wrapperPadding2);
+    }
+    
+    .color-name{
+        padding:var(--wrapperPadding2);
+    }
+
+    .color-values{
+        margin-top:var(--wrapperPadding2);
+        padding:8px 40px;
+    }
+
+    .cm-meaning{
+        margin:var(--wrapperPadding2) 0;
+    }
+
+    .cm-symbol{
+        padding:0;
+    }
+
+}
+
+@media screen and (width <= 540px){
+
+    .color-values{
+        padding:8px;
+    }
+
+}
+
+@media screen and (width <= 440px){
+
+    .cm-name{
+        font-size:26px;
+    }
+
+    .color-name{
+        font-size:min(20px, 5.25vw);
+    }
+
+    .color-values:has(p:nth-of-type(4)) p{
+        min-width:126px;
+    }
+
+}
+
+@media screen and (width <= 320px){
+
+    .cm-name{
+        font-size:20px;
+    }
+
+    .display-color-inner{
+        width:100%;
+        margin:var(--wrapperPadding2) 0;
+        border-radius:0;
+    }
+
+}

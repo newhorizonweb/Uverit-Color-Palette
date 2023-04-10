@@ -109,16 +109,16 @@
 }
 
 ::-webkit-scrollbar-thumb{
-    background:var(--color1);
+    background:var(--ucp1);
     border-radius:100px;
 }
 
 ::-webkit-scrollbar-thumb:hover{
-    background:var(--color1a);
+    background:var(--ucp1a);
 }
 
 ::-webkit-resizer{
-    background:var(--color1);
+    background:var(--ucp1);
 }
 
 ::-webkit-scrollbar-corner{

@@ -5,29 +5,25 @@ const darkMode = false;
 // Color Palette Name
 const cpName = "Very Creative Placeholder";
 // Main Color
-let ucp1 = "#88FfBb";
-const ucp1name = "Main";
+let ucp1 = "#07ABDB";
+const ucp1name = "aVeryLongWord";
 const ratio1 = 20;
 // Secondary Color
-let ucp1a = "#07bbaa";
+let ucp1a = "#2086B6";
 const ucp1aname = "Secondary";
 const ratio1a = 15;
 // Accent Color
-let ucp2 = "#c066ee";
-const ucp2name = "Accent";
+let ucp2 = "#CC1EEC";
+const ucp2name = "Secondary Accent";
 const ratio2 = 10;
 // Secondary Accent Color
-let ucp2a = "#0765d3";
+let ucp2a = "#C254E5";
 const ucp2aname = "Secondary Accent";
 const ratio2a = 5;
 // Background Color
 let ucp3 = "#fcfffe";
 const ucp3name = "Background";
 const ratio3 = 50;
-// Main and Accent Color Types
-// blue, red.....
-const colorType1 = "purple";
-const colorType2 = "blue";
 // HEX Values (true/false)
 const hexValues = true;
 // RGB Values (true/false)
@@ -36,6 +32,52 @@ const rgbValues = true;
 const hslValues = true;
 // CMYK Values (true/false)
 const cmykValues = true;
+// Color Types (first the main color, then lightest to darkest)
+// Grayscale:
+// white
+// silver
+// gray
+// greige (gray + gold / tan)
+// graphite (dark gray + blue)
+// black
+// Blues:
+// blue
+// sky blue (light blue)
+// turquoise
+// teal (greener and darker than turquoise)
+// navy (very dark blue)
+// Reds:
+// red
+// peach
+// pink
+// burgundy (dark red)
+// Purples/Violets:
+// purple (more red)
+// violet (more blue)
+// lavender (very light violet)
+// fuchsia (neon pink)
+// magenta (neon purple)
+// plum (desaturated, reddish purple)
+// Greens:
+// green
+// mint
+// lime
+// olive
+// Yellows/Oranges:
+// yellow
+// orange
+// gold
+// rust (reddish orange)
+// brown (dark orange)
+// Light Colors:
+// beige (brown cream)
+// cream (yellow beige)
+// tan (more saturated than beige, slightly brown / green)
+// khaki (who fucking knows, more saturated / darker version of the 3 above, last resort)
+// Main color
+const colorType1 = "sky_blue";
+// Accent color
+const colorType2 = "magenta";
 /* Typefaces */
 // Typefaces (true/false)
 const typefaces = true;
@@ -66,11 +108,13 @@ root.style.setProperty("--ucp1a", ucp1a);
 root.style.setProperty("--ucp2", ucp2);
 root.style.setProperty("--ucp2a", ucp2a);
 root.style.setProperty("--ucp3", ucp3);
-root.style.setProperty("--ucp1-name", ucp1name);
-root.style.setProperty("--ucp1a-name", ucp1aname);
-root.style.setProperty("--ucp2-name", ucp2name);
-root.style.setProperty("--ucp2a-name", ucp2aname);
-root.style.setProperty("--ucp3-name", ucp3name);
+root.style.setProperty("--ucp1-name", "'" + ucp1name + "'");
+root.style.setProperty("--ucp1a-name", "'" + ucp1aname + "'");
+root.style.setProperty("--ucp2-name", "'" + ucp2name + "'");
+root.style.setProperty("--ucp2a-name", "'" + ucp2aname + "'");
+root.style.setProperty("--ucp3-name", "'" + ucp3name + "'");
+root.style.setProperty("--color-type1", "'" + colorType1 + "'");
+root.style.setProperty("--color-type2", "'" + colorType2 + "'");
 // Gradient from all of the colors
 root.style.setProperty("--ucp-grad1", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp3 + "," + ucp2 + "," + ucp2a + ")");
 // Gradient without the background color

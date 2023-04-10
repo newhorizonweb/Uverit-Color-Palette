@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.1.0";
+const paletteVersion:string = "v2.1.1";
 
     /* Page Arrays */
 
@@ -227,7 +227,7 @@ const footerContent: string =
         "</div>" +
 
         "<div class='socials'>" +
-            "<h6>Usługi na Fiverr</h6>" +
+            "<h6>Services on Fiverr</h6>" +
             "<a href='https://www.fiverr.com/new_horizon_web' class='social-btn' target='_blank' rel='noreferrer'>" +
                 fiIcon +
             "</a>"+

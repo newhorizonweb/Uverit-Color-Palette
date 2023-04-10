@@ -16,24 +16,24 @@ const darkMode:boolean = false;
 const cpName:string =       "Very Creative Placeholder";
 
 // Main Color
-let ucp1:string =           "#88FfBb";
-const ucp1name:string =     "Main";
+let ucp1:string =           "#07ABDB";
+const ucp1name:string =     "aVeryLongWord";
 const ratio1:number =       20;
 
 // Secondary Color
-let ucp1a:string =          "#07bbaa";          
+let ucp1a:string =          "#2086B6";          
 const ucp1aname:string =    "Secondary";
 const ratio1a:number =      15;
 
 
 
 // Accent Color
-let ucp2:string =           "#c066ee";
-const ucp2name:string =     "Accent";
+let ucp2:string =           "#CC1EEC";
+const ucp2name:string =     "Secondary Accent";
 const ratio2:number =       10;
 
 // Secondary Accent Color
-let ucp2a:string =          "#0765d3";
+let ucp2a:string =          "#C254E5";
 const ucp2aname:string =    "Secondary Accent";
 const ratio2a:number =      5;
 
@@ -43,13 +43,6 @@ const ratio2a:number =      5;
 let ucp3:string =           "#fcfffe";
 const ucp3name:string =     "Background";
 const ratio3:number =       50;
-
-
-
-// Main and Accent Color Types
-// blue, red.....
-const colorType1:string =   "purple";
-const colorType2:string =   "blue";
 
 
 
@@ -67,6 +60,85 @@ const cmykValues:boolean = true;
 
 
 
+// Color Types (first the main color, then lightest to darkest)
+
+
+
+// Grayscale:
+
+// white
+// silver
+// gray
+// greige (gray + gold / tan)
+// graphite (dark gray + blue)
+// black
+
+
+
+// Blues:
+
+// blue
+// sky blue (light blue)
+// turquoise
+// teal (greener and darker than turquoise)
+// navy (very dark blue)
+
+
+
+// Reds:
+
+// red
+// peach
+// pink
+// burgundy (dark red)
+
+
+
+// Purples/Violets:
+
+// purple (more red)
+// violet (more blue)
+// lavender (very light violet)
+// fuchsia (neon pink)
+// magenta (neon purple)
+// plum (desaturated, reddish purple)
+
+
+
+// Greens:
+
+// green
+// mint
+// lime
+// olive
+
+
+
+// Yellows/Oranges:
+
+// yellow
+// orange
+// gold
+// rust (reddish orange)
+// brown (dark orange)
+
+
+
+// Light Colors:
+
+// beige (brown cream)
+// cream (yellow beige)
+// tan (more saturated than beige, slightly brown / green)
+// khaki (who fucking knows, more saturated / darker version of the 3 above, last resort)
+
+// Main color
+const colorType1:string =   "sky_blue";
+
+// Accent color
+const colorType2:string =   "magenta";
+
+
+
     /* Typefaces */
 
 
@@ -81,6 +153,28 @@ const cpFont2:string =      "Inter-Regular.ttf";
 const cpFontName2:string =  "Inter";
 
 const fontTestTxt = "March 14th is the greatest day ever!";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -122,11 +216,14 @@ root.style.setProperty("--ucp2", ucp2);
 root.style.setProperty("--ucp2a", ucp2a);
 root.style.setProperty("--ucp3", ucp3);
 
-root.style.setProperty("--ucp1-name", ucp1name);
-root.style.setProperty("--ucp1a-name", ucp1aname);
-root.style.setProperty("--ucp2-name", ucp2name);
-root.style.setProperty("--ucp2a-name", ucp2aname);
-root.style.setProperty("--ucp3-name", ucp3name);
+root.style.setProperty("--ucp1-name", "'"+ucp1name+"'");
+root.style.setProperty("--ucp1a-name", "'"+ucp1aname+"'");
+root.style.setProperty("--ucp2-name", "'"+ucp2name+"'");
+root.style.setProperty("--ucp2a-name", "'"+ucp2aname+"'");
+root.style.setProperty("--ucp3-name", "'"+ucp3name+"'");
+
+root.style.setProperty("--color-type1", "'"+colorType1+"'");
+root.style.setProperty("--color-type2", "'"+colorType2+"'");
 
 // Gradient from all of the colors
 root.style.setProperty(

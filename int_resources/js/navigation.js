@@ -1,4 +1,4 @@
-const paletteVersion = "v2.1.0";
+const paletteVersion = "v2.1.1";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
@@ -181,7 +181,7 @@ const footerContent = "<div class='wrapper'>" +
     uveritLogo +
     "</div>" +
     "<div class='socials'>" +
-    "<h6>Usługi na Fiverr</h6>" +
+    "<h6>Services on Fiverr</h6>" +
     "<a href='https://www.fiverr.com/new_horizon_web' class='social-btn' target='_blank' rel='noreferrer'>" +
     fiIcon +
     "</a>" +

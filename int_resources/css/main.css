@@ -117,6 +117,7 @@
     border-bottom:solid 1px var(--txt1);
     font-family:cp-font1;
     text-align:center;
+    text-transform:uppercase;
 }
 
 .ct-content-inner{
@@ -268,6 +269,7 @@
     .ct-name{
         margin-bottom:calc(var(--wrapperPadding2) / 2);
         padding-bottom:calc(var(--wrapperPadding2) / 2);
+        font-size:min(20px, 3.25vw);
     }
 
     .ct-content{
@@ -304,6 +306,12 @@
     .tile1,
     .tile3{
         left:100%;
+    }
+
+    .ct-name{
+        margin-bottom:calc(var(--wrapperPadding2) / 2);
+        padding-bottom:calc(var(--wrapperPadding2) / 2);
+        font-size:20px;
     }
 
 }
