@@ -79,9 +79,10 @@ const cmykValues:boolean = true;
 
 // blue
 // sky blue (light blue)
+// cyan (lighter, more blue turquoise)
 // turquoise
 // teal (greener and darker than turquoise)
-// navy (very dark blue)
+// navy_blue (very dark blue)
 
 
 
@@ -129,13 +130,13 @@ const cmykValues:boolean = true;
 // beige (brown cream)
 // cream (yellow beige)
 // tan (more saturated than beige, slightly brown / green)
-// khaki (who fucking knows, more saturated / darker version of the 3 above, last resort)
+// khaki (green tan)
 
 // Main color
-const colorType1:string =   "sky_blue";
+const colorType1:string =   "greige";
 
 // Accent color
-const colorType2:string =   "magenta";
+const colorType2:string =   "white";
 
 
 
