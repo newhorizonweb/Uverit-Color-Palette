@@ -18,10 +18,10 @@ const cpName:string =       "Very Creative Placeholder";
 // Main Color
 let ucp1:string =           "#07ABDB";
 const ucp1name:string =     "aVeryLongWord";
-const ratio1:number =       20;
+const ratio1:number =       25;
 
 // Secondary Color
-let ucp1a:string =          "#2086B6";          
+let ucp1a:string =          "#62D2FD";          
 const ucp1aname:string =    "Secondary";
 const ratio1a:number =      15;
 
@@ -29,8 +29,8 @@ const ratio1a:number =      15;
 
 // Accent Color
 let ucp2:string =           "#CC1EEC";
-const ucp2name:string =     "Secondary Accent";
-const ratio2:number =       10;
+const ucp2name:string =     "Accent";
+const ratio2:number =       15;
 
 // Secondary Accent Color
 let ucp2a:string =          "#C254E5";
@@ -40,9 +40,9 @@ const ratio2a:number =      5;
 
 
 // Background Color
-let ucp3:string =           "#fcfffe";
+let ucp3:string =           "#E7F1F9";
 const ucp3name:string =     "Background";
-const ratio3:number =       50;
+const ratio3:number =       40;
 
 
 
@@ -235,16 +235,6 @@ root.style.setProperty(
 root.style.setProperty(
     "--ucp-grad2", "linear-gradient(to right,"+ucp1+","+ucp1a+","+ucp2+","+ucp2a+")"
 );
-
-    /* Color Ratio */
-
-// Show an alert when ratio is not equal to 100%
-const ratioAll:number = ratio1 + ratio1a + ratio3 + ratio2 + ratio2a;
-
-if (ratioAll != 100){
-    alert("Color ratio is not equal to 100%\n"
-    +"The current color ratio is equal to "+ratioAll);
-}
 
     /* Typefaces */
 

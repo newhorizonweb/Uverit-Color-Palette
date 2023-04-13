@@ -423,7 +423,7 @@ nav{
 .nav-page-title{
     width:100%;
     position:relative;
-    top:0;
+    top:4px;
     left:0;
     font-size:20px;
     text-align:center;
@@ -432,6 +432,7 @@ nav{
 
 .navbar-dots{
     width:100%;
+    padding:5px 0;
     display:flex;
     gap:6px;
 }

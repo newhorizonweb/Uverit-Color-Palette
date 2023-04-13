@@ -1,4 +1,4 @@
-const paletteVersion = "v2.1.2";
+const paletteVersion = "v2.2.0";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
@@ -6,7 +6,7 @@ if (document.title === "Uverit Color Palette") {
     filesArray = [
         "ColorPalette.html",
         "int_resources/pages/ColorMeaning.html",
-        "int_resources/pages/placeholder1.html",
+        "int_resources/pages/ColorChart.html",
         "int_resources/pages/placeholder2.html",
         "int_resources/pages/placeholder3.html",
         "int_resources/pages/placeholder4.html"
@@ -16,7 +16,7 @@ else {
     filesArray = [
         "../../ColorPalette.html",
         "ColorMeaning.html",
-        "placeholder1.html",
+        "ColorChart.html",
         "placeholder2.html",
         "placeholder3.html",
         "placeholder4.html"
@@ -25,7 +25,7 @@ else {
 let filesNames = [
     "Color Palette",
     "Color Meaning",
-    "Test2",
+    "Color Chart",
     "Test3",
     "Test4",
     "Test5"
@@ -79,7 +79,7 @@ else {
 const thisDocTitle = filesNames[thisUrlNumber];
 // Create the nav elements
 const baseNavContent = "<div class='nav-wrapper wrapper'>" +
-    "<a href='colorPalette.html' class='nav-logo uverit-logo'>" +
+    `<a href='${filesArray[0]}' class='nav-logo uverit-logo'>` +
     uveritLogo +
     "</a>" +
     "<div class='navbar'>" +
@@ -167,10 +167,10 @@ function baseNav() {
             pageTitleAnimation();
             navPageTitle.innerHTML = filesNames[hoverIndex];
         });
-        dot.addEventListener("mouseleave", (e) => {
-            pageTitleAnimation();
-            navPageTitle.innerHTML = thisDocTitle;
-        });
+    });
+    document.querySelector(".navbar-dots")?.addEventListener("mouseleave", (e) => {
+        pageTitleAnimation();
+        navPageTitle.innerHTML = thisDocTitle;
     });
 }
 /* Footer */

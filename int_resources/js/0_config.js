@@ -7,23 +7,23 @@ const cpName = "Very Creative Placeholder";
 // Main Color
 let ucp1 = "#07ABDB";
 const ucp1name = "aVeryLongWord";
-const ratio1 = 20;
+const ratio1 = 25;
 // Secondary Color
-let ucp1a = "#2086B6";
+let ucp1a = "#62D2FD";
 const ucp1aname = "Secondary";
 const ratio1a = 15;
 // Accent Color
 let ucp2 = "#CC1EEC";
-const ucp2name = "Secondary Accent";
-const ratio2 = 10;
+const ucp2name = "Accent";
+const ratio2 = 15;
 // Secondary Accent Color
 let ucp2a = "#C254E5";
 const ucp2aname = "Secondary Accent";
 const ratio2a = 5;
 // Background Color
-let ucp3 = "#fcfffe";
+let ucp3 = "#E7F1F9";
 const ucp3name = "Background";
-const ratio3 = 50;
+const ratio3 = 40;
 // HEX Values (true/false)
 const hexValues = true;
 // RGB Values (true/false)
@@ -120,13 +120,6 @@ root.style.setProperty("--color-type2", "'" + colorType2 + "'");
 root.style.setProperty("--ucp-grad1", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp3 + "," + ucp2 + "," + ucp2a + ")");
 // Gradient without the background color
 root.style.setProperty("--ucp-grad2", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp2 + "," + ucp2a + ")");
-/* Color Ratio */
-// Show an alert when ratio is not equal to 100%
-const ratioAll = ratio1 + ratio1a + ratio3 + ratio2 + ratio2a;
-if (ratioAll != 100) {
-    alert("Color ratio is not equal to 100%\n"
-        + "The current color ratio is equal to " + ratioAll);
-}
 /* Typefaces */
 let docPath = "";
 if (document.title === "Uverit Color Palette") {

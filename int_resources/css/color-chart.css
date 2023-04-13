@@ -1,0 +1,134 @@
+
+
+
+
+
+.chart{
+    height:500px;
+    aspect-ratio:1/1;
+    padding:var(--wrapperPadding1);
+    box-sizing:border-box;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:var(--shade1);
+}
+
+.chart:before{
+    content:"";
+    height:calc(100% - var(--wrapperPadding1) * 2);
+    aspect-ratio:1/1;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    border-radius:50%;
+    box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+}
+
+
+
+.ring-chart{
+    height:100%;
+    width:100%;
+    position:relative;
+    clip-path:circle(50%);
+}
+
+.rc-ring{
+    stroke:var(--shade3);
+    fill:transparent;
+    filter: drop-shadow(0 0 4px var(--shade6))
+}
+
+.rc-item{
+    transform-origin:center;
+    fill:transparent;
+    transition:0.15s;
+    position:relative;
+    pointer-events:stroke;
+}
+
+.light-hover:hover{
+    filter:brightness(1.1);
+}
+
+.dark-hover:hover{
+    filter:brightness(0.95);
+}
+
+
+
+
+
+.rc-item0{
+    stroke:var(--ucp1);
+}
+.rc-item1{
+    stroke:var(--ucp1a);
+}
+.rc-item2{
+    stroke:var(--ucp3);
+}
+.rc-item3{
+    stroke:var(--ucp2a);
+}
+.rc-item4{
+    stroke:var(--ucp2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+@keyframes donut3 {
+    0% {
+        stroke-dasharray: 0, 100;
+    }
+    100% {
+        stroke-dasharray: 25, 75;
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+.rc-ring{
+    pointer-events:fill;
+}
+
+
+.chart-txt{
+    width:60%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    
+}
+
+.chart-txt *{
+    text-align:center;
+}
+
+
