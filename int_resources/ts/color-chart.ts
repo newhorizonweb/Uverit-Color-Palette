@@ -9,8 +9,13 @@ const ringWidth:number = 15;
 // Chart gap (x/100)
 const chartGap:number = 0.25;
 
-// Change the hover color (brighter vs darker)
-const brightness:number = 0.9; // 0 = 0% | 1 = 100%
+// Change the hover color (if the color is brighter than thix value - in percent)
+// For example, if the color is brighter than 90% of 765 (total RGB value)
+const brightness:number = 0.85; // 0 = 0% (dark) | 1 = 100% (bright)
+
+// Change the hover color (if the color is darker than thix value - in percent)
+// For example, if the color is darker than 15% of 765 (total RGB value)
+const darkness:number = 0.1; // 0 = 0% (dark) | 1 = 100% (bright)
 
 // Color ratio array
 const ringArr:number[] = [
@@ -58,6 +63,10 @@ const ringRad:number = (chartWidth - ringWidth) / 2;
 
 // Ring circumference
 let ringCircum:number = ringRad * Math.PI * 2;
+document.documentElement.style.setProperty("--ring-circum", ringCircum.toString());
+
+// Ring width (percent)
+document.documentElement.style.setProperty("--ring-width", ringWidth.toString()+"%");
 
 // Chart inner text (inside the circle)
 const ratioTxt:HTMLElement | null = document.querySelector(".ratio-txt");
@@ -148,13 +157,27 @@ for (let ring = 0; ring < ringItems.length; ring++){
             let colorVal:number = red + green + blue;
 
             const colorBrightness:number = 765 * brightness;
+            const colorDarkness:number = 765 * darkness;
 
-            // Change the hover color if the section is too bright
-            if (colorVal < colorBrightness){
+            if (colorVal < colorDarkness){
+                // Very dark color = very bright hover
+                this.classList.add("very-light-hover");
+                strokeColor = `rgb(${red + 128}, ${green + 128}, ${blue + 128})`
+
+            } else if (colorVal < colorDarkness * 2){
+                // Normal color = bright hover
                 this.classList.add("light-hover");
+                strokeColor = `rgb(${red + 128}, ${green + 128}, ${blue + 128})`
+
+            } else if (colorVal < colorBrightness){
+                // Normal color = bright hover
+                this.classList.add("light-hover");
+
             } else {
+                // Very light color = dark hover
                 this.classList.add("dark-hover");
                 strokeColor = `rgb(${red - 100}, ${green - 100}, ${blue - 100})`
+
             }
 
             // Change the chart text

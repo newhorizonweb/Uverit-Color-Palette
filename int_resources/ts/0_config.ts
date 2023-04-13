@@ -6,7 +6,7 @@
 
 
 // Dark Mode (true/false)
-const darkMode:boolean = false;
+const darkMode:boolean = true;
 
 
 
@@ -40,7 +40,7 @@ const ratio2a:number =      5;
 
 
 // Background Color
-let ucp3:string =           "#E7F1F9";
+let ucp3:string =           "#343434";
 const ucp3name:string =     "Background";
 const ratio3:number =       40;
 

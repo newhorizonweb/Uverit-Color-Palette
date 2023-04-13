@@ -3,8 +3,12 @@
 const ringWidth = 15;
 // Chart gap (x/100)
 const chartGap = 0.25;
-// Change the hover color (brighter vs darker)
-const brightness = 0.9; // 0 = 0% | 1 = 100%
+// Change the hover color (if the color is brighter than thix value - in percent)
+// For example, if the color is brighter than 90% of 765 (total RGB value)
+const brightness = 0.85; // 0 = 0% (dark) | 1 = 100% (bright)
+// Change the hover color (if the color is darker than thix value - in percent)
+// For example, if the color is darker than 15% of 765 (total RGB value)
+const darkness = 0.1; // 0 = 0% (dark) | 1 = 100% (bright)
 // Color ratio array
 const ringArr = [
     ratio1,
@@ -36,6 +40,9 @@ const ringCenter = chartWidth / 2;
 const ringRad = (chartWidth - ringWidth) / 2;
 // Ring circumference
 let ringCircum = ringRad * Math.PI * 2;
+document.documentElement.style.setProperty("--ring-circum", ringCircum.toString());
+// Ring width (percent)
+document.documentElement.style.setProperty("--ring-width", ringWidth.toString() + "%");
 // Chart inner text (inside the circle)
 const ratioTxt = document.querySelector(".ratio-txt");
 const colorTxt = document.querySelector(".color-txt");
@@ -94,11 +101,23 @@ for (let ring = 0; ring < ringItems.length; ring++) {
             // Add the values (max for RGB is 765, so 3x 255)
             let colorVal = red + green + blue;
             const colorBrightness = 765 * brightness;
-            // Change the hover color if the section is too bright
-            if (colorVal < colorBrightness) {
+            const colorDarkness = 765 * darkness;
+            if (colorVal < colorDarkness) {
+                // Very dark color = very bright hover
+                this.classList.add("very-light-hover");
+                strokeColor = `rgb(${red + 128}, ${green + 128}, ${blue + 128})`;
+            }
+            else if (colorVal < colorDarkness * 2) {
+                // Normal color = bright hover
+                this.classList.add("light-hover");
+                strokeColor = `rgb(${red + 128}, ${green + 128}, ${blue + 128})`;
+            }
+            else if (colorVal < colorBrightness) {
+                // Normal color = bright hover
                 this.classList.add("light-hover");
             }
             else {
+                // Very light color = dark hover
                 this.classList.add("dark-hover");
                 strokeColor = `rgb(${red - 100}, ${green - 100}, ${blue - 100})`;
             }

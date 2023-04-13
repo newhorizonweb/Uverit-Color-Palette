@@ -1,7 +1,13 @@
 
 
 
-
+:root{
+    --ring-anim-time1:0.5s;
+    --ring-anim-time2:1s;
+    --ring-anim-time3:1.25s;
+/*  --ring-circum (ring circumference) */
+/*  --ring-width  (ring width) */
+}
 
 .chart{
     height:500px;
@@ -12,7 +18,10 @@
     display:flex;
     justify-content:center;
     align-items:center;
+
     background-color:var(--shade1);
+    box-shadow:var(--box-shadow1) var(--wrapperColor1), var(--box-shadow2) var(--wrapperColor1);
+    border-radius:var(--wrapperRadius1);
 }
 
 .chart:before{
@@ -25,8 +34,47 @@
     transform:translate(-50%, -50%);
 
     border-radius:50%;
-    box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    box-shadow:0 0 0 0 var(--shade6), 0 0 0 0 var(--shade5);
+
+    animation-name:ringShadow;
+    animation-duration:var(--ring-anim-time1);
+    animation-delay:var(--ring-anim-time2);
+    animation-fill-mode:forwards;
 }
+
+@keyframes ringShadow{
+    0%{
+        box-shadow:0 0 0 0 var(--shade6), 0 0 0 0 var(--shade5);
+    }
+    100%{
+        box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    }
+}
+
+.load-ring{
+    fill:transparent;
+    z-index:1000;
+
+    stroke:var(--shade1);
+    stroke-dashoffset:calc(var(--ring-circum) * 0.25);
+    stroke-dasharray:0 var(--ring-circum);
+
+    pointer-events:none;
+    animation:loadRing var(--ring-anim-time3);
+}
+
+@keyframes loadRing{
+    0%{
+        stroke-dasharray:var(--ring-circum) 0;
+    }
+    100%{
+        stroke-dasharray:0 var(--ring-circum);
+    }
+}
+
+
+
+
 
 
 
@@ -40,8 +88,24 @@
 .rc-ring{
     stroke:var(--shade3);
     fill:transparent;
-    filter: drop-shadow(0 0 4px var(--shade6))
+
+    animation-name:innerRingShadow;
+    animation-duration:var(--ring-anim-time1);
+    animation-delay:var(--ring-anim-time2);
+    animation-fill-mode:forwards;
 }
+
+@keyframes innerRingShadow{
+    0%{
+        filter:drop-shadow(0 0 0 var(--shade6));
+    }
+    100%{
+        filter:drop-shadow(0 0 3px var(--shade6));
+    }
+}
+
+
+
 
 .rc-item{
     transform-origin:center;
@@ -55,10 +119,21 @@
     filter:brightness(1.1);
 }
 
+.very-light-hover:hover{
+    filter:brightness(2.75);
+}
+
+.dark-mode .very-light-hover:hover{
+    filter:brightness(1.4);
+}
+
 .dark-hover:hover{
     filter:brightness(0.95);
 }
 
+.dark-mode .dark-hover:hover{
+    filter:brightness(0.9);
+}
 
 
 
@@ -91,44 +166,57 @@
 
 
 
-/*
-@keyframes donut3 {
-    0% {
-        stroke-dasharray: 0, 100;
-    }
-    100% {
-        stroke-dasharray: 25, 75;
-    }
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
 .rc-ring{
     pointer-events:fill;
 }
 
 
 .chart-txt{
-    width:60%;
+    width:calc(100% - (var(--ring-width) * 2) - (var(--wrapperPadding1) * 3));
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
+    opacity:0;
     
+    animation-name:ringTxt;
+    animation-duration:var(--ring-anim-time1);
+    animation-delay:var(--ring-anim-time2);
+    animation-fill-mode:forwards;
+}
+
+@keyframes ringTxt{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
 }
 
 .chart-txt *{
     text-align:center;
 }
+
+.ratio-txt{
+    font-size:36px;
+    text-shadow:0 0 1px var(--txt-faded);
+}
+
+.color-txt{
+    font-size:22px
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 

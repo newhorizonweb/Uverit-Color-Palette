@@ -1,6 +1,6 @@
 /* CP Program Settings */
 // Dark Mode (true/false)
-const darkMode = false;
+const darkMode = true;
 /* CP Brand Settings */
 // Color Palette Name
 const cpName = "Very Creative Placeholder";
@@ -21,7 +21,7 @@ let ucp2a = "#C254E5";
 const ucp2aname = "Secondary Accent";
 const ratio2a = 5;
 // Background Color
-let ucp3 = "#E7F1F9";
+let ucp3 = "#343434";
 const ucp3name = "Background";
 const ratio3 = 40;
 // HEX Values (true/false)
