@@ -3,7 +3,7 @@
 
 .color-tiles{
     width:100%;
-    margin-top:calc(var(--wrapperPadding1) * 2);
+    margin-top:var(--wrapperPadding1);
     display:flex;
     justify-content:center;
     gap:var(--wrapperPadding1);
@@ -238,7 +238,7 @@
 @media screen and (width <= 768px){
 
     .color-tiles{
-        margin-top:calc(var(--wrapperPadding2) * 2);
+        margin-top:0;
         flex-wrap:wrap;
         row-gap:calc(var(--wrapperPadding2) / 2);
         column-gap:var(--wrapperPadding2);

@@ -5,7 +5,6 @@
 
 .color-meaning{
     width:100%;
-    margin-top:var(--wrapperPadding1);
     display:flex;
     flex-direction:column;
     gap:var(--wrapperPadding1);
@@ -175,7 +174,6 @@
 
 .accent-color .color-values{
     border:solid 2px var(--ucp2);
-
 }
 
 .color-values p{
@@ -237,7 +235,6 @@
 @media screen and (width <= 768px){
 
     .color-meaning{
-        margin-top:var(--wrapperPadding2);
         gap:var(--wrapperPadding2);
     }
 

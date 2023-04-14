@@ -1,27 +1,53 @@
 
 
 
+    /* Color Chart */
+
+.color-chart{
+    width:100%;
+    padding:var(--wrapperPadding1);
+    box-sizing:border-box;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:var(--wrapperPadding1);
+
+    background-color:var(--shade1);
+    box-shadow:var(--box-shadow1) var(--wrapperColor1), var(--box-shadow2) var(--wrapperColor1);
+    border-radius:var(--wrapperRadius1);
+}
+
+@media screen and (width <= 768px){
+
+    .color-chart{
+        padding:var(--wrapperPadding2);
+        gap:var(--wrapperPadding2);
+    }
+
+}
+
+    /* Ring Chart */
+
 :root{
     --ring-anim-time1:0.5s;
     --ring-anim-time2:1s;
     --ring-anim-time3:1.25s;
+
+/*      SET IN JS    */
 /*  --ring-circum (ring circumference) */
 /*  --ring-width  (ring width) */
 }
 
 .chart{
-    height:500px;
+    height:400px;
     aspect-ratio:1/1;
     padding:var(--wrapperPadding1);
-    box-sizing:border-box;
+    margin:calc(var(--wrapperPadding1) * -1);
     position:relative;
     display:flex;
     justify-content:center;
     align-items:center;
-
-    background-color:var(--shade1);
-    box-shadow:var(--box-shadow1) var(--wrapperColor1), var(--box-shadow2) var(--wrapperColor1);
-    border-radius:var(--wrapperRadius1);
 }
 
 .chart:before{
@@ -42,41 +68,16 @@
     animation-fill-mode:forwards;
 }
 
-@keyframes ringShadow{
-    0%{
-        box-shadow:0 0 0 0 var(--shade6), 0 0 0 0 var(--shade5);
-    }
-    100%{
-        box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
-    }
-}
-
 .load-ring{
     fill:transparent;
-    z-index:1000;
-
     stroke:var(--shade1);
     stroke-dashoffset:calc(var(--ring-circum) * 0.25);
     stroke-dasharray:0 var(--ring-circum);
 
     pointer-events:none;
+    z-index:1000;
     animation:loadRing var(--ring-anim-time3);
 }
-
-@keyframes loadRing{
-    0%{
-        stroke-dasharray:var(--ring-circum) 0;
-    }
-    100%{
-        stroke-dasharray:0 var(--ring-circum);
-    }
-}
-
-
-
-
-
-
 
 .ring-chart{
     height:100%;
@@ -93,25 +94,44 @@
     animation-duration:var(--ring-anim-time1);
     animation-delay:var(--ring-anim-time2);
     animation-fill-mode:forwards;
+
+    pointer-events:fill;
+}
+
+@keyframes ringShadow{
+    0%{
+        box-shadow:0 0 0 0 var(--shade6), 0 0 0 0 var(--shade5);
+    }
+    100%{
+        box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    }
+}
+
+@keyframes loadRing{
+    0%{
+        stroke-dasharray:var(--ring-circum) 0;
+    }
+    100%{
+        stroke-dasharray:0 var(--ring-circum);
+    }
 }
 
 @keyframes innerRingShadow{
     0%{
-        filter:drop-shadow(0 0 0 var(--shade6));
+        filter:drop-shadow(0 0 0 var(--shade5));
     }
     100%{
-        filter:drop-shadow(0 0 3px var(--shade6));
+        filter:drop-shadow(0 0 2px var(--shade5));
     }
 }
 
-
-
+        /* Ring Chart - Color Section */
 
 .rc-item{
+    position:relative;
     transform-origin:center;
     fill:transparent;
     transition:0.15s;
-    position:relative;
     pointer-events:stroke;
 }
 
@@ -135,9 +155,6 @@
     filter:brightness(0.9);
 }
 
-
-
-
 .rc-item0{
     stroke:var(--ucp1);
 }
@@ -154,22 +171,7 @@
     stroke:var(--ucp2);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-.rc-ring{
-    pointer-events:fill;
-}
-
+        /* Ring Chart - Text */
 
 .chart-txt{
     width:calc(100% - (var(--ring-width) * 2) - (var(--wrapperPadding1) * 3));
@@ -204,19 +206,238 @@
 }
 
 .color-txt{
-    font-size:22px
+    font-family:cp-font1;
+    font-size:22px;
 }
 
+        /* Ring Chart - media */
 
+@media screen and (width <= 768px){
 
+    .chart{
+        padding:var(--wrapperPadding2);
+        margin:calc(var(--wrapperPadding2) * -1);
+    }
+    
+    .chart:before{
+        height:calc(100% - var(--wrapperPadding2) * 2);
+    }
 
+    .chart-txt{
+        width:calc(100% - (var(--ring-width) * 2) - (var(--wrapperPadding2) * 3));
+    }
 
+}
 
+@media screen and (width <= 540px){
 
+    .chart{
+        width:100%;
+        height:auto;
+    }
 
+    .ratio-txt{
+        font-size:30px;
+    }
 
+    .color-txt{
+        font-size:20px;
+    }
 
+}
 
+@media screen and (width <= 440px){
+
+    .ratio-txt{
+        font-size:7vw;
+    }
+
+    .color-txt{
+        font-size:5vw;
+    }
+
+}
+
+    /* Chart Info */
+
+.chart-info{
+    align-self:flex-start;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.chart-info h3 span{
+    background:var(--ucp-grad2);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+        /* Chart Info - media */
+
+@media screen and (width <= 1024px){
+
+    .chart-info{
+        order:0;
+        flex:none;
+        width:100%;
+    }
+
+}
+
+@media screen and (width <= 540px){
+
+    .chart-info h3{
+        font-size:26px;
+    }
+
+}
+
+@media screen and (width <= 440px){
+
+    .chart-info h3{
+        font-size:20px;
+    }
+
+}
+
+    /* Color Ratio */
+
+.color-ratio{
+    width:100%;
+    min-height:50px;
+    display:flex;
+    justify-content:center;
+    gap:var(--wrapperPadding1);
+}
+
+.cr-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+}
+
+.cr-name{
+    color:var(--txt1);
+}
+
+.cr-ratio{
+    min-width:165px;
+    padding:4px 8px;
+    box-sizing:border-box;
+    position:relative;
+    display:flex;
+    justify-content:center;
+
+    border:solid 2px;
+    border-radius:var(--wrapperRadius1);
+    box-shadow:0 0 0 0 var(--shadow3);
+    transition:0.15s;
+}
+
+.cr-ratio:hover{
+    box-shadow:var(--box-shadow3) var(--shade5);
+}
+
+.cr-ratio0{
+    border-color:var(--ucp1a);
+}
+.cr-ratio1{
+    border-color:var(--ucp1);
+}
+.cr-ratio2{
+    border-color:var(--ucp3);
+}
+.cr-ratio3{
+    border-color:var(--ucp2);
+}
+.cr-ratio4{
+    border-color:var(--ucp2a);
+}
+
+.cr-ratio p{
+    transition:0.15s;
+    pointer-events:none;
+}
+
+.cr-ratio:hover p{
+    opacity:0;
+}
+
+        /* Color Ratio - media */
+
+@media screen and (width <= 1200px){
+
+    .color-ratio{
+        gap:12px;
+    }
+    
+    .cr-name{
+        font-size:16px;
+    }
+
+    .cr-ratio{
+        min-width:150px;
+    }
+
+}
+
+@media screen and (width <= 1024px){
+
+    .color-ratio{
+        flex-wrap:wrap;
+    }
+    
+    .cr-item{
+        flex:25%;
+    }
+
+    .cr-ratio{
+        width:100%;
+    }
+
+}
+
+@media screen and (width <= 768px){
+    
+    .color-ratio{
+        gap:var(--wrapperPadding2);
+    }
+
+    .cr-item{
+        flex:35%;
+        order:1;
+    }
+
+    .cr-item:has(.cr-ratio1){
+        order:0;
+        flex:100%;
+    }
+
+}
+
+@media screen and (width <= 440px){
+
+    .cr-item{
+        flex:100%;
+    }
+    
+    .cr-item:has(.cr-ratio2){
+        order:2;
+    }
+
+}
+
+@media screen and (width <= 320px){
+    
+    .cr-ratio{
+        min-width:0;
+    }
+
+}
 
 
 

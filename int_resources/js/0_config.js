@@ -1,6 +1,6 @@
 /* CP Program Settings */
 // Dark Mode (true/false)
-const darkMode = true;
+const darkMode = false;
 /* CP Brand Settings */
 // Color Palette Name
 const cpName = "Very Creative Placeholder";
@@ -21,7 +21,7 @@ let ucp2a = "#C254E5";
 const ucp2aname = "Secondary Accent";
 const ratio2a = 5;
 // Background Color
-let ucp3 = "#343434";
+let ucp3 = "#F2EEEB";
 const ucp3name = "Background";
 const ratio3 = 40;
 // HEX Values (true/false)
@@ -103,6 +103,13 @@ const colorArray = [
     ucp2,
     ucp2a
 ];
+const colorNameArray = [
+    ucp1aname,
+    ucp1name,
+    ucp3name,
+    ucp2name,
+    ucp2aname
+];
 root.style.setProperty("--cp-name", cpName);
 root.style.setProperty("--ucp1", ucp1);
 root.style.setProperty("--ucp1a", ucp1a);
@@ -120,6 +127,14 @@ root.style.setProperty("--color-type2", "'" + colorType2 + "'");
 root.style.setProperty("--ucp-grad1", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp3 + "," + ucp2 + "," + ucp2a + ")");
 // Gradient without the background color
 root.style.setProperty("--ucp-grad2", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp2 + "," + ucp2a + ")");
+/* Color CSS Classes */
+const colorClassArray = [
+    "ucp1a",
+    "ucp1",
+    "ucp3",
+    "ucp2",
+    "ucp2a"
+];
 /* Typefaces */
 let docPath = "";
 if (document.title === "Uverit Color Palette") {

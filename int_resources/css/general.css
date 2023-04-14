@@ -79,6 +79,24 @@
     --txt-faded3:#B1B1B1;           /* Text faded color 3 */
 }
 
+    /* Color Palette Classes */
+
+.ucp1{
+    background-color:var(--ucp1);
+}
+.ucp1a{
+    background-color:var(--ucp1a);
+}
+.ucp2{
+    background-color:var(--ucp2);
+}
+.ucp2a{
+    background-color:var(--ucp2a);
+}
+.ucp3{
+    background-color:var(--ucp3);
+}
+
     /* Sizes */
 
 :root{
@@ -203,7 +221,7 @@ p, a, label{
     font-weight:400;
     line-height:1.3em;
     text-decoration:none;
-    color:var(--txt1);
+    color:var(--txt-faded);
     transition:0.15s;
 }
 
@@ -816,6 +834,7 @@ main{
 
 .main-header{
     width:100%;
+    margin-bottom:var(--wrapperPadding1);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -843,6 +862,10 @@ main{
     
     main{
         padding:0 var(--wrapperPadding2);
+    }
+
+    .main-header{
+        margin-bottom:var(--wrapperPadding2);
     }
 
 }

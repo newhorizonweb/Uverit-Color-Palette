@@ -6,7 +6,7 @@
 
 
 // Dark Mode (true/false)
-const darkMode:boolean = true;
+const darkMode:boolean = false;
 
 
 
@@ -40,7 +40,7 @@ const ratio2a:number =      5;
 
 
 // Background Color
-let ucp3:string =           "#343434";
+let ucp3:string =           "#F2EEEB";
 const ucp3name:string =     "Background";
 const ratio3:number =       40;
 
@@ -201,12 +201,20 @@ ucp3 = ucp3.toUpperCase();
 ucp2 = ucp2.toUpperCase();
 ucp2a = ucp2a.toUpperCase();
 
-const colorArray: string[] = [
+const colorArray:string[] = [
     ucp1a,
     ucp1,
     ucp3,
     ucp2,
     ucp2a
+];
+
+const colorNameArray:string[] = [
+    ucp1aname,
+    ucp1name,
+    ucp3name,
+    ucp2name,
+    ucp2aname
 ];
 
 root.style.setProperty("--cp-name", cpName);
@@ -235,6 +243,16 @@ root.style.setProperty(
 root.style.setProperty(
     "--ucp-grad2", "linear-gradient(to right,"+ucp1+","+ucp1a+","+ucp2+","+ucp2a+")"
 );
+
+    /* Color CSS Classes */
+
+const colorClassArray:string[] = [
+    "ucp1a",
+    "ucp1",
+    "ucp3",
+    "ucp2",
+    "ucp2a"
+];
 
     /* Typefaces */
 

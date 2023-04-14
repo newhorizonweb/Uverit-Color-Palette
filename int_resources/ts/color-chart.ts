@@ -202,3 +202,59 @@ if (ratioAll != 100){
     alert("Color ratio is not equal to 100%\n"
     +"The current color ratio is equal to "+ratioAll);
 }
+
+    /* Color Ratio */
+
+const colorRatioArray: number[] = [
+    ratio1a,
+    ratio1,
+    ratio3,
+    ratio2,
+    ratio2a
+];
+
+const colorRatioDiv:HTMLElement | null = document.querySelector(".color-ratio");
+
+for (let i = 0; i < colorArray.length; i++){
+
+    colorRatioDiv!.innerHTML += 
+    `<div class='cr-item cr-item${i}'>` +
+
+        `<p class='cr-name cr-name${i}'>` +
+            colorNameArray[i] +
+        '<p>' +
+
+        `<div class='cr-ratio cr-ratio${i}'>` +
+            "<p>" +
+                colorRatioArray[i]+"%" +
+            "</p>" +
+        '<div>' +
+
+    "</div>";
+
+}
+
+for (let i = 0; i < colorClassArray.length; i++){
+    
+    let crRatio:HTMLCollectionOf<Element> = document.getElementsByClassName("cr-ratio");
+
+    crRatio[i].addEventListener("mouseenter", function(){
+        this.classList.add(colorClassArray[i]);
+    });
+
+    crRatio[i].addEventListener("mouseleave", function(){
+        this.classList.remove(colorClassArray[i]);
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
