@@ -1,4 +1,4 @@
-const paletteVersion = "v2.3.0";
+const paletteVersion = "v2.3.1";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
@@ -8,6 +8,7 @@ if (document.title === "Uverit Color Palette") {
         "int_resources/pages/ColorMeaning.html",
         "int_resources/pages/ColorChart.html",
         "int_resources/pages/ColorTones.html",
+        "int_resources/pages/ColorSaturation.html",
         "int_resources/pages/placeholder3.html",
         "int_resources/pages/placeholder4.html"
     ];
@@ -18,6 +19,7 @@ else {
         "ColorMeaning.html",
         "ColorChart.html",
         "ColorTones.html",
+        "ColorSaturation.html",
         "placeholder3.html",
         "placeholder4.html"
     ];
@@ -27,6 +29,7 @@ let filesNames = [
     "Color Meaning",
     "Color Chart",
     "Color Tones",
+    "Color Saturation",
     "Test4",
     "Test5"
 ];

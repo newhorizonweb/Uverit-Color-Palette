@@ -435,6 +435,8 @@ nav{
 .nav-title-div{
     width:100%;
     margin-bottom:6px;
+    position:relative;
+    top:4px;
     overflow:hidden;
 }
 
@@ -886,18 +888,6 @@ main{
 
     .mh-brand{
         font-size:6.5vw;
-    }
-
-}
-
-@media screen and (width <= 440px){
-
-    .mh-title{
-        font-size:12vw;
-    }
-
-    .mh-brand{
-        font-size:7vw;
     }
 
 }
