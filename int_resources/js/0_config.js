@@ -4,6 +4,14 @@ const darkMode = false;
 /* CP Brand Settings */
 // Color Palette Name
 const cpName = "Very Creative Placeholder";
+// Color Palette Color Names (Main, Accent, etc.)
+const cpColorNames = [
+    "Secondary",
+    "Main",
+    "Background",
+    "Accent",
+    "Secondary Accent"
+];
 // Main Color
 let ucp1 = "#07ABDB";
 const ucp1name = "aVeryLongWord";

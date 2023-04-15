@@ -1,0 +1,177 @@
+
+    /* Color Tones */
+
+.color-tones{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:var(--wrapperPadding1);
+}
+
+.color-group{
+    width:100%;
+    padding:var(--wrapperPadding1);
+    box-sizing:border-box;
+    display:flex;
+    flex-wrap:wrap;
+
+    background-color:var(--shade1);
+    box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    border-radius:var(--wrapperRadius1);
+}
+
+.color-group-inner{
+    width:100%;
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    column-gap:var(--wrapperPadding1);
+}
+
+        /* Group Header */
+
+.group-header{
+    width:100%;
+    margin-bottom:var(--wrapperPadding1);
+    display:flex;
+    align-items:center;
+    gap:var(--wrapperPadding1);
+
+    text-transform:uppercase;   
+}
+
+.group-header:before,
+.group-header:after{
+    content:"";
+    flex:1;
+    height:4px;
+    background:linear-gradient(to right, var(--ucp1), var(--ucp1a), var(--ucp1));
+    border-radius:50px;
+}
+
+        /* Group Percentage */
+
+.group-percentage{
+    width:100%;
+    margin-bottom:2px;
+    display:flex;
+    align-items:center;
+}
+
+.percent-gap{
+    min-width:180px;
+    padding-right:var(--wrapperPadding1);
+}
+
+.group-percentage p{
+   flex:1;
+   text-align:center;
+}
+
+        /* Color Names */
+
+.color-names{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.color-name{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.color-name-inner{
+    width:100%;
+    min-width:180px;
+    padding:4px;
+    box-sizing:border-box;
+    border:solid 2px;
+    border-radius:var(--wrapperPadding1);
+    text-align:center;
+    font-size:16px;
+}
+
+        /* Tone Group */
+
+.tone-group{
+    flex:5;
+    box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+    border-radius:var(--wrapperRadius1);
+    overflow:hidden;
+}
+
+.tone-section{
+    width:100%;
+    display:flex;
+}
+
+.tint-section{
+    background-color:white;
+}
+
+.shade-section{
+    background-color:black;
+}
+
+        /* Tone Group - Cell */
+
+.tone-cell{
+    flex:1;
+    height:42px;
+}
+
+.tone-section .tone-cell:nth-of-type(2){
+    opacity:0.8;
+}
+.tone-section .tone-cell:nth-of-type(3){
+    opacity:0.6;
+}
+.tone-section .tone-cell:nth-of-type(4){
+    opacity:0.4;
+}
+.tone-section .tone-cell:nth-of-type(5){
+    opacity:0.2;
+}
+
+    /* Color Tones - media */
+
+@media screen and (width <= 768px){
+
+    :root{
+        --wrapperPadding1:var(--wrapperPadding2);
+    }
+
+    .group-percentage{
+        height:25px;
+    }
+
+    .percent-gap{
+        display:none;
+    }
+
+    .color-names{
+        height:calc(100% - 25px - 2px); /* Percentage height + percentage margin-bottom */
+        padding:var(--wrapperPadding1);
+        position:absolute;
+        left:-100vw;
+        bottom:calc(var(--wrapperPadding1) * -1);
+        
+        background-color:var(--shade1);
+        box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
+        border-radius:var(--wrapperRadius1);
+        
+        transition:0.25s;
+        z-index:100;
+    }
+
+    .color-names-open{
+        left:0;
+    }
+
+    .color-name-inner{
+        background-color:var(--shade1);
+    }
+
+}

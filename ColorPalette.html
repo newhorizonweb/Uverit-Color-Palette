@@ -83,14 +83,6 @@
 
         /* Color Tiles */
 
-    const tileNames = [
-        "Secondary",
-        "Main",
-        "Background",
-        "Accent",
-        "Secondary Accent"
-    ];
-
     const colorNames = [
         ucp1aname,
         ucp1name,
@@ -107,7 +99,7 @@
         `<div class='tile tile${tile}'>` +
 
             "<div class='ct-tile-name'>" +
-                tileNames[tile] +
+                cpColorNames[tile] +
             "</div>" +
 
             "<div class='ct-color' style='background:"+colorArray[tile]+"'></div>" +

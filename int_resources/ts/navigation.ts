@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.2.2";
+const paletteVersion:string = "v2.3.0";
 
     /* Page Arrays */
 
@@ -11,7 +11,7 @@ if (document.title === "Uverit Color Palette"){
         "ColorPalette.html",
         "int_resources/pages/ColorMeaning.html",
         "int_resources/pages/ColorChart.html",
-        "int_resources/pages/placeholder2.html",
+        "int_resources/pages/ColorTones.html",
         "int_resources/pages/placeholder3.html",
         "int_resources/pages/placeholder4.html"
     ];
@@ -20,7 +20,7 @@ if (document.title === "Uverit Color Palette"){
         "../../ColorPalette.html",
         "ColorMeaning.html",
         "ColorChart.html",
-        "placeholder2.html",
+        "ColorTones.html",
         "placeholder3.html",
         "placeholder4.html"
     ];
@@ -30,7 +30,7 @@ let filesNames:string[] = [
     "Color Palette",
     "Color Meaning",
     "Color Chart",
-    "Test3",
+    "Color Tones",
     "Test4",
     "Test5"
 ];

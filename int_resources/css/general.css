@@ -441,7 +441,7 @@ nav{
 .nav-page-title{
     width:100%;
     position:relative;
-    top:4px;
+    top:0;
     left:0;
     font-size:20px;
     text-align:center;
