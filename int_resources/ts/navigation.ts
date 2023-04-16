@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.3.1";
+const paletteVersion:string = "v2.4.0";
 
     /* Page Arrays */
 
@@ -13,6 +13,7 @@ if (document.title === "Uverit Color Palette"){
         "int_resources/pages/ColorChart.html",
         "int_resources/pages/ColorTones.html",
         "int_resources/pages/ColorSaturation.html",
+        "int_resources/pages/ColorLayout.html",
         "int_resources/pages/placeholder3.html",
         "int_resources/pages/placeholder4.html"
     ];
@@ -23,6 +24,7 @@ if (document.title === "Uverit Color Palette"){
         "ColorChart.html",
         "ColorTones.html",
         "ColorSaturation.html",
+        "ColorLayout.html",
         "placeholder3.html",
         "placeholder4.html"
     ];
@@ -34,8 +36,9 @@ let filesNames:string[] = [
     "Color Chart",
     "Color Tones",
     "Color Saturation",
-    "Test4",
-    "Test5"
+    "Color Layout",
+    "Test5",
+    "Test5aa"
 ];
 
 // The number of typeface pages
