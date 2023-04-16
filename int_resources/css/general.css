@@ -74,7 +74,7 @@
 
     --txt1:#FAFAFA;                 /* Text color 1 */    
     --txt2:#222;                    /* Text color 2 */
-    --txt-faded:#D5D5D5;            /* Text faded color 1 */
+    --txt-faded:#EEE;            /* Text faded color 1 */
     --txt-faded2:#CFCFCF;           /* Text faded color 2 */
     --txt-faded3:#B1B1B1;           /* Text faded color 3 */
 }
@@ -903,29 +903,44 @@ main{
     position:absolute;
     top:var(--wrapperPadding1);
     right:var(--wrapperPadding1);
+
     display:flex;
     justify-content:center;
     align-items:center;
     gap:8px;
 
     background-color:var(--shade1);
-    box-shadow:var(--box-shadow2) var(--ucp1);
-    border-radius:var(--radius1);
     cursor:pointer;
     transition:0.15s;
 }
 
-.pdf-btn:hover{
-    box-shadow:var(--box-shadow3) var(--ucp1);
+.pdf-btn:before{
+    content:"";
+    width:100%;
+    height:100%;
+    position:absolute;
+
+    border-radius:var(--radius1);
+    border:solid 2px transparent;
+    background-image:linear-gradient(var(--shade1), var(--shade1)), var(--ucp-grad2);
+    background-origin:border-box;
+    background-clip:content-box, border-box;
 }
 
 .pdf-btn p{
+    color:var(--txt1);
     font-family:font1;
     font-weight:800;
+    z-index:10;
+}
+
+.pdf-btn:hover p{
+    color:var(--ucp1);
 }
 
 .pdf-btn svg{
     height:100%;
+    z-index:10;
 }
 
 .pdf-btn svg *{
@@ -1013,7 +1028,7 @@ main{
         /* PDF - Page Settings */
     
     .pdfNoPrint, footer, nav, #hidden-contents{
-        display:none;
+        display:none !important;
     }
 
             /* PDF - Main Header */

@@ -5,7 +5,7 @@ let colorGroupNames = "";
 let shadeContent = "";
 let tintContent = "";
 if (thisUrl === "colortones.html") {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < colorArray.length; i++) {
         // Percentage
         let currPercent = 100 - (i * 20) + "%";
         percentage += `<p>${currPercent}</p>`;
@@ -34,7 +34,7 @@ else if (thisUrl === "colorsaturation.html") {
         let currPercent2 = 100 + (i * 20) + "%";
         percentage2 += `<p>${currPercent2}</p>`;
     }
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < colorArray.length; i++) {
         // Color Names
         colorGroupNames +=
             "<div class='color-name tone-cell'>" +

@@ -14,7 +14,7 @@ let tintContent:string = "";
 
 if (thisUrl === "colortones.html"){
 
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < colorArray.length; i++){
 
         // Percentage
         let currPercent:string = 100 - (i * 20) + "%";
@@ -53,7 +53,7 @@ if (thisUrl === "colortones.html"){
 
     }
 
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < colorArray.length; i++){
 
         // Color Names
         colorGroupNames += 

@@ -1,27 +1,41 @@
 /* Layout List && Display Layout */
 // Array with layout options (buttons to display the layout)
 const layoutArray = [
-    "Layout a 1",
-    "Layout b 2",
-    "Layout c 3",
-    "Layout d 4"
+    "too long placeholder",
+    "short placeholder",
+    "placeholder",
+    "plchldr"
 ];
 // HTML Elements
 const layoutList = document.querySelector(".layout-list");
+const listSelect = document.querySelector(".ll-select");
+const currItem = document.querySelector(".current-item");
+const listSelectArrow = document.querySelector(".ll-select-arrow");
 const layoutListInner = document.querySelector(".layout-list-inner");
 const layoutsParent = document.querySelector(".layouts");
-const currLayout = document.querySelector(".current-item");
 const layouts = document.querySelectorAll(".layout");
+/* Some stuff on page load */
+// Add an arrow icon to the Layout List Select
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".layout-btn")[0].classList.add("current-layout");
+});
+// Add an arrow icon to the Layout List Select
+document.addEventListener("DOMContentLoaded", function () {
+    if (listSelectArrow) {
+        listSelectArrow.innerHTML = arrowIcon;
+    }
+});
 // Add the display-layout class to the first element on page load
 layouts[0].classList.add("display-layout");
 // Display the first layout in the layout list
-if (currLayout) {
-    currLayout.innerHTML = layoutArray[0];
+if (currItem) {
+    currItem.innerHTML = layoutArray[0];
 }
 // Set the layouts parent div height
 if (layoutsParent) {
     layoutsParent.style.height = layouts[0].offsetHeight.toString() + "px";
 }
+/* Create Layout Buttons */
 for (let layout = 0; layout < layoutArray.length; layout++) {
     // Create new button
     const newLayout = document.createElement("p");
@@ -35,9 +49,19 @@ for (let layout = 0; layout < layoutArray.length; layout++) {
     if (layouts[layout]) {
         layouts[layout].classList.add("layout" + layout);
     }
-    // Do sum cool stuff on the layout-btn click
-    let layBtn = document.getElementById("layout-btn" + layout);
-    layBtn?.addEventListener("click", function () {
+}
+/* Layout Button Click */
+for (let layout = 0; layout < layoutArray.length; layout++) {
+    const layBtns = document.querySelectorAll(".layout-btn");
+    layBtns[layout]?.addEventListener("click", function () {
+        /* Add a current-layout class to the button for the current layout */
+        // Remove the display-layout class from every layout
+        layBtns.forEach(function (thisBtn) {
+            thisBtn.classList.remove("current-layout");
+        });
+        // Add the display-layout class to the selected layout
+        layBtns[layout].classList.add("current-layout");
+        /* Display Layout */
         // Remove the display-layout class from every layout
         layouts.forEach(function (thisLayout) {
             thisLayout.classList.remove("display-layout");
@@ -50,19 +74,19 @@ for (let layout = 0; layout < layoutArray.length; layout++) {
             layoutsParent.style.height = layouts[layout].offsetHeight.toString() + "px";
         }
         // Display the current layout in the layout list
-        if (currLayout) {
-            currLayout.innerHTML = layoutArray[layout];
+        if (currItem) {
+            currItem.innerHTML = layoutArray[layout];
         }
     });
 }
 /* Open / Close the layout-list */
 layoutList?.addEventListener("click", function () {
-    layoutListInner?.classList.toggle("open-list");
+    layoutList?.classList.toggle("open-list");
 });
 window.addEventListener("click", (e) => {
     const target = e.target;
     if (!target.matches(".layout-list") &&
         !target.closest(".layout-list")) {
-        layoutListInner?.classList.remove("open-list");
+        layoutList?.classList.remove("open-list");
     }
 });
