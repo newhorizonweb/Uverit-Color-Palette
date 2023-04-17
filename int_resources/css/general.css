@@ -979,7 +979,9 @@ main{
     
     .pdf-btn{
         height:40px;
-        position:static;
+        position:relative;
+        top:0;
+        left:0;
         align-self:flex-end;
     }
 
@@ -995,7 +997,7 @@ main{
 
     /* PDF Settings */
 
-@media print {
+@media print{
     
         /* PDF - General Settings */
     

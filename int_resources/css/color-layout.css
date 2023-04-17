@@ -3,23 +3,27 @@
 
     /* Layout List */
 
-.layout-list{
-    padding:8px 12px;
+.ll-parent{
     position:absolute;
     top:var(--wrapperPadding1);
     left:var(--wrapperPadding1);
+    z-index:1000;
+}
 
+.layout-list{
+    padding:8px 12px;
     display:flex;
     flex-direction:column;
+    position:relative;
 
     background-color:var(--shade1);
     box-shadow:var(--box-shadow1) var(--shade6), var(--box-shadow2) var(--shade5);
     border-radius:var(--wrapperRadius1);
 
-    z-index:1000;
+    z-index:10;
 }
 
-.layout-list:before{
+.layout-list:after{
     content:"";
     width:100%;
     height:100%;
@@ -117,6 +121,51 @@
     color:var(--ucp2);
 }
 
+        /* Layout List - media */
+
+@media screen and (width <= 1024px){
+
+    .ll-parent{
+        width:100%;
+        height:41px;
+        margin-bottom:var(--wrapperPadding1);
+        position:relative;
+        top:0;
+        left:0;
+    }
+
+    .layout-list{
+        width:275px;
+        max-width:100%;
+        box-sizing:border-box;
+        position:absolute;
+        top:0;
+        left:50%;
+        transform:translate(-50%, 0);
+    }
+
+    .ll-select{
+        width:100%;
+    }
+
+}
+
+@media screen and (width <= 440px){
+
+    .layout-list-inner{
+        gap:8px;
+    }
+
+}
+
+@media screen and (width <= 320px){
+
+    .layout-list{
+        width:100%;
+    }
+
+}
+
     /* Layouts */
 
 .layouts{
@@ -156,6 +205,20 @@
     100%{
         left:0;
     }
+}
+
+    /* PDF Settings */
+
+@media print{
+
+    .layout{
+        display:none;
+    }
+
+    .display-layout{
+        display:block;
+    }
+
 }
 
         /* Layout 0 - nav & footer */
