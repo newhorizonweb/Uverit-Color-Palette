@@ -49,7 +49,7 @@ const ratio2a:number =      5;
 
 
 // Background Color
-let ucp3:string =           "#F2EEEB";
+let ucp3:string =           "#F8FAFE";
 const ucp3name:string =     "Background";
 const ratio3:number =       40;
 
@@ -71,8 +71,6 @@ const cmykValues:boolean = true;
 
 // Color Types (first the main color, then lightest to darkest)
 
-
-
 // Grayscale:
 
 // white
@@ -81,7 +79,6 @@ const cmykValues:boolean = true;
 // greige (gray + gold / tan)
 // graphite (dark gray + blue)
 // black
-
 
 
 // Blues:
@@ -94,14 +91,12 @@ const cmykValues:boolean = true;
 // navy_blue (very dark blue)
 
 
-
 // Reds:
 
 // red
 // peach
 // pink
 // burgundy (dark red)
-
 
 
 // Purples/Violets:
@@ -114,14 +109,12 @@ const cmykValues:boolean = true;
 // plum (desaturated, reddish purple)
 
 
-
 // Greens:
 
 // green
 // mint
 // lime
 // olive
-
 
 
 // Yellows/Oranges:
@@ -131,7 +124,6 @@ const cmykValues:boolean = true;
 // gold
 // rust (reddish orange)
 // brown (dark orange)
-
 
 
 // Light Colors:
@@ -146,6 +138,21 @@ const colorType1:string =   "greige";
 
 // Accent color
 const colorType2:string =   "white";
+
+
+
+    /* Layout */
+
+
+
+// Landing Page - Banner Type
+
+// "vr" -       technology, space, AI, apps, internet, new ideas, science, creativity
+// "meeting" -  business, stock market, office, analytics, work, startup
+// "vintage" -  old-school, luxury, music, books, poetry, DIY, hobby
+// "yoga" -     sport, dance, meditation, relax, spirituality, cosmetics, beauty-related
+
+let landingPageBanner:string = "vr";
 
 
 
@@ -254,6 +261,10 @@ root.style.setProperty(
 );
 
     /* Color CSS Classes */
+
+    landingPageBanner = landingPageBanner.toLowerCase();
+
+    /* Layout */
 
 const colorClassArray:string[] = [
     "ucp1a",

@@ -29,7 +29,7 @@ let ucp2a = "#C254E5";
 const ucp2aname = "Secondary Accent";
 const ratio2a = 5;
 // Background Color
-let ucp3 = "#F2EEEB";
+let ucp3 = "#F8FAFE";
 const ucp3name = "Background";
 const ratio3 = 40;
 // HEX Values (true/false)
@@ -87,6 +87,13 @@ const cmykValues = true;
 const colorType1 = "greige";
 // Accent color
 const colorType2 = "white";
+/* Layout */
+// Landing Page - Banner Type
+// "vr" -       technology, space, AI, apps, internet, new ideas, science, creativity
+// "meeting" -  business, stock market, office, analytics, work, startup
+// "vintage" -  old-school, luxury, music, books, poetry, DIY, hobby
+// "yoga" -     sport, dance, meditation, relax, spirituality, cosmetics, beauty-related
+let landingPageBanner = "vr";
 /* Typefaces */
 // Typefaces (true/false)
 const typefaces = true;
@@ -136,6 +143,8 @@ root.style.setProperty("--ucp-grad1", "linear-gradient(to right," + ucp1 + "," +
 // Gradient without the background color
 root.style.setProperty("--ucp-grad2", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp2 + "," + ucp2a + ")");
 /* Color CSS Classes */
+landingPageBanner = landingPageBanner.toLowerCase();
+/* Layout */
 const colorClassArray = [
     "ucp1a",
     "ucp1",

@@ -22,7 +22,8 @@ function updateGradient(){
     position = (window.pageYOffset * 1) % grad!.clientWidth / 2;
     grad!.style.transform = `translate3d(${position}px, 0, 0)`;
 }
-updateGradient();
+
+window.addEventListener('load', updateGradient);
 
 // Use this so the eventListener can be removed
 let scrollListener = function(){

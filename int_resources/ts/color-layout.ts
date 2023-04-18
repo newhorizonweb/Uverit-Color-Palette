@@ -28,11 +28,18 @@ document.addEventListener("DOMContentLoaded", function(){
     (document.querySelectorAll(".layout-btn")[0] as HTMLElement).classList.add("current-layout");
 });
 
-// Add an arrow icon to the Layout List Select
 document.addEventListener("DOMContentLoaded", function(){
+
+    // Add an arrow icon to the Layout List Select
     if (listSelectArrow){
         listSelectArrow.innerHTML = arrowIcon;
     }
+
+    // Set the layouts parent div height
+    if (layoutsParent){
+        layoutsParent.style.height = (layouts[0] as HTMLElement).offsetHeight.toString() + "px";
+    }
+
 });
 
 // Add the display-layout class to the first element on page load
@@ -41,11 +48,6 @@ layouts[0].classList.add("display-layout");
 // Display the first layout in the layout list
 if (currItem){
     currItem.innerHTML = layoutArray[0];
-}
-
-// Set the layouts parent div height
-if (layoutsParent){
-    layoutsParent.style.height = (layouts[0] as HTMLElement).offsetHeight.toString() + "px";
 }
 
     /* Create Layout Buttons */
