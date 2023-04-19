@@ -1,7 +1,7 @@
 /* Layout List && Display Layout */
 // Array with layout options (buttons to display the layout)
 const layoutArray = [
-    "too long placeholder",
+    "Landing Page",
     "short placeholder",
     "placeholder",
     "plchldr"
@@ -19,22 +19,26 @@ const layouts = document.querySelectorAll(".layout");
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".layout-btn")[0].classList.add("current-layout");
 });
-document.addEventListener("DOMContentLoaded", function () {
-    // Add an arrow icon to the Layout List Select
-    if (listSelectArrow) {
-        listSelectArrow.innerHTML = arrowIcon;
-    }
-    // Set the layouts parent div height
-    if (layoutsParent) {
-        layoutsParent.style.height = layouts[0].offsetHeight.toString() + "px";
-    }
-});
 // Add the display-layout class to the first element on page load
 layouts[0].classList.add("display-layout");
 // Display the first layout in the layout list
 if (currItem) {
     currItem.innerHTML = layoutArray[0];
 }
+// Set the layouts parent div height
+function setLauoutHeight() {
+    if (layoutsParent) {
+        layoutsParent.style.height = layouts[0].offsetHeight.toString() + "px";
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    // Add an arrow icon to the Layout List Select
+    if (listSelectArrow) {
+        listSelectArrow.innerHTML = arrowIcon;
+    }
+    setLauoutHeight();
+    window.addEventListener("resize", setLauoutHeight);
+});
 /* Create Layout Buttons */
 for (let layout = 0; layout < layoutArray.length; layout++) {
     // Create new button
