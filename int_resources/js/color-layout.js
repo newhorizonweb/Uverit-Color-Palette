@@ -6,6 +6,8 @@ const layoutArray = [
     "placeholder",
     "plchldr"
 ];
+// Layout displayed on the page load
+const startLayout = 1;
 // HTML Elements
 const layoutList = document.querySelector(".layout-list");
 const listSelect = document.querySelector(".ll-select");
@@ -17,27 +19,19 @@ const layouts = document.querySelectorAll(".layout");
 /* Some stuff on page load */
 // Add an arrow icon to the Layout List Select
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".layout-btn")[0].classList.add("current-layout");
+    document.querySelectorAll(".layout-btn")[startLayout].classList.add("current-layout");
 });
 // Add the display-layout class to the first element on page load
-layouts[0].classList.add("display-layout");
+layouts[startLayout].classList.add("display-layout");
 // Display the first layout in the layout list
 if (currItem) {
-    currItem.innerHTML = layoutArray[0];
-}
-// Set the layouts parent div height
-function setLauoutHeight() {
-    if (layoutsParent) {
-        layoutsParent.style.height = layouts[0].offsetHeight.toString() + "px";
-    }
+    currItem.innerHTML = layoutArray[startLayout];
 }
 document.addEventListener("DOMContentLoaded", function () {
     // Add an arrow icon to the Layout List Select
     if (listSelectArrow) {
         listSelectArrow.innerHTML = arrowIcon;
     }
-    setLauoutHeight();
-    window.addEventListener("resize", setLauoutHeight);
 });
 /* Create Layout Buttons */
 for (let layout = 0; layout < layoutArray.length; layout++) {
@@ -73,10 +67,6 @@ for (let layout = 0; layout < layoutArray.length; layout++) {
         // Add the display-layout class to the selected layout
         let displayLayout = layouts[layout];
         displayLayout.classList.add("display-layout");
-        // Set the layouts parent div height to the current layout's height
-        if (layoutsParent) {
-            layoutsParent.style.height = layouts[layout].offsetHeight.toString() + "px";
-        }
         // Display the current layout in the layout list
         if (currItem) {
             currItem.innerHTML = layoutArray[layout];

@@ -705,10 +705,52 @@
 
 
 
-        /* Layout 1 - media */
+    /* Layout 1 - Section */
+
+.layout1{
+    
+}
+
+.section{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
 
 
 
+
+
+.sec-banner{
+    width:50%;
+    position:relative;
+    display:flex;
+}
+
+.sec-img{
+    width:100%;
+    margin-bottom:calc(var(--wrapperPadding1) * -1);
+    position:relative;
+    filter:brightness(110%) grayscale(100%);
+}
+
+
+.dark-mode .sec-img{
+    filter:brightness(90%) grayscale(100%);
+}
+
+.sec-overlay{
+    position:absolute;
+    bottom:0;
+    right:0;
+    transform:rotate(45deg);
+
+    background-color:var(--ucp1);
+    box-shadow:0 0 100vw 8vw var(--ucp2), 0 0 10vw 25vw var(--ucp1);
+    opacity:0.4;
+
+    z-index:10;
+}
 
 
 

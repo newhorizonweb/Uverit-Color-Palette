@@ -11,6 +11,9 @@ const layoutArray:string[] = [
     "plchldr"
 ];
 
+// Layout displayed on the page load
+const startLayout:number = 1;
+
 // HTML Elements
 const layoutList:HTMLElement | null = document.querySelector(".layout-list");
 const listSelect:HTMLElement | null = document.querySelector(".ll-select");
@@ -25,22 +28,15 @@ const layouts:NodeListOf<Element> = document.querySelectorAll(".layout");
 
 // Add an arrow icon to the Layout List Select
 document.addEventListener("DOMContentLoaded", function(){
-    (document.querySelectorAll(".layout-btn")[0] as HTMLElement).classList.add("current-layout");
+    (document.querySelectorAll(".layout-btn")[startLayout] as HTMLElement).classList.add("current-layout");
 });
 
 // Add the display-layout class to the first element on page load
-layouts[0].classList.add("display-layout");
+layouts[startLayout].classList.add("display-layout");
 
 // Display the first layout in the layout list
 if (currItem){
-    currItem.innerHTML = layoutArray[0];
-}
-
-// Set the layouts parent div height
-function setLauoutHeight(){
-    if (layoutsParent){
-        layoutsParent.style.height = (layouts[0] as HTMLElement).offsetHeight.toString() + "px";
-    }
+    currItem.innerHTML = layoutArray[startLayout];
 }
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -50,8 +46,6 @@ document.addEventListener("DOMContentLoaded", function(){
         listSelectArrow.innerHTML = arrowIcon;
     }
 
-    setLauoutHeight();
-    window.addEventListener("resize", setLauoutHeight);
 });
 
     /* Create Layout Buttons */
@@ -104,11 +98,6 @@ for (let layout = 0; layout < layoutArray.length; layout++){
         // Add the display-layout class to the selected layout
         let displayLayout:Element = layouts[layout];
         displayLayout.classList.add("display-layout");
-
-        // Set the layouts parent div height to the current layout's height
-        if (layoutsParent){
-            layoutsParent.style.height = (layouts[layout] as HTMLElement).offsetHeight.toString() + "px";
-        }
 
         // Display the current layout in the layout list
         if (currItem){
