@@ -1,9 +1,6 @@
 /* CP Program Settings */
 // Dark Mode (true/false)
 const darkMode = false;
-/* CP Brand Settings */
-// Color Palette Name
-const cpName = "Very Creative Placeholder";
 // Color Palette Color Names (Main, Accent, etc.)
 const cpColorNames = [
     "Secondary",
@@ -12,6 +9,9 @@ const cpColorNames = [
     "Accent",
     "Secondary Accent"
 ];
+/* CP Brand Settings */
+// Color Palette Name
+const cpName = "Very Creative Placeholder";
 // Main Color
 let ucp1 = "#07ABDB";
 const ucp1name = "aVeryLongWord";

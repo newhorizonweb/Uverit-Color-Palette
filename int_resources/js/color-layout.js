@@ -2,12 +2,12 @@
 // Array with layout options (buttons to display the layout)
 const layoutArray = [
     "Landing Page",
-    "short placeholder",
-    "placeholder",
+    "Page Section",
+    "Page Section 2",
     "plchldr"
 ];
 // Layout displayed on the page load
-const startLayout = 1;
+const startLayout = 2;
 // HTML Elements
 const layoutList = document.querySelector(".layout-list");
 const listSelect = document.querySelector(".ll-select");

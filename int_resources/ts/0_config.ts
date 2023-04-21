@@ -3,17 +3,8 @@
     
     /* CP Program Settings */
 
-
-
 // Dark Mode (true/false)
 const darkMode:boolean = false;
-
-
-
-    /* CP Brand Settings */
-
-// Color Palette Name
-const cpName:string =       "Very Creative Placeholder";
 
 // Color Palette Color Names (Main, Accent, etc.)
 const cpColorNames = [
@@ -23,6 +14,13 @@ const cpColorNames = [
     "Accent",
     "Secondary Accent"
 ];
+
+
+
+    /* CP Brand Settings */
+
+// Color Palette Name
+const cpName:string =       "Very Creative Placeholder";
 
 // Main Color
 let ucp1:string =           "#07ABDB";
@@ -143,8 +141,6 @@ const colorType2:string =   "white";
 
     /* Layout */
 
-
-
 // Landing Page - Banner Type
 
 // "vr" -       technology, space, AI, apps, internet, new ideas, science, creativity
@@ -157,8 +153,6 @@ let landingPageBanner:string = "vr";
 
 
     /* Typefaces */
-
-
 
 // Typefaces (true/false)
 const typefaces:boolean = true;
