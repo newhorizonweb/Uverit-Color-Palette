@@ -4,10 +4,10 @@ const layoutArray = [
     "Landing Page",
     "Page Section",
     "Page Section 2",
-    "plchldr"
+    "Product Page"
 ];
 // Layout displayed on the page load
-const startLayout = 2;
+const startLayout = 3;
 // HTML Elements
 const layoutList = document.querySelector(".layout-list");
 const listSelect = document.querySelector(".ll-select");

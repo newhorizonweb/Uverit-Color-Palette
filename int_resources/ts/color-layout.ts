@@ -8,11 +8,11 @@ const layoutArray:string[] = [
     "Landing Page",
     "Page Section",
     "Page Section 2",
-    "plchldr"
+    "Product Page"
 ];
 
 // Layout displayed on the page load
-const startLayout:number = 2;
+const startLayout:number = 3;
 
 // HTML Elements
 const layoutList:HTMLElement | null = document.querySelector(".layout-list");

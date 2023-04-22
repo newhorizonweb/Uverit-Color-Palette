@@ -21,7 +21,7 @@ const yogaBanner:string = "<svg viewBox='0 0 4521 3463'><defs><clipPath id='a'><
 
 
 
-    /* Layout 0 */
+    /* Layout 0 - Landing Page */
 
 // Embed Uverit logo
 const lpLogo:NodeListOf<Element> = document.querySelectorAll(".lp-logo");
@@ -78,3 +78,103 @@ switch (landingPageBanner){
 }
 
 document.querySelector(".lp-banner")!.innerHTML = landingBanner;
+
+
+
+
+
+    /* Layout 3 - Product Page */
+
+// Element variables
+const photosMin:NodeListOf<Element> = document.querySelectorAll(".pp-photo-min");
+const photoBig:HTMLElement = document.getElementsByClassName("pp-photo-big")[0] as HTMLElement;
+
+const colors:NodeListOf<Element> = document.querySelectorAll(".pp-color");
+const chosenColor:HTMLElement | null = document.querySelector(".chosen-color");
+
+const sizes:NodeListOf<Element> = document.querySelectorAll(".pps-stock");
+
+const buyBtn:HTMLElement | null = document.querySelector(".pp-btn");
+const cartElem:HTMLElement | null = document.querySelector(".pp-cart-count");
+
+// Insert the first image into the big photo element
+photoBig.setAttribute("src", photosMin[0].getAttribute("src")!);
+photoBig.setAttribute("alt", photosMin[0].getAttribute("alt")!);
+
+for (let img = 0; img < photosMin.length; img++){
+
+    let photoMin = photosMin[img];
+
+    photoMin.addEventListener("click", function(){
+
+        // Change the big image on min img click
+        const photoSrc = this.getAttribute("src");
+        const photoAlt = this.getAttribute("alt");
+
+        photoBig.setAttribute("src", photoSrc);
+        photoBig.setAttribute("alt", photoAlt);
+
+        // Add a class
+
+        photosMin.forEach((photo) => {
+            photo.classList.remove("current-photo");
+        });
+
+        this.classList.add("current-photo");
+    });
+
+}
+
+// Colors
+colors[2].setAttribute("data-name", ucp3name);
+colors[3].setAttribute("data-name", ucp1aname);
+colors[4].setAttribute("data-name", ucp2aname);
+
+colors.forEach(function(color){
+    color.addEventListener("click", function(){
+
+        // Add / Remove the current-color class
+        colors.forEach(function(colorElem){
+            colorElem.classList.remove("current-color");
+        });
+
+        this.classList.add("current-color");
+
+        // Change the chosen color name (colors heading)
+        chosenColor!.innerHTML = this.getAttribute("data-name");
+        
+    });
+});
+
+// Sizes
+sizes.forEach(function(size){
+    size.addEventListener("click", function(){
+
+        sizes.forEach(function(sizeElem){
+            sizeElem.classList.remove("current-size");
+        });
+
+        this.classList.add("current-size");
+
+    });
+});
+
+// Buy Button (add to cart)
+let wasClicked:number = 0;
+buyBtn?.addEventListener("click", function(){
+    if (cartElem && wasClicked === 0 && parseInt(cartElem.innerHTML) < 9){
+        wasClicked = 1;
+        cartElem.innerHTML = (parseInt(cartElem.innerHTML) + 1).toString();
+        cartElem.classList.add("item-added");
+
+        // Add a delay, so plonkas can't spam
+        setTimeout(function(){
+            wasClicked = 0;
+            cartElem.classList.remove("item-added");
+        }, 2000)
+    }
+});
+
+
+
+
