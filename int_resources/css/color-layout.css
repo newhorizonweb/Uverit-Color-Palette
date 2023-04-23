@@ -211,11 +211,11 @@
 @media print{
 
     .layout{
-        display:none;
+        display:none !important;
     }
 
     .display-layout{
-        display:block;
+        display:block !important;
     }
 
 }
