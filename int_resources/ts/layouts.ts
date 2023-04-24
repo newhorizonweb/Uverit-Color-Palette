@@ -11,6 +11,8 @@ const twitterIcon:string = "<svg id='Layer_1' data-name='Layer 1' xmlns='http://
 
 const phoneIcon:string = "<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M191.7,143.3c-4.5-4-19.3-20.7-24.7-23-14.6-8.1-30.4-.6-40,11.4-8.3,9.2-18.3.1-26.7-9.1a131.2,131.2,0,0,0-10.7-12.1A109.5,109.5,0,0,0,77.5,99.8C68.3,91.4,59.1,81.4,68.3,73c12-9.6,19.5-25.4,11.4-40-2.3-5.4-19-20.2-23-24.7A28.5,28.5,0,0,0,22.5,3.8C-11.3,28.8-12.3,84.3,51,149h0c64.7,63.3,120.2,62.3,145.2,28.5A28.5,28.5,0,0,0,191.7,143.3Z'/></svg>";
 
+const phoneIcon2:string = "<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><defs><style>.cls-2{fill:none;stroke-miterlimit:10;}.cls-2{stroke-linecap:round;}</style></defs><path class='cls-1' d='M77.1,123a86.8,86.8,0,0,1,8,9.1c6.3,6.9,13.9,13.9,20.2,7,7.3-9.1,19.2-14.8,30.2-8.7,4.2,1.8,15.3,14.4,18.7,17.4a21.6,21.6,0,0,1,3.4,25.9C144,192,118.5,197.6,87,181.4h0a169.8,169.8,0,0,1-39.1-29.2h-.1A175.5,175.5,0,0,1,18.6,113h0C2.5,81.5,8,56,26.4,42.4a21.5,21.5,0,0,1,25.8,3.4c3,3.4,15.7,14.6,17.4,18.7,6.1,11,.4,22.9-8.6,30.2-7,6.3,0,13.9,6.9,20.2A79.4,79.4,0,0,1,77,123Z'/><path class='cls-2' d='M100,9.1A90.9,90.9,0,0,1,190.9,100'/><path class='cls-2' d='M100,49.7A50.3,50.3,0,0,1,150.3,100'/></svg>";
+
 const emailIcon:string = "<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M170.7,26.1H29.3A29.4,29.4,0,0,0,0,55.4v89.2a29.4,29.4,0,0,0,29.3,29.3H170.7A29.4,29.4,0,0,0,200,144.6V55.4A29.4,29.4,0,0,0,170.7,26.1Zm9.9,37.5-42.8,48.6a50.7,50.7,0,0,1-75.6,0L19.4,63.6a10.9,10.9,0,0,1,.9-15.5,11.4,11.4,0,0,1,7.9-2.8A11.3,11.3,0,0,1,35.8,49L78.6,97.6a28.8,28.8,0,0,0,42.8-.1L164.2,49a11,11,0,0,1,15.5-.9,11.3,11.3,0,0,1,3.7,7.6A10.6,10.6,0,0,1,180.6,63.6Z'/></svg>";
 
 const pinIcon:string = "<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M99.6,0a73.5,73.5,0,0,0-66,105.6c6.8,13.6,26.7,47.2,47.7,82.8l1.1,1.8h0a20,20,0,0,0,34.4,0h0l1.1-1.8c20.9-35.4,40.6-68.7,47.5-82.5l.2-.4A72.3,72.3,0,0,0,173,73.4,73.4,73.4,0,0,0,99.6,0Zm0,100a29.2,29.2,0,1,1,29.2-29.2A29.2,29.2,0,0,1,99.6,100Z'/></svg>";
@@ -225,3 +227,47 @@ conPinIcon!.innerHTML = pinIcon;
 conFbIcon!.innerHTML = fbIcon;
 conInstaIcon!.innerHTML = instaIcon;
 conTwitterIcon!.innerHTML = twitterIcon;
+
+
+
+
+
+    /* Layout 5 - Social Media Icons */
+
+// Variables
+const smIcons1:NodeListOf<Element> = document.querySelectorAll(".sm-icon1");
+const smIcons2:NodeListOf<Element> = document.querySelectorAll(".sm-icon2");
+const smIcons3:NodeListOf<Element> = document.querySelectorAll(".sm-icon3");
+
+const smSec9Icon:NodeListOf<Element> = document.querySelectorAll(".sm-section9 .sm-icon");
+
+// Insert icons into the divs
+smIcons1.forEach(function(icon1:Element){
+    icon1.innerHTML = instaIcon;
+});
+
+smIcons2.forEach(function(icon2:Element){
+    icon2.innerHTML = phoneIcon2;
+});
+
+smIcons3.forEach(function(icon3:Element){
+    icon3.innerHTML = pinIcon;
+});
+
+// Add a background element to the specific section's child divs (for the animation)
+// Add "bubble" elements
+smSec9Icon.forEach(function(icon:Element){
+
+    let smBg:HTMLElement = document.createElement("div");
+    smBg.classList.add("sm-background");
+    icon.appendChild(smBg);
+
+    for (let i = 1; i <= 6; i++){
+        let bubble:HTMLElement = document.createElement("div");
+        bubble.classList.add("sm-bubble");
+        bubble.classList.add("sm-bubble"+i);
+
+        icon.appendChild(bubble);
+    }
+
+});

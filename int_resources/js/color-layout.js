@@ -5,10 +5,11 @@ const layoutArray = [
     "Page Section",
     "Page Section 2",
     "Product Page",
-    "Contact Page"
+    "Contact Page",
+    "Social Media Icons"
 ];
 // Layout displayed on the page load
-const startLayout = 4;
+const startLayout = 5;
 // HTML Elements
 const layoutList = document.querySelector(".layout-list");
 const listSelect = document.querySelector(".ll-select");

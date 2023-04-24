@@ -2427,3 +2427,474 @@
     }
 
 }
+
+
+
+
+
+    /* Layout 5 - Social Media Icons */
+
+.social-media{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--wrapperPadding1);
+}
+
+.sm-section{
+    flex:25%;
+    height:136px;
+    padding:calc(var(--wrapperPadding1) * 1);
+    box-sizing:border-box;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background-color:var(--ucp3);
+    box-shadow:var(--box-shadow1) var(--wrapperColor1), var(--box-shadow2) var(--wrapperColor1);
+    border-radius:var(--wrapperRadius1);
+}
+
+.sm-icon{
+    height:64px;
+    position:relative;
+    cursor:pointer;
+    z-index:10;
+}
+
+.sm-icon svg{
+    height:100%;
+    position:relative;
+    z-index:100;
+}
+
+.sm-icon *{
+    transition:0.1s;
+}
+
+.sm-icon2 *{
+    stroke-width:18px;
+    stroke:var(--txt1);
+}
+
+        /* Layout 5 - Social Media Icons - Section 1 */
+
+.sm-section1 .sm-icon *{
+    stroke:var(--txt1);
+}
+
+.sm-section1 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--txt1);
+}
+
+.sm-section1 .sm-icon:hover *{
+    stroke:var(--ucp1);
+}
+
+.sm-section1 :is(.sm-icon1:hover *, .sm-icon3:hover *){
+    fill:var(--ucp1);
+}
+
+        /* Layout 5 - Social Media Icons - Section 2 */
+
+.sm-section2 .sm-icon:hover *{
+    stroke:var(--ucp2);
+}
+
+.sm-section2 :is(.sm-icon1:hover *, .sm-icon3:hover *){
+    fill:var(--ucp2);
+}
+
+        /* Layout 5 - Social Media Icons - Section 3 */
+
+.sm-section3 .sm-icon *{
+    stroke:var(--ucp1);
+}
+
+.sm-section3 .sm-icon:hover *{
+    stroke:var(--ucp1a);
+}
+
+.sm-section3 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp1);
+}
+
+.sm-section3 :is(.sm-icon1:hover *, .sm-icon3:hover *){
+    fill:var(--ucp1a);
+}
+
+        /* Layout 5 - Social Media Icons - Section 4 */
+
+.sm-section4 .sm-icon *{
+    stroke:var(--ucp2);
+}
+
+.sm-section4 .sm-icon:hover *{
+    stroke:var(--ucp2a);
+}
+
+.sm-section4 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp2);
+}
+
+.sm-section4 :is(.sm-icon1:hover *, .sm-icon3:hover *){
+    fill:var(--ucp2a);
+}
+
+        /* Layout 5 - Social Media Icons - Section 5 */
+
+.sm-section5 .sm-icon{
+    height:53px;
+    transition:0.15s;
+}
+
+.sm-section5 .sm-icon *{
+    stroke:var(--ucp1);
+}
+
+.sm-section5 .sm-icon:hover *{
+    stroke:var(--ucp3);
+}
+
+.sm-section5 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp1);
+}
+
+.sm-section5 :is(.sm-icon1:hover *, .sm-icon3:hover *){
+    fill:var(--ucp3);
+}
+
+.sm-section5 .sm-icon:after{
+    content:"";
+    width:0;
+    aspect-ratio:1/1;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    background-image:radial-gradient(var(--ucp1), var(--ucp1), var(--ucp1a));
+    border-radius:50%;
+
+    transition:0.15s;
+    z-index:-1;
+}
+
+.sm-section5 .sm-icon:hover:after{
+    width:150%;
+}
+
+        /* Layout 5 - Social Media Icons - Section 6 */
+
+.sm-section6 .sm-icon *{
+    stroke:var(--ucp2);
+}
+
+.sm-section6 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp2);
+}
+
+.sm-section6 .sm-icon:after{
+    background-image:radial-gradient(var(--ucp2), var(--ucp2), var(--ucp2a));
+}
+
+        /* Layout 5 - Social Media Icons - Section 7 */
+
+.sm-section7 .sm-icon{
+    height:53px;
+}
+
+.sm-section7 .sm-icon *{
+    stroke:var(--ucp3);
+}
+
+.sm-section7 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp3);
+}
+
+.sm-section7 .sm-icon:after{
+    content:"";
+    width:150%;
+    aspect-ratio:1/1;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    background-color:var(--ucp1);
+    border-radius:50%;
+
+    transition:0.15s;
+    z-index:-1;
+}
+
+.sm-section7 .sm-icon:hover:after{
+    background-color:var(--ucp1a);
+}
+
+        /* Layout 5 - Social Media Icons - Section 8 */
+
+.sm-section8 .sm-icon:after{
+    background-color:var(--ucp2);
+}
+
+.sm-section8 .sm-icon:hover:after{
+    background-color:var(--ucp2a);
+}
+
+        /* Layout 5 - Social Media Icons - Section 9 */
+
+.sm-section9 .sm-icon{
+    height:100%;
+    padding:12px;
+    margin:1px;
+    box-sizing:border-box;
+
+    border:solid 4px var(--ucp1);
+    border-radius:50%;
+    overflow:hidden;
+}
+
+.sm-section9 .sm-icon:hover{
+    animation:rotateIcon 0.7s ease-out;
+}
+
+@keyframes rotateIcon{
+    0%{
+        transform:rotate(0deg);
+    }
+    25%{
+        transform:rotate(-16deg);
+    }
+    45%{
+        transform:rotate(12deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}
+
+.sm-section9 .sm-icon svg{
+    transition-property:transform;
+    transition-delay:0.25s;
+}
+
+.sm-section9 .sm-icon:hover svg{
+    transform:scale(1.1);
+    animation:enlargeIcon 0.7s ease-out;
+    transition-delay:0s;
+}
+
+@keyframes enlargeIcon{
+    0%{
+        transform:scale(1);
+    }
+    25%{
+        transform:scale(1);
+    }
+    45%{
+        transform:scale(1.1);
+    }
+    100%{
+        transform:scale(1.1);
+    }
+}
+
+.sm-section9 .sm-icon svg *{
+    transition:0.35s;
+    transition-delay:0.25s;
+}
+
+.sm-section9 .sm-icon:hover svg *{
+    transition-delay:0.15s;
+}
+
+.sm-section9 .sm-icon *{
+    stroke:var(--ucp1);
+}
+
+.sm-section9 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp1);
+}
+
+.sm-section9 .sm-icon:hover *{
+    stroke:#FFF;
+}
+
+.sm-section9 :is(.sm-icon1:hover *, .sm-icon3:hover *){
+    fill:#FFF;
+}
+
+.sm-section9 .sm-background{
+    width:100%;
+    height:0;
+
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translate(-50%, 0);
+
+    background-color:var(--ucp1);
+    transition:0.6s;
+    transition-delay:0.125s;
+}
+
+.sm-section9 .sm-icon:hover .sm-background{
+    height:100%;
+}
+
+.sm-section9 .sm-bubble{
+    width:40%;
+    aspect-ratio:1/2;
+    background-color:var(--ucp1);
+    border-radius:50%;
+    position:absolute;
+    bottom:-80px;
+    transition:0.6s;
+}
+
+.sm-section9 .sm-icon:hover .sm-bubble{
+    bottom:100%;
+}
+
+.sm-section9 .sm-bubble1{
+    left:-10%;
+    transition-timing-function:ease-in;
+}
+.sm-section9 .sm-bubble2{
+    left:10%;
+    transition-timing-function:ease-out;
+    transition-delay:0.15s;
+}
+.sm-section9 .sm-bubble3{
+    left:30%;
+    transition-timing-function:linear;
+    transition-delay:0.05s;
+}
+.sm-section9 .sm-bubble4{
+    left:50%;
+    transition-timing-function:ease-out;
+    transition-delay:0.1s;
+}
+.sm-section9 .sm-bubble5{
+    left:70%;
+    transition-timing-function:ease-in;
+}
+.sm-section9 .sm-bubble6{
+    left:90%;
+    transition-timing-function:ease-in;
+}
+
+        /* Layout 5 - Social Media Icons - Section 10 */
+
+.sm-section10 .sm-icon{
+    border:solid 4px var(--ucp2);
+}
+
+.sm-section10 .sm-icon *{
+    stroke:var(--ucp2);
+}
+
+.sm-section10 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp2);
+}
+
+.sm-section10 .sm-background{
+    background-color:var(--ucp2);
+}
+
+.sm-section10 .sm-bubble{
+    background-color:var(--ucp2);
+}
+
+        /* Layout 5 - Social Media Icons - Section 11*/
+
+.sm-section11 .sm-icon{
+    height:72px;
+    margin:4px;
+    padding:12px;
+    box-sizing:border-box;
+    
+    border-radius:50%;
+    transition:0.15s;
+}
+
+.sm-section11 .sm-icon:hover{
+    background-color:var(--ucp1);
+    animation:shakeIcon 4s ease-out infinite;
+}
+
+.sm-section11 .sm-icon:after{
+    content:"";
+    height:calc(100% + 8px);
+    aspect-ratio:1/1;
+    box-sizing:border-box;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    border:solid 4px var(--ucp1);
+    border-radius:50%;
+    transition:0.15s;
+}
+
+.sm-section11 .sm-icon:hover:after{
+    height:calc(100% + 16px);
+}
+
+.sm-section11 .sm-icon:hover *{
+    stroke:#FFF;
+}
+
+.sm-section11 :is(.sm-icon1:hover *, .sm-icon3:hover *){
+    fill:#FFF;
+}
+
+@keyframes shakeIcon{
+    6%{
+        transform:rotate(-30deg);
+    }
+    10%{
+        transform:rotate(24deg);
+    }
+    16%{
+        transform:rotate(-18deg);
+    }
+    24%{
+        transform:rotate(8deg);
+    }
+    40%{
+        transform:rotate(0deg);
+    }
+}
+
+.sm-section11 .sm-icon *{
+    stroke:var(--ucp1);
+}
+
+.sm-section11 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp1);
+}
+
+        /* Layout 5 - Social Media Icons - Section 12*/
+
+.sm-section12 .sm-icon:hover{
+    background-color:var(--ucp2);
+}
+
+.sm-section12 .sm-icon:after{
+    border:solid 4px var(--ucp2);
+}
+
+.sm-section12 .sm-icon *{
+    stroke:var(--ucp2);
+}
+
+.sm-section12 :is(.sm-icon1 *, .sm-icon3 *){
+    fill:var(--ucp2);
+}
