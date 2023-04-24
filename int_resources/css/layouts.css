@@ -2448,7 +2448,7 @@
     box-sizing:border-box;
 
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items:center;
 
     background-color:var(--ucp3);
@@ -2545,7 +2545,8 @@
         /* Layout 5 - Social Media Icons - Section 5 */
 
 .sm-section5 .sm-icon{
-    height:53px;
+    height:48px;
+    margin:12px;
     transition:0.15s;
 }
 
@@ -2583,7 +2584,7 @@
 }
 
 .sm-section5 .sm-icon:hover:after{
-    width:150%;
+    width:80px;
 }
 
         /* Layout 5 - Social Media Icons - Section 6 */
@@ -2603,7 +2604,7 @@
         /* Layout 5 - Social Media Icons - Section 7 */
 
 .sm-section7 .sm-icon{
-    height:53px;
+    height:48px;
 }
 
 .sm-section7 .sm-icon *{
@@ -2616,7 +2617,7 @@
 
 .sm-section7 .sm-icon:after{
     content:"";
-    width:150%;
+    width:80px;
     aspect-ratio:1/1;
 
     position:absolute;
@@ -2648,9 +2649,8 @@
         /* Layout 5 - Social Media Icons - Section 9 */
 
 .sm-section9 .sm-icon{
-    height:100%;
+    height:80px;
     padding:12px;
-    margin:1px;
     box-sizing:border-box;
 
     border:solid 4px var(--ucp1);
@@ -2752,7 +2752,7 @@
     background-color:var(--ucp1);
     border-radius:50%;
     position:absolute;
-    bottom:-80px;
+    bottom:-80%;
     transition:0.6s;
 }
 
@@ -2868,7 +2868,7 @@
     24%{
         transform:rotate(8deg);
     }
-    40%{
+    36%{
         transform:rotate(0deg);
     }
 }
@@ -2897,4 +2897,197 @@
 
 .sm-section12 :is(.sm-icon1 *, .sm-icon3 *){
     fill:var(--ucp2);
+}
+
+        /* Layout 5 - Social Media Icons - media */
+
+@media screen and (width <= 1200px){
+
+    .sm-section{
+        flex:35%;
+    }
+
+    .sm-section1{
+        order:0;
+    }
+    .sm-section2{
+        order:2;
+    }
+    .sm-section3{
+        order:1;
+    }
+    .sm-section4{
+        order:3;
+    }
+
+    .sm-section5{
+        order:5;
+    }
+    .sm-section6{
+        order:8;
+    }
+    .sm-section7{
+        order:4;
+    }
+    .sm-section8{
+        order:6;
+    }
+
+    .sm-section9{
+        order:9;
+    }
+    .sm-section10{
+        order:11;
+    }
+    .sm-section11{
+        order:10;
+    }
+    .sm-section12{
+        order:12;
+    }
+
+}
+
+@media screen and (768px < width <= 1200px ){
+
+    .sm-icon{
+        height:56px;
+    }
+        
+    .sm-section5 .sm-icon{
+        height:42px;
+    }
+    .sm-section5 .sm-icon:hover:after{
+        width:68px;
+    }
+        
+    .sm-section7 .sm-icon{
+        height:42px;
+    }
+    .sm-section7 .sm-icon:after{
+        width:68px;
+    }
+  
+    .sm-section9 .sm-icon{
+        height:68px;
+        padding:10px;
+        border-width:3px;
+    }
+
+    .sm-section11 .sm-icon{
+        height:60px;
+        margin:3px;
+        padding:9px;
+    }
+    .sm-section11 .sm-icon:after{
+        height:calc(100% + 8px);
+        border-width:3px;
+    }
+    .sm-section11 .sm-icon:hover:after{
+        height:calc(100% + 14px);
+    }
+
+}
+
+@media screen and (width <= 768px){
+
+    .sm-section{
+        flex:100%;
+    }
+
+    .sm-section1{
+        order:0;
+    }
+    .sm-section2{
+        order:1;
+    }
+    .sm-section3{
+        order:2;
+    }
+    .sm-section4{
+        order:3;
+    }
+
+    .sm-section5{
+        order:6;
+    }
+    .sm-section6{
+        order:7;
+    }
+    .sm-section7{
+        order:4;
+    }
+    .sm-section8{
+        order:5;
+    }
+
+    .sm-section9{
+        order:8;
+    }
+    .sm-section10{
+        order:9;
+    }
+    .sm-section11{
+        order:10;
+    }
+    .sm-section12{
+        order:11;
+    }
+    
+}
+
+@media screen and (320px < width <= 440px){
+
+    .sm-icon{
+        height:50px;
+    }
+        
+    .sm-section5 .sm-icon{
+        height:38px;
+    }
+    .sm-section5 .sm-icon:hover:after{
+        width:60px;
+    }
+        
+    .sm-section7 .sm-icon{
+        height:38px;
+    }
+    .sm-section7 .sm-icon:after{
+        width:60px;
+    }
+  
+    .sm-section9 .sm-icon{
+        height:60px;
+        padding:8px;
+        border-width:3px;
+    }
+
+    .sm-section11 .sm-icon{
+        height:52px;
+        margin:3px;
+        padding:7px;
+    }
+    .sm-section11 .sm-icon:after{
+        height:calc(100% + 8px);
+        border-width:3px;
+    }
+    .sm-section11 .sm-icon:hover:after{
+        height:calc(100% + 12px);
+    }
+
+}
+
+@media screen and (width <= 320px){
+
+    .sm-section{
+        height:auto;
+        flex-direction:column;
+        gap:var(--wrapperPadding1);
+    }
+
+    .sm-section7{
+        padding:calc(var(--wrapperPadding1) * 2) var(--wrapperPadding1);
+        gap:calc(var(--wrapperPadding1) * 2.5);
+    }
+
 }
