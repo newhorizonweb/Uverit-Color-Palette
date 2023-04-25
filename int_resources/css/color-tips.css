@@ -1,0 +1,26 @@
+
+
+
+    /* Color Tips */
+
+.color-tips{
+    width:100%;
+    display:flex;
+    gap:var(--wrapperPadding1);
+}
+
+.ct-section{
+    min-height:500px;
+    flex:1;
+    padding:var(--wrapperPadding1);
+    box-sizing:border-box;
+
+    background-color:var(--shade1);
+    border-radius:var(--wrapperRadius1);
+    box-shadow:var(--box-shadow1) var(--wrapperColor1), var(--box-shadow2) var(--wrapperColor1);
+}
+
+.ct-heading{
+    width:100%;
+    text-align:center;
+}

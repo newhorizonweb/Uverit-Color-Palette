@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.5.0";
+const paletteVersion:string = "v2.6.0";
 
     /* Page Arrays */
 
@@ -14,8 +14,8 @@ if (document.title === "Uverit Color Palette"){
         "int_resources/pages/ColorTones.html",
         "int_resources/pages/ColorSaturation.html",
         "int_resources/pages/ColorGradient.html",
-        "int_resources/pages/ColorLayout.html",
-        "int_resources/pages/placeholder4.html"
+        "int_resources/pages/ColorTips.html",
+        "int_resources/pages/ColorLayout.html"
     ];
 } else {
     filesArray = [
@@ -25,8 +25,8 @@ if (document.title === "Uverit Color Palette"){
         "ColorTones.html",
         "ColorSaturation.html",
         "ColorGradient.html",
-        "ColorLayout.html",
-        "placeholder4.html"
+        "ColorTips.html",
+        "ColorLayout.html"
     ];
 }
 
@@ -37,8 +37,8 @@ let filesNames:string[] = [
     "Color Tones",
     "Color Saturation",
     "Color Gradient",
-    "Color Layout",
-    "Test5aa"
+    "Color Tips",
+    "Color Layout"
 ];
 
 // The number of typeface pages
@@ -87,12 +87,12 @@ if (thisUrlNumber > 0){
 let nextPageUrl: string = "";
 let nextPageTitle: string = "";
 
-if (thisUrlNumber < filesArray.length){
+if (thisUrlNumber < filesArray.length - 1){
     nextPageUrl = filesArray[thisUrlNumber + 1];
     nextPageTitle = filesNames[thisUrlNumber + 1];
 } else {
-    prevPageUrl = filesArray[0];
-    prevPageTitle = filesNames[0];
+    nextPageUrl = filesArray[0];
+    nextPageTitle = filesNames[0];
 }
 
     /* Create the navigation elements */
@@ -179,7 +179,7 @@ function baseNav(){
 
         let pageNumber:number;
 
-        if (thisUrlNumber < filesArray.length){
+        if (thisUrlNumber < filesArray.length - 1){
             pageNumber = thisUrlNumber + 1;
         } else {
             pageNumber = 0;
@@ -208,15 +208,20 @@ function baseNav(){
     // Nav Dots
     Array.from(navDots).forEach((dot: HTMLElement, index: number) => {
         dot.addEventListener("mouseover", (e: MouseEvent) => {
+            if (thisUrlNumber !== index){
+                pageTitleAnimation();
+            }
+            
             const hoverIndex = Array.from(navDots).indexOf(e.target as HTMLElement);
-
-            pageTitleAnimation();
             navPageTitle!.innerHTML = filesNames[hoverIndex];
         });
     });
 
     document.querySelector(".navbar-dots")?.addEventListener("mouseleave", (e) => {
-        pageTitleAnimation();
+        if (navPageTitle!.innerHTML !== thisDocTitle){
+            pageTitleAnimation();
+        }
+
         navPageTitle!.innerHTML = thisDocTitle;
     });
 }
