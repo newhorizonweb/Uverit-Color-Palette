@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.4.10";
+const paletteVersion:string = "v2.5.0";
 
     /* Page Arrays */
 
@@ -13,8 +13,8 @@ if (document.title === "Uverit Color Palette"){
         "int_resources/pages/ColorChart.html",
         "int_resources/pages/ColorTones.html",
         "int_resources/pages/ColorSaturation.html",
+        "int_resources/pages/ColorGradient.html",
         "int_resources/pages/ColorLayout.html",
-        "int_resources/pages/placeholder3.html",
         "int_resources/pages/placeholder4.html"
     ];
 } else {
@@ -24,8 +24,8 @@ if (document.title === "Uverit Color Palette"){
         "ColorChart.html",
         "ColorTones.html",
         "ColorSaturation.html",
+        "ColorGradient.html",
         "ColorLayout.html",
-        "placeholder3.html",
         "placeholder4.html"
     ];
 }
@@ -36,8 +36,8 @@ let filesNames:string[] = [
     "Color Chart",
     "Color Tones",
     "Color Saturation",
+    "Color Gradient",
     "Color Layout",
-    "Test5",
     "Test5aa"
 ];
 

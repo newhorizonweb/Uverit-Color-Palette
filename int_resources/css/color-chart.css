@@ -322,6 +322,7 @@
 
 .cr-name{
     color:var(--txt1);
+    text-transform:capitalize;
 }
 
 .cr-ratio{

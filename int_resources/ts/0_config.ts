@@ -29,14 +29,14 @@ const ratio1:number =       25;
 
 // Secondary Color
 let ucp1a:string =          "#62D2FD";          
-const ucp1aname:string =    "Secondary";
+const ucp1aname:string =    "Secondary Main";
 const ratio1a:number =      15;
 
 
 
 // Accent Color
 let ucp2:string =           "#CC1EEC";
-const ucp2name:string =     "Accent";
+const ucp2name:string =     "Accent Color";
 const ratio2:number =       15;
 
 // Secondary Accent Color
@@ -48,7 +48,7 @@ const ratio2a:number =      5;
 
 // Background Color
 let ucp3:string =           "#F8FAFE";
-const ucp3name:string =     "Background";
+const ucp3name:string =     "Background Color";
 const ratio3:number =       40;
 
 
@@ -246,12 +246,12 @@ root.style.setProperty("--color-type2", "'"+colorType2+"'");
 
 // Gradient from all of the colors
 root.style.setProperty(
-    "--ucp-grad1", "linear-gradient(to right,"+ucp1+","+ucp1a+","+ucp3+","+ucp2+","+ucp2a+")"
+    "--ucp-grad1", "linear-gradient(to right,"+ucp1+","+ucp1a+","+ucp3+","+ucp2a+","+ucp2+")"
 );
 
 // Gradient without the background color
 root.style.setProperty(
-    "--ucp-grad2", "linear-gradient(to right,"+ucp1+","+ucp1a+","+ucp2+","+ucp2a+")"
+    "--ucp-grad2", "linear-gradient(to right,"+ucp1+","+ucp1a+","+ucp2a+","+ucp2+")"
 );
 
     /* Color CSS Classes */

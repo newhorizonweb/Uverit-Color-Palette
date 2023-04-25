@@ -14,7 +14,7 @@ const layoutArray:string[] = [
 ];
 
 // Layout displayed on the page load
-const startLayout:number = 5;
+const startLayout:number = 0;
 
 // HTML Elements
 const layoutList:HTMLElement | null = document.querySelector(".layout-list");

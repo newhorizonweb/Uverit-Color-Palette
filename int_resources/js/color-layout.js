@@ -9,7 +9,7 @@ const layoutArray = [
     "Social Media Icons"
 ];
 // Layout displayed on the page load
-const startLayout = 5;
+const startLayout = 0;
 // HTML Elements
 const layoutList = document.querySelector(".layout-list");
 const listSelect = document.querySelector(".ll-select");

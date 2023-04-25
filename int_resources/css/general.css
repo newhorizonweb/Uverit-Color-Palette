@@ -920,8 +920,8 @@ main{
     height:100%;
     position:absolute;
 
-    border-radius:var(--radius1);
     border:solid 2px transparent;
+    border-radius:var(--radius1);
     background-image:linear-gradient(var(--shade1), var(--shade1)), var(--ucp-grad2);
     background-origin:border-box;
     background-clip:content-box, border-box;

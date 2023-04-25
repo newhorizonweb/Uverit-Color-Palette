@@ -18,11 +18,11 @@ const ucp1name = "aVeryLongWord";
 const ratio1 = 25;
 // Secondary Color
 let ucp1a = "#62D2FD";
-const ucp1aname = "Secondary";
+const ucp1aname = "Secondary Main";
 const ratio1a = 15;
 // Accent Color
 let ucp2 = "#CC1EEC";
-const ucp2name = "Accent";
+const ucp2name = "Accent Color";
 const ratio2 = 15;
 // Secondary Accent Color
 let ucp2a = "#C254E5";
@@ -30,7 +30,7 @@ const ucp2aname = "Secondary Accent";
 const ratio2a = 5;
 // Background Color
 let ucp3 = "#F8FAFE";
-const ucp3name = "Background";
+const ucp3name = "Background Color";
 const ratio3 = 40;
 // HEX Values (true/false)
 const hexValues = true;
@@ -139,9 +139,9 @@ root.style.setProperty("--ucp3-name", "'" + ucp3name + "'");
 root.style.setProperty("--color-type1", "'" + colorType1 + "'");
 root.style.setProperty("--color-type2", "'" + colorType2 + "'");
 // Gradient from all of the colors
-root.style.setProperty("--ucp-grad1", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp3 + "," + ucp2 + "," + ucp2a + ")");
+root.style.setProperty("--ucp-grad1", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp3 + "," + ucp2a + "," + ucp2 + ")");
 // Gradient without the background color
-root.style.setProperty("--ucp-grad2", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp2 + "," + ucp2a + ")");
+root.style.setProperty("--ucp-grad2", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp2a + "," + ucp2 + ")");
 /* Color CSS Classes */
 landingPageBanner = landingPageBanner.toLowerCase();
 /* Layout */
