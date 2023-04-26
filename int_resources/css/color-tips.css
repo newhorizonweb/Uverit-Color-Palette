@@ -10,10 +10,14 @@
 }
 
 .ct-section{
-    min-height:500px;
     flex:1;
+    min-height:500px;
     padding:var(--wrapperPadding1);
     box-sizing:border-box;
+
+    display:flex;
+    flex-direction:column;
+    gap:calc(var(--wrapperPadding1) / 2);
 
     background-color:var(--shade1);
     border-radius:var(--wrapperRadius1);
@@ -22,5 +26,83 @@
 
 .ct-heading{
     width:100%;
+    margin-bottom:var(--wrapperPadding1);
+
+    display:flex;
+    align-items:center;
+    gap:var(--wrapperPadding1);
+    
     text-align:center;
+    text-transform:uppercase;
+}
+
+.ct-heading:before,
+.ct-heading:after{
+    content:"";
+    flex:1;
+    height:4px;
+    background:linear-gradient(to right, var(--ucp1), var(--ucp1a), var(--ucp1));
+    border-radius:50px;
+}
+
+.dont .ct-heading:before,
+.dont .ct-heading:after{
+    background:linear-gradient(to right, var(--ucp2), var(--ucp2a), var(--ucp2));
+}
+
+        /* Color Tips - Item */
+
+.ct-item{
+    display:flex;
+    gap:5px;
+}
+
+.ct-icon{
+    min-width:26px;
+}
+
+.icon-ring{
+    fill:var(--txt-faded3);
+}
+
+.ct-icon-do .icon-symbol{
+    fill:var(--ucp1);
+}
+
+.ct-icon-dont .icon-symbol{
+    fill:var(--ucp2);
+}
+
+.ct-item p{
+    text-wrap:balance;
+}
+
+        /* Color Tips - media */
+
+@media screen and (width <= 1200px){
+
+    .color-tips{
+        flex-direction:column;
+    }
+
+    .ct-item p{
+        text-wrap:initial;
+    }
+
+}
+
+@media screen and (width <= 768px){
+
+    .ct-item p{
+        text-wrap:balance;
+    }
+
+}
+
+@media screen and (width <= 440px){
+
+    .ct-icon{
+        min-width:22px;
+    }
+
 }
