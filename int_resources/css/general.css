@@ -859,6 +859,11 @@ main{
 .mh-brand{
     font-family:cp-font1;
     font-size:36px;
+    text-align:center;
+}
+
+.s-font1 .mh-brand{
+    font-size:32px;
 }
 
         /* Main - media */
@@ -891,6 +896,10 @@ main{
 
     .mh-brand{
         font-size:6.5vw;
+    }
+
+    .s-font1 .mh-brand{
+        font-size:5.5vw;
     }
 
 }
@@ -1048,6 +1057,10 @@ main{
     
     .mh-brand{
         font-size:28px;
+    }
+
+    .s-font1 .mh-brand{
+        font-size:24px;
     }
 
 }

@@ -38,6 +38,7 @@
     align-items:center;
     gap:var(--wrapperPadding1);
 
+    font-family:cp-font1;
     text-transform:uppercase;   
 }
 
@@ -228,6 +229,14 @@ html .percent-gap{
 
 @media screen and (width <= 440px){
 
+    .group-header{
+        font-size:26px;
+    }
+
+    .s-font1 .group-header{
+        font-size:22px;
+    }
+
     .group-percentage p{
         font-size:15px;
     }
@@ -244,6 +253,14 @@ html .percent-gap{
 }
 
 @media screen and (width <= 320px){
+
+    .group-header{
+        font-size:20px;
+    }
+    
+    .s-font1 .group-header{
+        font-size:min(18px, 6vw);
+    }
 
     .color-names{
         left:-200vw;

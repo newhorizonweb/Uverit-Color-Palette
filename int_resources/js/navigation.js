@@ -1,4 +1,4 @@
-const paletteVersion = "v2.6.1";
+const paletteVersion = "v2.7.0";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
@@ -11,7 +11,8 @@ if (document.title === "Uverit Color Palette") {
         "int_resources/pages/ColorSaturation.html",
         "int_resources/pages/ColorGradient.html",
         "int_resources/pages/ColorTips.html",
-        "int_resources/pages/ColorLayout.html"
+        "int_resources/pages/ColorLayout.html",
+        "int_resources/pages/Typefaces.html"
     ];
 }
 else {
@@ -23,7 +24,8 @@ else {
         "ColorSaturation.html",
         "ColorGradient.html",
         "ColorTips.html",
-        "ColorLayout.html"
+        "ColorLayout.html",
+        "Typefaces.html"
     ];
 }
 let filesNames = [
@@ -34,7 +36,8 @@ let filesNames = [
     "Color Saturation",
     "Color Gradient",
     "Color Tips",
-    "Color Layout"
+    "Color Layout",
+    "Typefaces"
 ];
 // The number of typeface pages
 const typefacePages = 3;

@@ -132,10 +132,10 @@ const cmykValues:boolean = true;
 // khaki (green tan)
 
 // Main color
-const colorType1:string =   "greige";
+const colorType1:string =   "navy_blue";
 
 // Accent color
-const colorType2:string =   "white";
+const colorType2:string =   "turquoise";
 
 
 
@@ -157,15 +157,26 @@ let landingPageBanner:string = "vr";
 // Typefaces (true/false)
 const typefaces:boolean = true;
 
-const cpFont1:string =      "Barlow-Regular.ttf";
-const cpFontName1:string =  "Barlow";
-
-const cpFont2:string =      "Inter-Regular.ttf";
-const cpFontName2:string =  "Inter";
-
+// Typeface presentation text
 const fontTestTxt = "March 14th is the greatest day ever!";
 
+// If the main typeface is too big
+const bigFont1:boolean = false;
 
+// If the secondary typeface is too big
+const bigFont2:boolean = false;
+
+
+
+// Main typeface
+const cpFont1:string =      "BrunoAceSC-Regular.ttf";
+const cpFontName1:string =  "Bruno Ace SC";
+const cpFontDesc1:string =  "Bruno Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf Bruno Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance peal. f sdf sdfwide stdfsdf techno geoic sans has a wide stance with a tall x-height for a s";
+
+// Secondary typeface
+const cpFont2:string =      "BrunoAceSC-Regular.ttf";
+const cpFontName2:string =  "Instrument Serif";
+const cpFontDesc2:string =  "Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance dfsdf techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf Bruno Ace draws inspiration from modern automotive logos.with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdfBruno a tall x-height for a strong look and appeal. f sdf sdfwide";
 
 
 
@@ -227,6 +238,10 @@ const colorNameArray:string[] = [
     ucp2aname
 ];
 
+
+
+    /* Color CSS Classes */
+
 root.style.setProperty("--cp-name", cpName);
 
 root.style.setProperty("--ucp1", ucp1);
@@ -254,9 +269,7 @@ root.style.setProperty(
     "--ucp-grad2", "linear-gradient(to right,"+ucp1+","+ucp1a+","+ucp2a+","+ucp2+")"
 );
 
-    /* Color CSS Classes */
 
-    landingPageBanner = landingPageBanner.toLowerCase();
 
     /* Layout */
 
@@ -268,7 +281,14 @@ const colorClassArray:string[] = [
     "ucp2a"
 ];
 
+landingPageBanner = landingPageBanner.toLowerCase();
+
+
+
     /* Typefaces */
+
+root.style.setProperty("--cp-font1-name", "'"+cpFontName1+"'");
+root.style.setProperty("--cp-font2-name", "'"+cpFontName2+"'");
 
 let docPath:string = ""; 
 
@@ -305,6 +325,18 @@ if (typefaces){
 
 document.head.appendChild(typefacesStyle);
 
+// Add a class to the body if the chosen font is too big / wide
+document.addEventListener("DOMContentLoaded", function(){
+    if (typefaces && bigFont1){
+        document.querySelector("body")?.classList.add("s-font1");
+    }
+    if (typefaces && bigFont2){
+        document.querySelector("body")?.classList.add("s-font2");
+    }
+});
+
+
+
     /* Program Settings */
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -331,6 +363,8 @@ if (hexValues){
         }
     });
 }
+
+
 
     /* HEX to RGB */
 
@@ -365,6 +399,8 @@ if (rgbValues){
         }
     });
 }
+
+
 
     /* RGB to HSL */
 
@@ -423,6 +459,8 @@ if (hslValues){
     });
 
 }
+
+
 
     /* RGB to CMYK */
 

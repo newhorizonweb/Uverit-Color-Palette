@@ -1,0 +1,60 @@
+/* Elements */
+const mainTfName = document.querySelector(".tf-main .tf-heading");
+const secondTfName = document.querySelector(".tf-secondary .tf-heading");
+const mainTfDesc = document.querySelector(".tf-main .tf-desc");
+const secondTfDesc = document.querySelector(".tf-secondary .tf-desc");
+const mainHidDesc = document.querySelector(".main-tf-desc");
+const secondHidDesc = document.querySelector(".secondary-tf-desc");
+/* Typeface Names */
+mainTfName.innerHTML = cpFontName1;
+secondTfName.innerHTML = cpFontName2;
+/* Typeface Description */
+// Insert description into the elements
+mainTfDesc.innerHTML = cpFontDesc1;
+mainHidDesc.innerHTML = cpFontDesc1;
+secondTfDesc.innerHTML = cpFontDesc2;
+secondHidDesc.innerHTML = cpFontDesc2;
+// Compare the text length and display an error 
+// if the main and secondary descriptions are too different in length
+// or if the description is too long
+const descTxtMaxDiff = 75;
+const descTxtMaxLength = 500;
+const mainDescLength = mainTfDesc.innerHTML.length;
+const secondDescLength = secondTfDesc.innerHTML.length;
+const descTxtDiff = Math.abs(mainDescLength - secondDescLength);
+if (descTxtDiff > descTxtMaxDiff) {
+    alert("The typeface descriptions' text length is too different." +
+        "\nIt shouldn't be more than " + descTxtMaxDiff + " characters." +
+        "\nCurrently, they differ by " + descTxtDiff);
+}
+if (mainDescLength > 500 || secondDescLength > 500) {
+    alert("The typeface description is too long.\nKeep them below " + descTxtMaxLength + " characters." +
+        "\nCurrently: " +
+        "\nMain description: " + mainDescLength + " characters." +
+        "\nSecond desctiption: " + secondDescLength + " characters.");
+}
+/* Typeface Description Height */
+// Adjust the typeface description height (set the same height for both typeface desc)
+function setDescHeight() {
+    // Set the height to auto, so the divs can have the height set dynamically
+    mainTfDesc.style.height = "auto";
+    secondTfDesc.style.height = "auto";
+    // Set the same desc height for both descriptions
+    if (window.innerWidth > 1200) {
+        let mainHeight = mainTfDesc.offsetHeight;
+        let secondHeight = secondTfDesc.offsetHeight;
+        let currHeight = Math.max(mainHeight, secondHeight);
+        // Set the max height to both divs
+        mainTfDesc.style.height = currHeight + "px";
+        secondTfDesc.style.height = currHeight + "px";
+    }
+    // Set a CSS variable to be the same as the higher desctiption at 1440px wide window
+    // Kinda stupid solution, but it works
+    let mainHidHeight = mainHidDesc.offsetHeight;
+    let secondHidHeight = secondHidDesc.offsetHeight;
+    let hidDescHeight = Math.max(mainHidHeight, secondHidHeight);
+    document.documentElement.style.setProperty("--desc-height", hidDescHeight.toString() + "px");
+}
+// Call the function on window load and resize events
+window.addEventListener('load', setDescHeight);
+window.addEventListener('resize', setDescHeight);

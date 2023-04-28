@@ -2,14 +2,14 @@
 // Array with layout options (buttons to display the layout)
 const layoutArray = [
     "Landing Page",
-    "Page Section",
+    "Page Section 1",
     "Page Section 2",
     "Product Page",
     "Contact Page",
     "Social Media Icons"
 ];
 // Layout displayed on the page load
-const startLayout = 0;
+const startLayout = 4;
 // HTML Elements
 const layoutList = document.querySelector(".layout-list");
 const listSelect = document.querySelector(".ll-select");

@@ -269,6 +269,7 @@
 }
 
 .chart-info h3 span{
+    font-family:font1-semibold;
     background:var(--ucp-grad2);
     -webkit-background-clip:text;
     background-clip:text;
@@ -290,7 +291,7 @@
 @media screen and (width <= 540px){
 
     .chart-info h3{
-        font-size:26px;
+        font-size:24px;
     }
 
 }

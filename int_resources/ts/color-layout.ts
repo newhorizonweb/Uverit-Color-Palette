@@ -6,7 +6,7 @@
 // Array with layout options (buttons to display the layout)
 const layoutArray:string[] = [
     "Landing Page",
-    "Page Section",
+    "Page Section 1",
     "Page Section 2",
     "Product Page",
     "Contact Page",
@@ -14,7 +14,7 @@ const layoutArray:string[] = [
 ];
 
 // Layout displayed on the page load
-const startLayout:number = 0;
+const startLayout:number = 4;
 
 // HTML Elements
 const layoutList:HTMLElement | null = document.querySelector(".layout-list");

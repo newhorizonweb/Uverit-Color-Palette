@@ -84,9 +84,9 @@ const cmykValues = true;
 // tan (more saturated than beige, slightly brown / green)
 // khaki (green tan)
 // Main color
-const colorType1 = "greige";
+const colorType1 = "navy_blue";
 // Accent color
-const colorType2 = "white";
+const colorType2 = "turquoise";
 /* Layout */
 // Landing Page - Banner Type
 // "vr" -       technology, space, AI, apps, internet, new ideas, science, creativity
@@ -97,11 +97,20 @@ let landingPageBanner = "vr";
 /* Typefaces */
 // Typefaces (true/false)
 const typefaces = true;
-const cpFont1 = "Barlow-Regular.ttf";
-const cpFontName1 = "Barlow";
-const cpFont2 = "Inter-Regular.ttf";
-const cpFontName2 = "Inter";
+// Typeface presentation text
 const fontTestTxt = "March 14th is the greatest day ever!";
+// If the main typeface is too big
+const bigFont1 = false;
+// If the secondary typeface is too big
+const bigFont2 = false;
+// Main typeface
+const cpFont1 = "BrunoAceSC-Regular.ttf";
+const cpFontName1 = "Bruno Ace SC";
+const cpFontDesc1 = "Bruno Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf Bruno Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance peal. f sdf sdfwide stdfsdf techno geoic sans has a wide stance with a tall x-height for a s";
+// Secondary typeface
+const cpFont2 = "BrunoAceSC-Regular.ttf";
+const cpFontName2 = "Instrument Serif";
+const cpFontDesc2 = "Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance dfsdf techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf Bruno Ace draws inspiration from modern automotive logos.with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdfBruno a tall x-height for a strong look and appeal. f sdf sdfwide";
 //*--|*|--*\\_____// Settings \\_____//*--|*|--*\\
 /* Color CSS Variables */
 const root = document.documentElement;
@@ -125,6 +134,7 @@ const colorNameArray = [
     ucp2name,
     ucp2aname
 ];
+/* Color CSS Classes */
 root.style.setProperty("--cp-name", cpName);
 root.style.setProperty("--ucp1", ucp1);
 root.style.setProperty("--ucp1a", ucp1a);
@@ -142,8 +152,6 @@ root.style.setProperty("--color-type2", "'" + colorType2 + "'");
 root.style.setProperty("--ucp-grad1", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp3 + "," + ucp2a + "," + ucp2 + ")");
 // Gradient without the background color
 root.style.setProperty("--ucp-grad2", "linear-gradient(to right," + ucp1 + "," + ucp1a + "," + ucp2a + "," + ucp2 + ")");
-/* Color CSS Classes */
-landingPageBanner = landingPageBanner.toLowerCase();
 /* Layout */
 const colorClassArray = [
     "ucp1a",
@@ -152,7 +160,10 @@ const colorClassArray = [
     "ucp2",
     "ucp2a"
 ];
+landingPageBanner = landingPageBanner.toLowerCase();
 /* Typefaces */
+root.style.setProperty("--cp-font1-name", "'" + cpFontName1 + "'");
+root.style.setProperty("--cp-font2-name", "'" + cpFontName2 + "'");
 let docPath = "";
 if (document.title === "Uverit Color Palette") {
     docPath = "int_resources";
@@ -186,6 +197,15 @@ else {
     `;
 }
 document.head.appendChild(typefacesStyle);
+// Add a class to the body if the chosen font is too big / wide
+document.addEventListener("DOMContentLoaded", function () {
+    if (typefaces && bigFont1) {
+        document.querySelector("body")?.classList.add("s-font1");
+    }
+    if (typefaces && bigFont2) {
+        document.querySelector("body")?.classList.add("s-font2");
+    }
+});
 /* Program Settings */
 document.addEventListener("DOMContentLoaded", function () {
     if (darkMode) {

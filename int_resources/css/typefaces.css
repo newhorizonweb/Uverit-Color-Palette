@@ -1,0 +1,238 @@
+
+
+
+    /* Typefaces */
+
+.typefaces{
+    width:100%;
+    display:flex;
+    gap:var(--wrapperPadding1);
+}
+
+.tf-section{
+    flex:1;
+    min-height:100px;
+    padding:var(--wrapperPadding1);
+    box-sizing:border-box;
+
+    display:flex;
+    flex-direction:column;
+
+    background-color:var(--shade1);
+    border-radius:var(--wrapperRadius1);
+    box-shadow:var(--box-shadow1) var(--wrapperColor1), var(--box-shadow2) var(--wrapperColor1);
+}
+
+.tf-heading{
+    width:100%;
+    height:40px;
+    margin-bottom:var(--wrapperPadding1);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:var(--wrapperPadding1);
+    
+    font-family:cp-font1;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+.tf-secondary .tf-heading{
+    font-family:cp-font2;
+}
+
+.s-font1 .tf-heading,
+.s-font2 .tf-heading{
+    font-size:24px;
+}
+
+.tf-heading:before,
+.tf-heading:after{
+    content:"";
+    flex:1;
+    height:4px;
+    background:linear-gradient(to right, var(--ucp1), var(--ucp1a), var(--ucp1));
+    border-radius:50px;
+}
+
+.tf-secondary .tf-heading:before,
+.tf-secondary .tf-heading:after{
+    background:linear-gradient(to right, var(--ucp2), var(--ucp2a), var(--ucp2));
+}
+
+        /* Typefaces - Content */
+
+.tf-title{
+    margin-bottom:calc(var(--wrapperPadding1) / 2);
+    padding:4px;
+
+    font-size:16px;
+    text-align:center;
+    border:solid 2px;
+    border-radius:200px;
+}
+
+.tf-main .tf-title{
+    border-color:var(--ucp1);
+}
+
+.tf-secondary .tf-title{
+    border-color:var(--ucp2);
+}
+
+.tf-subtitle{
+    margin-bottom:5px;
+    font-size:32px;
+    font-family:cp-font1;
+    text-wrap:balance;
+}
+
+.tf-secondary .tf-subtitle{
+    font-family:cp-font2;
+}
+
+.s-font1 .tf-subtitle,
+.s-font2 .tf-subtitle{
+    font-size:26px;
+}
+
+.tf-desc{
+    text-wrap:balance;
+}
+
+.tf-title-name{
+    margin-top:var(--wrapperPadding1);
+}
+
+.tf-main .tf-title-name:before{
+    content:var(--cp-font1-name);
+}
+
+.tf-secondary .tf-title-name:before{
+    content:var(--cp-font2-name);
+}
+
+            /* Typefaces - Use */
+
+.tf-use{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.tf-use-item{
+    display:flex;
+    flex-direction:column;
+}
+
+.tf-use-title{
+    color:#999;
+    font-size:15px;
+    text-transform:uppercase;
+}
+
+.tf-use-list{
+    text-wrap:balance;
+    text-transform:capitalize;
+}
+
+        /* Typefaces - media */
+
+@media screen and (width <= 1200px){
+
+    .typefaces{
+        flex-direction:column;
+    }
+
+}
+
+@media screen and (width <= 768px){
+
+    .typefaces{
+        --wrapperPadding1: var(--wrapperPadding2);
+    }
+
+}
+
+@media screen and (width <= 540px){
+
+    .tf-subtitle{
+        font-size:28px;
+    }
+
+    .s-font1 .tf-subtitle,
+    .s-font2 .tf-subtitle{
+        font-size:22px;
+    }
+
+}
+
+@media screen and (width <= 440px){
+
+    .tf-heading{
+        font-size:20px;
+    }
+
+    .s-font1 .tf-heading,
+    .s-font2 .tf-heading{
+        font-size:16px;
+    }
+
+    .tf-subtitle{
+        font-size:22px;
+    }
+
+    .s-font1 .tf-subtitle,
+    .s-font2 .tf-subtitle{
+        font-size:20px;
+    }
+
+}
+
+@media screen and (width <= 320px){
+
+    .tf-heading{
+        font-size:6vw;
+    }
+    
+    .s-font1 .tf-heading,
+    .s-font2 .tf-heading{
+        font-size:4.5vw;
+    }
+
+    .tf-heading:before,
+    .tf-heading:after{
+        display:none;
+    }
+
+    .tf-title-name{
+        font-size:15px;
+    }
+
+    .tf-subtitle{
+        font-size:22px;
+    }
+
+}
+
+    /* PDF Settings */
+
+.hid-desc{
+    width:591.5px; /* Width of the description when the screen is 1440px wide */
+    position:absolute;
+    top:0;
+    left:0;
+
+    opacity:0;
+    pointer-events:none;
+}
+
+@media print{
+
+    .tf-desc{
+        height:var(--desc-height) !important;
+    }
+
+}
+

@@ -11,7 +11,6 @@
 
 .ct-section{
     flex:1;
-    min-height:500px;
     padding:var(--wrapperPadding1);
     box-sizing:border-box;
 
@@ -26,12 +25,13 @@
 
 .ct-heading{
     width:100%;
-    margin-bottom:var(--wrapperPadding1);
+    margin-bottom:calc(var(--wrapperPadding1) / 2);
 
     display:flex;
     align-items:center;
     gap:var(--wrapperPadding1);
     
+    font-family:cp-font1;
     text-align:center;
     text-transform:uppercase;
 }
@@ -93,6 +93,10 @@
 
 @media screen and (width <= 768px){
 
+    .color-tips{
+        --wrapperPadding1: var(--wrapperPadding2);
+    }
+
     .ct-item p{
         text-wrap:balance;
     }
@@ -100,9 +104,29 @@
 }
 
 @media screen and (width <= 440px){
+    
+    .ct-heading{
+        font-size:26px;
+    }
+
+    .s-font1 .ct-heading{
+        font-size:22px;
+    }
 
     .ct-icon{
         min-width:22px;
+    }
+
+}
+
+@media screen and (width <= 320px){
+    
+    .ct-heading{
+        font-size:20px;
+    }
+
+    .s-font1 .ct-heading{
+        font-size:min(18px, 6vw);
     }
 
 }
