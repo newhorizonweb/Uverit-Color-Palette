@@ -23,7 +23,7 @@ secondTfName!.innerHTML = cpFontName2;
 
     /* Typeface Description */
 
-// check if the description HTML elements exist
+// Check if the HTML elements exist
 if (mainTfDesc && mainHidDesc && secondTfDesc && secondHidDesc){
 
     // Insert description into the elements
@@ -100,7 +100,7 @@ if (mainTfDesc && mainHidDesc && secondTfDesc && secondHidDesc){
     /* Elements */
 
 // Specimen parent divs
-const specimens:NodeListOf<Element> = document.querySelectorAll(".specimens");
+const specimens:NodeListOf<Element> = document.querySelectorAll(".specimen");
 
 // Array with the font sizes and styles
 const specTitles:string[] = [
@@ -130,57 +130,175 @@ const numberOfStyles = 4;
 
     /* Insert elements */
 
-specimens.forEach((specimen) => {
+// Check if the HTML elements exist
+if (specimens){
 
-    // Append HTML elements
-    for (let i = 0; i < specTitles.length; i++){
+    specimens.forEach((specimen) => {
 
-        // Append specimen item div
-        let specItem:HTMLElement = document.createElement("div");
-        specItem.classList.add("spec-item");
-        specimen.appendChild(specItem);
+        // Append HTML elements
+        for (let i = 0; i < specTitles.length; i++){
     
-        // Append specimen title
-        let specTitle:HTMLElement = document.createElement("p");
-        specTitle.classList.add("spec-title");
-        specTitle.innerHTML = specTitles[i];
-        specItem.appendChild(specTitle);
+            // Append specimen item div
+            let specItem:HTMLElement = document.createElement("div");
+            specItem.classList.add("spec-item");
+            specimen.appendChild(specItem);
+        
+            // Append specimen title
+            let specTitle:HTMLElement = document.createElement("p");
+            specTitle.classList.add("spec-title");
+            specTitle.innerHTML = specTitles[i];
+            specItem.appendChild(specTitle);
+        
+            // Append specimen text
+            let specTxt:HTMLElement = document.createElement("p");
+            specTxt.classList.add("spec-txt");
+            specTxt.innerHTML = fontTestTxt;
+            specItem.appendChild(specTxt);    
+        }
     
-        // Append specimen text
-        let specTxt:HTMLElement = document.createElement("p");
-        specTxt.classList.add("spec-txt");
-        specTxt.innerHTML = fontTestTxt;
-        specItem.appendChild(specTxt);    
-    }
-
-    // Get the specimen parent class
-    const thisSpecimen:string = specimen.parentElement!.className.split(" ")[1];
-    const specTexts:NodeListOf<Element> = document.querySelectorAll("."+thisSpecimen+" .spec-txt");
-
-    // Set a variable for keeping track of the current number
-    let currNum = 0;
-
-    for (let i = 0; i < numberOfSizes; i++){
-
-        // Add the size classes
-        for (let size = currNum; 
-        size < specTitles.length / numberOfSizes + currNum;
-        size++){
-            let specTxt = specTexts[size];
-            specTxt.classList.add("size"+i);
+        // Get the specimen parent class
+        const thisSpecimen:string = specimen.parentElement!.className.split(" ")[1];
+        const specTexts:NodeListOf<Element> = document.querySelectorAll("."+thisSpecimen+" .spec-txt");
+    
+        // Set a variable for keeping track of the current number
+        let currNum = 0;
+    
+        for (let i = 0; i < numberOfSizes; i++){
+    
+            // Add the size classes
+            for (let size = currNum; 
+            size < specTitles.length / numberOfSizes + currNum;
+            size++){
+                let specTxt = specTexts[size];
+                specTxt.classList.add("size"+i);
+            }
+    
+            // Add the style classes
+            for (let style = 0; style < numberOfStyles; style++){
+                let specTxt = specTexts[style + currNum];
+                specTxt.classList.add("style"+style);
+            }
+    
+            // Update the current number variable
+            currNum += specTitles.length / numberOfSizes;
         }
+    
+    });
+        
+}
 
-        // Add the style classes
-        for (let style = 0; style < numberOfStyles; style++){
-            let specTxt = specTexts[style + currNum];
-            specTxt.classList.add("style"+style);
+
+//*--|*|--*\\_____// Character Sets \\_____//*--|*|--*\\
+
+
+
+    /* Elements */
+
+const charSet:NodeListOf<Element> = document.querySelectorAll(".set");
+
+const alphabetSetElem:HTMLElement | null = document.querySelector(".alphabet-set");
+const numberSetElem:HTMLElement | null = document.querySelector(".number-set");
+const specialSetElem:HTMLElement | null = document.querySelector(".special-set");
+
+
+// Alphabet
+const alphabetSet:string[] = [
+    "Aa",
+    "Bb",
+    "Cc",
+    "Dd",
+    "Ee",
+    "Ff",
+    "Gg",
+    "Hh",
+    "Ii",
+    "Jj",
+    "Kk",
+    "Ll",
+    "Mm",
+    "Nn",
+    "Oo",
+    "Pp",
+    "Qq",
+    "Rr",
+    "Ss",
+    "Tt",
+    "Uu",
+    "Vv",
+    "Ww",
+    "Xx",
+    "Yy",
+    "Zz"
+]
+
+// Numbers
+const numberSet:string[] = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0" 
+]
+
+// Special Characters
+const specialSet:string[] = [
+    "!",
+    "?",
+    "@",
+    "#",
+    "$",
+    "%",
+    "&",
+    ",",
+    ";",
+    "_",
+    "+",
+    "-",
+    "=",
+    "*",
+    ">"
+]
+
+// Check if the HTML elements exist
+if (charSet && alphabetSetElem && numberSetElem && specialSetElem){
+
+    charSet.forEach((set) => {
+
+        // Alphabet
+        for (let i = 0; i < alphabetSet.length; i++){
+            const setElem:HTMLElement = document.createElement("p");
+    
+            setElem.classList.add("set-item");
+            setElem.innerHTML = alphabetSet[i];
+            
+            set.querySelector(".alphabet-set")!.appendChild(setElem);
         }
+    
+        // Numbers
+        for (let i = 0; i < numberSet.length; i++){
+            const setElem:HTMLElement = document.createElement("p");
+    
+            setElem.classList.add("set-item");
+            setElem.innerHTML = numberSet[i];
+    
+            set.querySelector(".number-set")!.appendChild(setElem);
+        }
+    
+        // Special Characters
+        for (let i = 0; i < specialSet.length; i++){
+            const setElem:HTMLElement = document.createElement("p");
+    
+            setElem.classList.add("set-item");
+            setElem.innerHTML = specialSet[i];
+    
+            set.querySelector(".special-set")!.appendChild(setElem);
+        }
+    
+    });
 
-        // Update the current number variable
-        currNum += specTitles.length / numberOfSizes;
-    }
-
-});
-
-
-
+}

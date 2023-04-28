@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.8.0";
+const paletteVersion:string = "v2.9.0";
 
     /* Page Arrays */
 
@@ -15,9 +15,10 @@ if (document.title === "Uverit Color Palette"){
         "int_resources/pages/ColorSaturation.html",
         "int_resources/pages/ColorGradient.html",
         "int_resources/pages/ColorTips.html",
-        "int_resources/pages/ColorLayout.html",
         "int_resources/pages/Typefaces.html",
-        "int_resources/pages/TypeSpecimens.html"
+        "int_resources/pages/TypeSpecimens.html",
+        "int_resources/pages/CharacterSets.html",
+        "int_resources/pages/ColorLayout.html"
     ];
 } else {
     filesArray = [
@@ -28,9 +29,10 @@ if (document.title === "Uverit Color Palette"){
         "ColorSaturation.html",
         "ColorGradient.html",
         "ColorTips.html",
-        "ColorLayout.html",
         "Typefaces.html",
-        "TypeSpecimens.html"
+        "TypeSpecimens.html",
+        "CharacterSets.html",
+        "ColorLayout.html"
     ];
 }
 
@@ -42,9 +44,10 @@ let filesNames:string[] = [
     "Color Saturation",
     "Color Gradient",
     "Color Tips",
-    "Color Layout",
     "Typefaces",
-    "Type Specimens"
+    "Type Specimens",
+    "Character Sets",
+    "Color Layout"
 ];
 
 // The number of typeface pages
@@ -52,8 +55,11 @@ const typefacePages:number = 3;
 
 // Remove the typeface pages
 if (typefaces == false){
-    filesArray.splice(-typefacePages, typefacePages);
-    filesNames.splice(-typefacePages, typefacePages);
+    const startIndex = filesNames.indexOf("Typefaces");
+    if (startIndex !== -1) {
+        filesArray.splice(startIndex, typefacePages);
+        filesNames.splice(startIndex, typefacePages);
+    }
 }
 
     /* Navbar Dots */

@@ -1,4 +1,6 @@
 
+
+
     /* Color Tiles */
 
 .color-tiles{
@@ -118,7 +120,7 @@
     margin-bottom:calc(var(--wrapperPadding1) / 2);
     padding-bottom:calc(var(--wrapperPadding1) / 2);
     
-    font-size:20px;
+    font-size:18px;
     font-family:cp-font1;
     text-align:center;
     text-transform:uppercase;
@@ -126,7 +128,7 @@
 }
 
 .s-font1 .ct-name{
-    font-size:16px;
+    font-size:14px;
 }
 
 .ct-content-inner{
@@ -282,11 +284,11 @@
     .ct-name{
         margin-bottom:calc(var(--wrapperPadding2) / 2);
         padding-bottom:calc(var(--wrapperPadding2) / 2);
-        font-size:min(20px, 3.25vw);
+        font-size:min(18px, 3vw);
     }
 
     .s-font1 .ct-name{
-        font-size:min(16px, 2.75vw);
+        font-size:min(14px, 2.25vw);
     }
 
     .ct-content{
