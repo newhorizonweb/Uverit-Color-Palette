@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.7.0";
+const paletteVersion:string = "v2.8.0";
 
     /* Page Arrays */
 
@@ -16,7 +16,8 @@ if (document.title === "Uverit Color Palette"){
         "int_resources/pages/ColorGradient.html",
         "int_resources/pages/ColorTips.html",
         "int_resources/pages/ColorLayout.html",
-        "int_resources/pages/Typefaces.html"
+        "int_resources/pages/Typefaces.html",
+        "int_resources/pages/TypeSpecimens.html"
     ];
 } else {
     filesArray = [
@@ -28,7 +29,8 @@ if (document.title === "Uverit Color Palette"){
         "ColorGradient.html",
         "ColorTips.html",
         "ColorLayout.html",
-        "Typefaces.html"
+        "Typefaces.html",
+        "TypeSpecimens.html"
     ];
 }
 
@@ -41,7 +43,8 @@ let filesNames:string[] = [
     "Color Gradient",
     "Color Tips",
     "Color Layout",
-    "Typefaces"
+    "Typefaces",
+    "Type Specimens"
 ];
 
 // The number of typeface pages

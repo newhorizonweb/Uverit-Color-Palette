@@ -158,7 +158,7 @@ let landingPageBanner:string = "vr";
 const typefaces:boolean = true;
 
 // Typeface presentation text
-const fontTestTxt = "March 14th is the greatest day ever!";
+const fontTestTxt = "Cool, February 9th is Pizza Day!";
 
 // If the main typeface is too big
 const bigFont1:boolean = false;

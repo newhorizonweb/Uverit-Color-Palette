@@ -236,3 +236,56 @@
 
 }
 
+
+
+    /* Type Specimens */
+
+.specimens{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.spec-title{
+    color:var(--txt-faded2);
+    font-size:14px;
+}
+
+.spec-txt{
+    line-height:1.2;
+    text-wrap:balance;
+}
+
+.tf-main .spec-txt{
+    font-family:cp-font1;
+}
+
+.tf-secondary .spec-txt{
+    font-family:cp-font2;
+}
+
+        /* Type Specimens - classes */
+
+.size0{
+    font-size:14px;
+}
+.size1{
+    font-size:16px;
+}
+.size2{
+    font-size:24px;
+}
+
+.style0{
+    font-weight:400;
+}
+.style1{
+    font-weight:800;
+}
+.style2{
+    font-style:italic;
+}
+.style3{
+    font-weight:800;
+    font-style:italic;
+}
