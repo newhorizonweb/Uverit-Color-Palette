@@ -4,7 +4,7 @@ const paletteVersion = "v2.9.1";
 let filesArray;
 if (document.title === "Uverit Color Palette") {
     filesArray = [
-        "ColorPalette.html",
+        "index.html",
         "int_resources/pages/ColorMeaning.html",
         "int_resources/pages/ColorChart.html",
         "int_resources/pages/ColorTones.html",
@@ -19,7 +19,7 @@ if (document.title === "Uverit Color Palette") {
 }
 else {
     filesArray = [
-        "../../ColorPalette.html",
+        "../../index.html",
         "ColorMeaning.html",
         "ColorChart.html",
         "ColorTones.html",
