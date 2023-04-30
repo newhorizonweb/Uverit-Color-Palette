@@ -201,13 +201,22 @@
 }
 
 .ratio-txt{
+    font-family:cp-font1;
     font-size:36px;
     text-shadow:0 0 1px var(--txt-faded);
+}
+
+.s-font1 .ratio-txt{
+    font-size:32px;
 }
 
 .color-txt{
     font-family:cp-font1;
     font-size:22px;
+}
+
+.s-font1 .color-txt{
+    font-size:18px;
 }
 
         /* Ring Chart - media */
@@ -254,6 +263,17 @@
 
     .color-txt{
         font-size:5vw;
+    }
+
+
+    
+    .s-font1 .ratio-txt{
+        font-size:6vw;
+    }
+    
+
+    .s-font1 .color-txt{
+        font-size:3.75vw;
     }
 
 }

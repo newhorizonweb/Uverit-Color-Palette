@@ -11,26 +11,26 @@ const cpColorNames = [
 ];
 /* CP Brand Settings */
 // Color Palette Name
-const cpName = "Very Creative Placeholder";
+const cpName = "Uverit";
 // Main Color
 let ucp1 = "#07ABDB";
-const ucp1name = "aVeryLongWord";
+const ucp1name = "Cerulean";
 const ratio1 = 25;
 // Secondary Color
 let ucp1a = "#62D2FD";
-const ucp1aname = "Secondary Main";
+const ucp1aname = "Malibu";
 const ratio1a = 15;
 // Accent Color
 let ucp2 = "#CC1EEC";
-const ucp2name = "Accent Color";
+const ucp2name = "Neon Purple";
 const ratio2 = 15;
 // Secondary Accent Color
 let ucp2a = "#C254E5";
-const ucp2aname = "Secondary Accent";
+const ucp2aname = "Tyrian Purple";
 const ratio2a = 5;
 // Background Color
 let ucp3 = "#F8FAFE";
-const ucp3name = "Background Color";
+const ucp3name = "Ghost White";
 const ratio3 = 40;
 // HEX Values (true/false)
 const hexValues = true;
@@ -84,9 +84,9 @@ const cmykValues = true;
 // tan (more saturated than beige, slightly brown / green)
 // khaki (green tan)
 // Main color
-const colorType1 = "navy_blue";
+const colorType1 = "cyan";
 // Accent color
-const colorType2 = "turquoise";
+const colorType2 = "magenta";
 /* Layout */
 // Landing Page - Banner Type
 // "vr" -       technology, space, AI, apps, internet, new ideas, science, creativity
@@ -104,13 +104,13 @@ const bigFont1 = false;
 // If the secondary typeface is too big
 const bigFont2 = false;
 // Main typeface
-const cpFont1 = "BrunoAceSC-Regular.ttf";
-const cpFontName1 = "Bruno Ace SC";
-const cpFontDesc1 = "Bruno Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf Bruno Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance peal. f sdf sdfwide stdfsdf techno geoic sans has a wide stance with a tall x-height for a s";
+const cpFont1 = "Sriracha-Regular.ttf";
+const cpFontName1 = "Sriracha";
+const cpFontDesc1 = "The new Ubuntu Font Family was started to enable the personality of Ubuntu to be seen and felt in every menu, button and dialog. The typeface is sans-serif, uses OpenType features and is manually hinted for clarity on desktop and mobile computing screens.";
 // Secondary typeface
-const cpFont2 = "BrunoAceSC-Regular.ttf";
-const cpFontName2 = "Instrument Serif";
-const cpFontDesc2 = "Ace draws inspiration from modern automotive logos. This techno geometric sans has a wide stance dfsdf techno geometric sans has a wide stance with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdf Bruno Ace draws inspiration from modern automotive logos.with a tall x-height for a strong look and appeal. f sdf sdfwide stdfsdfBruno a tall x-height for a strong look and appeal. f sdf sdfwide";
+const cpFont2 = "Ubuntu-Regular.ttf";
+const cpFontName2 = "Ubuntu";
+const cpFontDesc2 = "Sriracha is a new Thai + Latin handwriting typeface, with an informal loopless + sans serif design. It has 2 stylistic set alternate glyph designs and intelligent OpenType features to recreate the impression of handwriting.";
 //*--|*|--*\\_____// Settings \\_____//*--|*|--*\\
 /* Color CSS Variables */
 const root = document.documentElement;
