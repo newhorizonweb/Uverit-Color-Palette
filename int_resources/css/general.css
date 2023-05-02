@@ -202,17 +202,17 @@ body{
         /* Fonts */
 
 @font-face{
-    src:url(../Fonts/Quicksand-VariableFont_wghtbold.woff2);
+    src:url(../fonts/Quicksand-VariableFont_wghtbold.woff2);
     font-family:font1;
 }
 
 @font-face{
-    src:url(../Fonts/Quicksand-SemiBold.ttf);
+    src:url(../fonts/Quicksand-SemiBold.ttf);
     font-family:font1-semibold;
 }
 
 @font-face{
-    src:url(../Fonts/Roboto-Regular.woff2);
+    src:url(../fonts/Roboto-Regular.woff2);
     font-family:font2;
 }
 
