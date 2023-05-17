@@ -12,6 +12,8 @@ Each page can be exported to PDF or printed.
 
 Every change is made in a single file and then applied to all pages. This allows for quick customization as well as enabling/disabling certain features.
 
+[Link](https://newhorizonweb.github.io/Uverit-Color-Palette/)
+
 ## Color Palette and Typefaces
 
 The Color Palette can be split into 2 parts - Color Palette and Typefaces.

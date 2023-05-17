@@ -767,7 +767,7 @@ footer .wrapper{
 }
 
 :root{
-    --gradBgWidth: calc(100% / 11);
+    --gradBgWidth: calc(100% / 9);
 }
 
 .main-bg-grad{
@@ -780,13 +780,12 @@ footer .wrapper{
     left:-100%;
     
     /* Image has better perf. than CSS gradient */
-    background: linear-gradient(to right, 
+    background:linear-gradient(to right, 
         var(--ucp1a) calc(var(--gradBgWidth) * 1),
         var(--ucp1)  calc(var(--gradBgWidth) * 3),
-        var(--ucp3)  calc(var(--gradBgWidth) * 5),
-        var(--ucp2)  calc(var(--gradBgWidth) * 7),
-        var(--ucp2a) calc(var(--gradBgWidth) * 9),
-        var(--ucp1a) calc(var(--gradBgWidth) * 11));
+        var(--ucp2)  calc(var(--gradBgWidth) * 5),
+        var(--ucp2a) calc(var(--gradBgWidth) * 7),
+        var(--ucp1a) calc(var(--gradBgWidth) * 9));
 
     background-size:50%;
     /* The rest is in script-pack JS */
