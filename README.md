@@ -2,7 +2,7 @@
 
 ## What is it?
 
-Uverit Color Palette is a program used for a graphical showcase of a color palette and typefaces.
+[Uverit Color Palette](https://newhorizonweb.github.io/Uverit-Color-Palette/index.html) is a program used for a graphical showcase of a color palette and typefaces.
 
 It allows for an easy and fast way to create a professional interactive color palette for different brands. The main purpose of the palette is to implement it on a website or other digital materials.
 
@@ -12,12 +12,10 @@ Each page can be exported to PDF or printed.
 
 Every change is made in a single file and then applied to all pages. This allows for quick customization as well as enabling/disabling certain features.
 
-[Link](https://newhorizonweb.github.io/Uverit-Color-Palette/)
-
 ## Color Palette and Typefaces
 
 The Color Palette can be split into 2 parts - Color Palette and Typefaces.
-Each part has its own pages that showcase a different aspects of the project.
+Each part has its own pages that showcase different aspects of the project.
 
 The list of pages:
 - Color Palette
