@@ -1014,7 +1014,7 @@ main{
     
     @page{ 
         margin:0;
-        size:A4 landscape;
+        size:1440px 1018px;
     }
 
     html, body{
