@@ -318,6 +318,7 @@
 .lp-content{
     width:100%;
     padding:var(--wrapperPadding1) 0;
+    
     display:flex;
     justify-content:center;
     align-items:center;
@@ -326,6 +327,7 @@
 
 .lp-content-info{
     width:min(500px, 100%);
+    min-height:400px;
     position:relative;
 
     display:flex;
@@ -334,15 +336,23 @@
     align-items:center;
 }
 
-.lp-content-info:after{
-    content:"?";
+.lp-content-info-before{
+    height:100%;
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
-
     color:var(--ucp3);
-    font-size:max(35vw, 250px);
+
+    & svg{
+        height:100%;
+
+        & *{
+            fill:var(--ucp3);
+        }
+
+    }
+
 }
 
 .lp-heading{
@@ -421,6 +431,7 @@
 
     .lp-content-info{
         width:100%;
+        min-height:auto;
     }
 
     .lp-banner{

@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.9.4";
+const paletteVersion:string = "v2.9.5";
 
     /* Page Arrays */
 
