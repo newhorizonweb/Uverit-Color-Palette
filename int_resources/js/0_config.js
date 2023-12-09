@@ -32,14 +32,15 @@ const ratio2a = 5;
 let ucp3 = "#F8FAFE";
 const ucp3name = "Ghost White";
 const ratio3 = 40;
+const darkBackground = false;
 // HEX Values (true/false)
 const hexValues = true;
 // RGB Values (true/false)
 const rgbValues = true;
 // HSL Values (true/false)
-const hslValues = true;
+const hslValues = false;
 // CMYK Values (true/false)
-const cmykValues = true;
+const cmykValues = false;
 // Color Types (first the main color, then lightest to darkest)
 // Grayscale:
 // white
@@ -96,7 +97,7 @@ const colorType2 = "magenta";
 let landingPageBanner = "vr";
 /* Typefaces */
 // Typefaces (true/false)
-const typefaces = true;
+const typefaces = false;
 // Typeface presentation text
 const fontTestTxt = "Cool, February 9th is Pizza Day!";
 // If the main typeface is too big
@@ -210,6 +211,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     if (darkMode) {
         document.getElementsByTagName("body")[0].classList.add("dark-mode");
+    }
+    if (darkBackground) {
+        document.getElementsByTagName("body")[0].classList.add("dark-bg-color");
     }
 });
 //*--|*|--*\\_____// Color Conversion \\_____//*--|*|--*\\

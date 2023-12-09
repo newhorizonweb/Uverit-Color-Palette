@@ -51,6 +51,8 @@ let ucp3:string =           "#F8FAFE";
 const ucp3name:string =     "Ghost White";
 const ratio3:number =       40;
 
+const darkBackground =      false;
+
 
 
 // HEX Values (true/false)
@@ -60,10 +62,10 @@ const hexValues:boolean = true;
 const rgbValues:boolean = true;
 
 // HSL Values (true/false)
-const hslValues:boolean = true;
+const hslValues:boolean = false;
 
 // CMYK Values (true/false)
-const cmykValues:boolean = true;
+const cmykValues:boolean = false;
 
 
 
@@ -155,7 +157,7 @@ let landingPageBanner:string = "vr";
     /* Typefaces */
 
 // Typefaces (true/false)
-const typefaces:boolean = true;
+const typefaces:boolean = false;
 
 // Typeface presentation text
 const fontTestTxt = "Cool, February 9th is Pizza Day!";
@@ -342,6 +344,9 @@ document.addEventListener("DOMContentLoaded", function(){
 document.addEventListener("DOMContentLoaded", function(){
     if (darkMode){
         document.getElementsByTagName("body")[0].classList.add("dark-mode");
+    }
+    if (darkBackground){
+        document.getElementsByTagName("body")[0].classList.add("dark-bg-color");
     }
 });
 

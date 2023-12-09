@@ -1,4 +1,4 @@
-const paletteVersion = "v2.9.5";
+const paletteVersion = "v2.9.6";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
