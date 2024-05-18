@@ -38,9 +38,9 @@ const hexValues = true;
 // RGB Values (true/false)
 const rgbValues = true;
 // HSL Values (true/false)
-const hslValues = false;
+const hslValues = true;
 // CMYK Values (true/false)
-const cmykValues = false;
+const cmykValues = true;
 // Color Types (first the main color, then lightest to darkest)
 // Grayscale:
 // white
@@ -97,7 +97,7 @@ const colorType2 = "magenta";
 let landingPageBanner = "vr";
 /* Typefaces */
 // Typefaces (true/false)
-const typefaces = false;
+const typefaces = true;
 // Typeface presentation text
 const fontTestTxt = "Cool, February 9th is Pizza Day!";
 // If the main typeface is too big

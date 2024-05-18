@@ -1,5 +1,5 @@
 
-const paletteVersion:string = "v2.9.7";
+const paletteVersion:string = "v2.9.8";
 
 // Uverit URL
 const uveritLink:string = "https://github.com/newhorizonweb";
@@ -11,7 +11,7 @@ let filesArray:string[];
 
 if (document.title === "Uverit Color Palette"){
     filesArray = [
-        "ColorPalette.html",
+        "index.html",
         "int_resources/pages/ColorMeaning.html",
         "int_resources/pages/ColorChart.html",
         "int_resources/pages/ColorTones.html",
@@ -25,7 +25,7 @@ if (document.title === "Uverit Color Palette"){
     ];
 } else {
     filesArray = [
-        "../../ColorPalette.html",
+        "../../index.html",
         "ColorMeaning.html",
         "ColorChart.html",
         "ColorTones.html",
@@ -84,7 +84,7 @@ for (let file = 0; file < filesArray.length; file++){
         thisUrlNumber = file;
     }
 }
-
+console.log(thisUrlNumber)
     /* Navbar Arrows */
 
 // Set the prev / next arrow buttons based on the current page

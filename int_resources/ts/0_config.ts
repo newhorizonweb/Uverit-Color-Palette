@@ -62,10 +62,10 @@ const hexValues:boolean = true;
 const rgbValues:boolean = true;
 
 // HSL Values (true/false)
-const hslValues:boolean = false;
+const hslValues:boolean = true;
 
 // CMYK Values (true/false)
-const cmykValues:boolean = false;
+const cmykValues:boolean = true;
 
 
 
@@ -157,7 +157,7 @@ let landingPageBanner:string = "vr";
     /* Typefaces */
 
 // Typefaces (true/false)
-const typefaces:boolean = false;
+const typefaces:boolean = true;
 
 // Typeface presentation text
 const fontTestTxt = "Cool, February 9th is Pizza Day!";

@@ -1,4 +1,4 @@
-const paletteVersion = "v2.9.7";
+const paletteVersion = "v2.9.8";
 // Uverit URL
 const uveritLink = "https://github.com/newhorizonweb";
 /* Page Arrays */
@@ -6,7 +6,7 @@ const uveritLink = "https://github.com/newhorizonweb";
 let filesArray;
 if (document.title === "Uverit Color Palette") {
     filesArray = [
-        "ColorPalette.html",
+        "index.html",
         "int_resources/pages/ColorMeaning.html",
         "int_resources/pages/ColorChart.html",
         "int_resources/pages/ColorTones.html",
@@ -21,7 +21,7 @@ if (document.title === "Uverit Color Palette") {
 }
 else {
     filesArray = [
-        "../../ColorPalette.html",
+        "../../index.html",
         "ColorMeaning.html",
         "ColorChart.html",
         "ColorTones.html",
@@ -72,6 +72,7 @@ for (let file = 0; file < filesArray.length; file++) {
         thisUrlNumber = file;
     }
 }
+console.log(thisUrlNumber);
 /* Navbar Arrows */
 // Set the prev / next arrow buttons based on the current page
 let prevPageUrl = "";
