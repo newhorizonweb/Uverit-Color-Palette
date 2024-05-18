@@ -11,18 +11,18 @@ const brightness = 0.85; // 0 = 0% (dark) | 1 = 100% (bright)
 const darkness = 0.1; // 0 = 0% (dark) | 1 = 100% (bright)
 // Color ratio array
 const ringArr = [
-    ratio1,
-    ratio1a,
-    ratio3,
-    ratio2a,
+    ratio1, // Main
+    ratio1a, // Secondary
+    ratio3, // Background
+    ratio2a, // Secondary Accent
     ratio2 // Accent
 ];
 // Color name array
 const colorNameArr = [
-    ucp1name,
-    ucp1aname,
-    ucp3name,
-    ucp2aname,
+    ucp1name, // Main
+    ucp1aname, // Secondary
+    ucp3name, // Background
+    ucp2aname, // Secondary Accent
     ucp2name // Accent
 ];
 /* Chart */

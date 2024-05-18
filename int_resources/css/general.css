@@ -594,18 +594,27 @@ footer .wrapper{
 }
 
 .socials svg{
-    height:70%;
-    fill:var(--txt-faded2);
+    height:80%;
     transition:0.15s;
+
+    & *{
+        fill:var(--txt-faded2);
+        transition:0.15s;
+    }
+
 }
 
-.dark-mode .socials svg{
+.dark-mode .socials svg *{
     fill:var(--txt1);
 }
 
 .socials a:hover svg{
-    height:90%;
-    fill:var(--color1);
+    height:100%;
+    
+    & *{
+        fill:var(--color1);
+    }
+
 }
 
         /* Footer - credits */
@@ -1020,6 +1029,9 @@ main{
     html, body{
         width:1440px;
         height:100%;
+
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
     }
     
     main{

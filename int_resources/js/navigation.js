@@ -1,4 +1,6 @@
-const paletteVersion = "v2.9.6";
+const paletteVersion = "v2.9.7";
+// Uverit URL
+const uveritLink = "https://github.com/newhorizonweb";
 /* Page Arrays */
 // Arrays with page urls and names
 let filesArray;
@@ -196,23 +198,21 @@ function baseNav() {
     });
 }
 /* Footer */
-const footerDate = new Date().getFullYear();
 const footerContent = "<div class='wrapper'>" +
     "<div class='brand'>" +
     "<div class='brand-logo uverit-logo' onclick='scrollToTop()'>" +
     uveritLogo +
     "</div>" +
     "<div class='socials'>" +
-    "<h6>Services on Fiverr</h6>" +
-    "<a href='https://www.fiverr.com/new_horizon_web' class='social-btn' target='_blank' rel='noreferrer'>" +
-    fiIcon +
+    "<h6>Uverit on GitHub</h6>" +
+    `<a href='${uveritLink}' class='social-btn' target='_blank' rel='noreferrer'>` +
+    footerSocialIcon +
     "</a>" +
     "</div>" +
     "</div>" +
     "<div class='credits'>" +
-    "<a href='https://www.fiverr.com/new_horizon_web' target='_blank' rel='noreferrer'>" +
-    "© Uverit Color Palette " + paletteVersion + " - " + footerDate +
-    "</a>" +
+    `<a href='${uveritLink}' target='_blank' rel='noreferrer'>` +
+    "© Uverit Color Palette " + paletteVersion + " - 2024</a>" +
     "</div>" +
     "</div>";
 function baseFooter() {
